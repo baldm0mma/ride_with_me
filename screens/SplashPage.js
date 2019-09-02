@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { ImageBackground, StyleSheet, Text, View, Button } from 'react-native';
+import {
+  ImageBackground,
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  Image
+} from 'react-native';
 
 export class SplashPage extends Component {
   render = () => {
@@ -8,8 +15,8 @@ export class SplashPage extends Component {
         source={require('../assets/Motorcycle-Ride.jpg')}
         style={styles.imagePosition}
       >
-        <View style={styles.titlePosition}>
-          <Text style={styles.titleStyle}>Ride With Me</Text>
+        <View style={styles.logoPosition}>
+          <Image source={require('../assets/logo.png')}></Image>
           <Button
             style={styles.button}
             title='Home'
@@ -26,20 +33,15 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%'
   },
-  titlePosition: {
+  logoPosition: {
     position: 'absolute',
-    top: 60,
+    top: 0,
     left: 0,
     right: 0,
     bottom: 0,
     alignItems: 'center'
   },
-  titleStyle: {
-    fontSize: 50,
-    color: '#343434',
-    fontWeight: '900'
-  },
   button: {
-    paddingTop: 300
+    alignSelf: 'flex-end'
   }
 });
