@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, View, Image, Button } from 'react-native';
 
 export class Header extends Component {
   render = () => {
     return (
-      <View>
+      <View style={styles.header}>
         <View>
           <Image
             style={styles.avatar}
-            source={require('../assets/Javatar.jpg')}
+            source={require('../../assets/Javatar.jpg')}
           ></Image>
         </View>
         <View>
           <Image
-            style={styles.avatar}
-            source={require('../assets/Javatar.jpg')}
+            style={styles.logo}
+            source={require('../../assets/logo.png')}
           ></Image>
+        </View>
+        <View>
+          <Button
+            style={styles.button}
+            title='Log Out'
+            onPress={() => this.props.navigation.navigate('Home')}
+          ></Button>
         </View>
       </View>
     );
@@ -23,8 +30,23 @@ export class Header extends Component {
 }
 
 const styles = StyleSheet.create({
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    height: 100,
+    backgroundColor: 'yellow'
+  },
   avatar: {
-    width: 100,
-    height: 100
+    marginTop: 10,
+    marginLeft: 10,
+    borderRadius: 40,
+    width: 80,
+    height: 80
+  },
+  logo: {
+    marginTop: 8,
+    marginLeft: 10,
+    width: 80,
+    height: 80
   }
 });

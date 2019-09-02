@@ -10,7 +10,7 @@ const RootStack = createStackNavigator(
     Home: HomePage
   },
   {
-    initialRouteName: 'Splash'
+    initialRouteName: 'Home'
   }
 );
 
