@@ -7,6 +7,7 @@ import {
   Button,
   Image
 } from 'react-native';
+import { connect } from 'react-redux';
 
 export class SplashPage extends Component {
   render = () => {
@@ -49,3 +50,16 @@ const styles = StyleSheet.create({
     width: 150
   }
 });
+
+export const mapStateToProps = ({ profileData }) => ({
+  profileData
+});
+
+// export const mapDispatchToProps = dispatch => ({
+
+// });
+
+export default connect(
+  mapStateToProps,
+  null
+)(SplashPage);

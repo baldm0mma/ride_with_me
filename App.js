@@ -1,11 +1,16 @@
-import React, { Component } from 'react';
 import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-import { SplashPage } from './screens/SplashPage';
-import { HomePage } from './screens/HomePage';
-import { Profile } from './screens/Profile';
-import { StyleSheet, Image } from 'react-native';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createStore } from 'redux';
+import HomePage from './screens/HomePage';
+import { Profile } from './screens/Profile';
+import { Provider } from 'react-redux';
+import { rootReducer } from './reducers/index';
+import SplashPage from './screens/SplashPage';
+import { StyleSheet, Image } from 'react-native';
+import React, { Component } from 'react';
+
+const store = createStore(rootReducer);
 
 const RootStack = createStackNavigator(
   {
@@ -34,7 +39,11 @@ const AppContainer = createAppContainer(tabStack);
 
 export default class App extends Component {
   render() {
-    return <AppContainer />;
+    return (
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
+    );
   }
 }
 
