@@ -16,7 +16,10 @@ export class SplashPage extends Component {
         style={styles.imagePosition}
       >
         <View style={styles.logoPosition}>
-          <Image source={require('../assets/logo.png')}></Image>
+          <Image
+            style={styles.logo}
+            source={require('../assets/logo.png')}
+          ></Image>
           <Button
             style={styles.button}
             title='Home'
@@ -35,13 +38,14 @@ const styles = StyleSheet.create({
   },
   logoPosition: {
     position: 'absolute',
-    top: 0,
+    top: 30,
     left: 0,
     right: 0,
     bottom: 0,
     alignItems: 'center'
   },
-  button: {
-    alignSelf: 'flex-end'
+  logo: {
+    height: 150,
+    width: 150
   }
 });

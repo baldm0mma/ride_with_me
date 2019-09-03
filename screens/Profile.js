@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 
-export class HomePage extends Component {
+export class Profile extends Component {
   render = () => {
     return (
       <View style={styles.page}>
-        <Image style={styles.logo} source={require('../assets/logo.png')}></Image>
+        <Image style={styles.avatar} source={require('../assets/Javatar.jpg')}></Image>
       </View>
     );
   };
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#dedede',
     height: '100%'
   },
-  logo: {
+  avatar: {
     position: 'absolute',
     top: 60,
     left: 20,
@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     alignItems: 'center',
     height: 100,
-    width: 100
+    width: 100,
+    borderRadius: 50
   }
 });
