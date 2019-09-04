@@ -1,25 +1,14 @@
 import { createAppContainer } from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
-import { createStackNavigator } from 'react-navigation-stack';
 import { createStore } from 'redux';
-import HomePage from './screens/HomePage';
 import { Profile } from './screens/Profile';
 import { Provider } from 'react-redux';
 import { rootReducer } from './reducers/index';
-import SplashPage from './screens/SplashPage';
-// import { StyleSheet, Image } from 'react-native';
+import HomePage from './screens/HomePage';
 import React, { Component } from 'react';
+import SplashPage from './screens/SplashPage';
 
 const store = createStore(rootReducer);
-
-// const RootStack = createStackNavigator(
-//   {
-//     Splash: SplashPage
-//   },
-//   {
-//     initialRouteName: 'Splash'
-//   }
-// );
 
 const tabStack = createMaterialBottomTabNavigator(
   {
@@ -46,10 +35,3 @@ export default class App extends Component {
     );
   }
 }
-
-// const styles = StyleSheet.create({
-//   icons: {
-//     height: 20,
-//     width: 20
-//   }
-// });

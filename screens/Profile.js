@@ -18,13 +18,13 @@ const styles = StyleSheet.create({
   },
   avatar: {
     position: 'absolute',
-    top: 60,
-    left: 20,
+    top: 70,
+    left: 30,
     right: 0,
     bottom: 0,
     alignItems: 'center',
-    height: 100,
-    width: 100,
-    borderRadius: 50
+    height: 80,
+    width: 80,
+    borderRadius: 40
   }
 });
