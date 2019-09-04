@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 
 export class SplashPage extends Component {
   render = () => {
+    console.log('splashpage', this.props)
     return (
       <ImageBackground
         source={require('../assets/Motorcycle-Ride.jpg')}

@@ -7,19 +7,19 @@ import { Profile } from './screens/Profile';
 import { Provider } from 'react-redux';
 import { rootReducer } from './reducers/index';
 import SplashPage from './screens/SplashPage';
-import { StyleSheet, Image } from 'react-native';
+// import { StyleSheet, Image } from 'react-native';
 import React, { Component } from 'react';
 
 const store = createStore(rootReducer);
 
-const RootStack = createStackNavigator(
-  {
-    Splash: SplashPage
-  },
-  {
-    initialRouteName: 'Splash'
-  }
-);
+// const RootStack = createStackNavigator(
+//   {
+//     Splash: SplashPage
+//   },
+//   {
+//     initialRouteName: 'Splash'
+//   }
+// );
 
 const tabStack = createMaterialBottomTabNavigator(
   {
