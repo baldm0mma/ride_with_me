@@ -21,8 +21,12 @@ export class HomePage extends Component {
           <Image style={styles.friends} source={require('../assets/005-helmet.png')}></Image>
           <Image style={styles.friends} source={require('../assets/006-helmet.png')}></Image>
         </View>
-        <ScrollView>
-          
+        <Text style={styles.headingThree}>Upcoming Rides</Text>
+        <ScrollView style={styles.scroll}>
+          <Text>Sunday 9/8    |   Golden</Text>
+          <Text>Sunday 9/8    |   Golden</Text>
+          <Text>Sunday 9/8    |   Golden</Text>
+          <Text>Sunday 9/8    |   Golden</Text>
         </ScrollView>
       </View>
     );
@@ -75,7 +79,20 @@ const styles = StyleSheet.create({
     bottom: 0,
     fontSize: 22,
     textAlign: 'center',
-    top: 130
+    top: 120
+  },
+  headingThree: {
+    bottom: 0,
+    fontSize: 22,
+    textAlign: 'center',
+    top: 150
+  },
+  scroll: {
+    display: 'flex',
+    justifyContent: 'center',
+    top: 250,
+    height: 30,
+    overflow: 'hidden'
   }
 });
 
