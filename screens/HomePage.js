@@ -11,7 +11,9 @@ export class HomePage extends Component {
           style={styles.logo}
           source={require('../assets/logo.png')}
         ></Image>
+        <Text style={styles.headingOne}>Welcome, Jev!</Text>
         <View style={styles.friendList}>
+          <Text style={styles.headingTwo}>Jev's Gang</Text>
           <Image style={styles.friends} source={require('../assets/001-helmet.png')}></Image>
           <Image style={styles.friends} source={require('../assets/002-helmet.png')}></Image>
           <Image style={styles.friends} source={require('../assets/003-helmet.png')}></Image>
@@ -46,11 +48,10 @@ const styles = StyleSheet.create({
     top: 90
   },
   friends: {
-
     backgroundColor: 'black',
     padding: 30,
     position: 'relative',
-    top: 70,
+    top: 80,
     right: 30,
     left: 0,
     bottom: 0,
@@ -58,6 +59,13 @@ const styles = StyleSheet.create({
     height: 60,
     width: 60,
     borderRadius: 60/2
+  },
+  headingOne: {
+    fontSize: 25,
+    fontWeight: 'bold'
+  },
+  headingTwo: {
+    fontSize: 22
   }
 });
 
