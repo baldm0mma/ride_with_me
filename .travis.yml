@@ -1,0 +1,20 @@
+sudo: false
+language: node_js
+node_js:
+  - stable
+cache:
+  directories:
+  - node_modules
+install:
+  - npm install
+  - npm add expo-cli
+script:
+  - npm run lint
+  - npm run test
+deploy:
+  provider: heroku
+  api_key:
+    secure: QthOaqrDWfLT8lH1663GmGEaGdre1ZIRdn4gT/ICVp/FepRjoIWJ0IZzqNxQNIfxFMwb5T09OCjmdU4J6oyBZ2NxTTzGZ6YY0dw5N34m0O33iykUwcQkGhBqlmFrs6lSF2PaZKrX01GVFIPc1LFHXV9+nZlzoYNANHg3yWKW7Qwan5y1YwubhcpA4BLXT8pj+Tp/NW6ocaI5E2o1YkfXLbYNNKECvW/SRhxsvTVktcNkQ55+ZwRVrLiRCKOeBJ8QJYcxY+v6uq7nwm0shC71R89SkNqketKIVJ5fIZiSc/Hroo5G+SGGZ54ohUmYgulPCj3100zfF3gZabS0M/RU7lVcei9s3yzflP+UzXY8yy24Nj4eeY2TtNYqPUCm4tCWjDdGxdQMvoBKjgiu8Fxs7YIgaMHC/rejVA+3+G/4l1yMRKq7juJnfGXP+J0omnS78SG1R8fmk4r+cw71haG3nK27iODdKeYQKoC8o2BO0M8qEvX5lATJUeUaJucuZ7bxJYaVw9fIMAVLxUfnLGMl3aVl8g9Yn1/lfofGvvA9Xo7159jmoQcBebuMxkXpHN5pUglldMM1t02DQd1YBdSki/7WoxIsQB0R04AvWt4AxhIh1FvDgq6lTxuaPdZcMlV7Y9n3GETybfjBKJpMkLE6soxRpGHlvmGaZMMu/ReicqU=
+  app: ride_with_me
+  on:
+    repo: baldm0mma/ride_with_me
