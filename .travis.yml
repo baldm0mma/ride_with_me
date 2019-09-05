@@ -1,16 +1,16 @@
 sudo: false
 language: node_js
 node_js:
-- stable
+  - stable
 cache:
   directories:
   - node_modules
 install:
-- npm install
-- npm add expo-cli
+  - npm install
+  - npm add expo-cli
 script:
-- npm run lint
-- npm run test
+  - npm run lint
+  - npm run test
 deploy:
   provider: heroku
   api_key:
