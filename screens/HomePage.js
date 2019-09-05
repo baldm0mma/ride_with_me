@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 
 export class HomePage extends Component {
@@ -12,8 +12,8 @@ export class HomePage extends Component {
           source={require('../assets/logo.png')}
         ></Image>
         <Text style={styles.headingOne}>Welcome, Jev!</Text>
+        <Text style={styles.headingTwo}>Jev's Gang</Text>
         <View style={styles.friendList}>
-          <Text style={styles.headingTwo}>Jev's Gang</Text>
           <Image style={styles.friends} source={require('../assets/001-helmet.png')}></Image>
           <Image style={styles.friends} source={require('../assets/002-helmet.png')}></Image>
           <Image style={styles.friends} source={require('../assets/003-helmet.png')}></Image>
@@ -21,6 +21,9 @@ export class HomePage extends Component {
           <Image style={styles.friends} source={require('../assets/005-helmet.png')}></Image>
           <Image style={styles.friends} source={require('../assets/006-helmet.png')}></Image>
         </View>
+        <ScrollView>
+          
+        </ScrollView>
       </View>
     );
   };
@@ -51,7 +54,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     padding: 30,
     position: 'relative',
-    top: 80,
+    top: 50,
     right: 30,
     left: 0,
     bottom: 0,
@@ -61,11 +64,18 @@ const styles = StyleSheet.create({
     borderRadius: 60/2
   },
   headingOne: {
+    bottom: 0,
+    left: 200,
+    right: 0,
     fontSize: 25,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    top: 90
   },
   headingTwo: {
-    fontSize: 22
+    bottom: 0,
+    fontSize: 22,
+    textAlign: 'center',
+    top: 130
   }
 });
 
