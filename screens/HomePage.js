@@ -12,12 +12,12 @@ export class HomePage extends Component {
           source={require('../assets/logo.png')}
         ></Image>
         <View style={styles.friendList}>
-          <Image style={styles.friends} source={require('../assets/001-helmet.svg')}></Image>
-          <Image style={styles.friends} source={require('../assets/002-helmet.svg')}></Image>
-          <Image style={styles.friends} source={require('../assets/003-helmet.svg')}></Image>
-          <Image style={styles.friends} source={require('../assets/004-helmet.svg')}></Image>
-          <Image style={styles.friends} source={require('../assets/005-helmet.svg')}></Image>
-          <Image style={styles.friends} source={require('../assets/006-helmet.svg')}></Image>
+          <Image style={styles.friends} source={require('../assets/001-helmet.png')}></Image>
+          <Image style={styles.friends} source={require('../assets/002-helmet.png')}></Image>
+          <Image style={styles.friends} source={require('../assets/003-helmet.png')}></Image>
+          <Image style={styles.friends} source={require('../assets/004-helmet.png')}></Image>
+          <Image style={styles.friends} source={require('../assets/005-helmet.png')}></Image>
+          <Image style={styles.friends} source={require('../assets/006-helmet.png')}></Image>
         </View>
       </View>
     );
@@ -41,18 +41,23 @@ const styles = StyleSheet.create({
   },
   friendList: {
     display: 'flex',
-    justifyContent: 'space-around'
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    top: 90
   },
   friends: {
-    position: 'absolute',
+
+    backgroundColor: 'black',
+    padding: 30,
+    position: 'relative',
     top: 70,
     right: 30,
     left: 0,
     bottom: 0,
     alignItems: 'center',
-    height: 50,
-    width: 50,
-    borderRadius: 40
+    height: 60,
+    width: 60,
+    borderRadius: 60/2
   }
 });
 
