@@ -1,5 +1,6 @@
 import { createAppContainer } from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
+import { composeWithDevTools } from 'redux-devtools-extension'
 import { createStore } from 'redux';
 import { Profile } from './screens/Profile';
 import { Provider } from 'react-redux';
@@ -8,7 +9,7 @@ import HomePage from './screens/HomePage';
 import React, { Component } from 'react';
 import SplashPage from './screens/SplashPage';
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, composeWithDevTools());
 
 const tabStack = createMaterialBottomTabNavigator(
   {

@@ -11,6 +11,14 @@ export class HomePage extends Component {
           style={styles.logo}
           source={require('../assets/logo.png')}
         ></Image>
+        <View style={styles.friendList}>
+          <Image style={styles.friends} source={require('../assets/001-helmet.svg')}></Image>
+          <Image style={styles.friends} source={require('../assets/002-helmet.svg')}></Image>
+          <Image style={styles.friends} source={require('../assets/003-helmet.svg')}></Image>
+          <Image style={styles.friends} source={require('../assets/004-helmet.svg')}></Image>
+          <Image style={styles.friends} source={require('../assets/005-helmet.svg')}></Image>
+          <Image style={styles.friends} source={require('../assets/006-helmet.svg')}></Image>
+        </View>
       </View>
     );
   };
@@ -30,6 +38,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 100,
     width: 100
+  },
+  friendList: {
+    display: 'flex',
+    justifyContent: 'space-around'
+  },
+  friends: {
+    position: 'absolute',
+    top: 70,
+    right: 30,
+    left: 0,
+    bottom: 0,
+    alignItems: 'center',
+    height: 50,
+    width: 50,
+    borderRadius: 40
   }
 });
 
