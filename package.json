@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^10.0.5",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.3.0",
     "expo": "^34.0.1",
     "react": "16.8.3",
     "react-dom": "^16.8.6",
