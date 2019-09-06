@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 export class HomePage extends Component {
   render = () => {
@@ -14,12 +15,12 @@ export class HomePage extends Component {
         <Text style={styles.headingOne}>Welcome, Jev!</Text>
         <Text style={styles.headingTwo}>Jev's Gang</Text>
         <View style={styles.friendList}>
-          <Image style={styles.friends} source={require('../assets/001-helmet.png')}></Image>
-          <Image style={styles.friends} source={require('../assets/002-helmet.png')}></Image>
-          <Image style={styles.friends} source={require('../assets/003-helmet.png')}></Image>
-          <Image style={styles.friends} source={require('../assets/004-helmet.png')}></Image>
-          <Image style={styles.friends} source={require('../assets/005-helmet.png')}></Image>
-          <Image style={styles.friends} source={require('../assets/006-helmet.png')}></Image>
+          <Image style={styles.friends} source={require('../assets/001-helmet.png')}/>
+          <Image style={styles.friends} source={require('../assets/002-helmet.png')}/>
+          <Image style={styles.friends} source={require('../assets/003-helmet.png')}/>
+          <Image style={styles.friends} source={require('../assets/004-helmet.png')}/>
+          <Image style={styles.friends} source={require('../assets/005-helmet.png')}/>
+          <Image style={styles.friends} source={require('../assets/006-helmet.png')}/>
         </View>
         <Text style={styles.headingThree}>Upcoming Rides</Text>
         <ScrollView style={styles.scroll}>
@@ -91,7 +92,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     top: 250,
-    height: 30,
+    height: 10,
     overflow: 'hidden'
   }
 });
