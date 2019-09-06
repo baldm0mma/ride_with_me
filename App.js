@@ -9,13 +9,15 @@ import { rootReducer } from './reducers/index';
 import HomePage from './screens/HomePage';
 import React, { Component } from 'react';
 import SplashPage from './screens/SplashPage';
+import Ride from './screens/Ride';
 
 const store = createStore(rootReducer, composeWithDevTools());
 
 const tabStack = createMaterialBottomTabNavigator(
   {
     Dashboard: { screen: HomePage },
-    Profile: { screen: Profile }
+    Profile: { screen: Profile },
+    Ride: { screen: Ride }
   },
   {
     initialRouteName: 'Dashboard',
@@ -31,7 +33,7 @@ const rootStack = createStackNavigator(
     Dashboard: {
       screen: tabStack,
       navigationOptions: {
-        title: 'Login',
+        // title: 'Log Out',
         headerLeft: null,
         gesturesEnabled: false
       }
