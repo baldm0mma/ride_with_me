@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 
 export class SplashPage extends Component {
   render = () => {
-    console.log('splashpage', this.props)
+    console.log('splashpage', this.props);
     return (
       <ImageBackground
         source={require('../assets/Motorcycle-Ride.jpg')}
@@ -24,8 +24,8 @@ export class SplashPage extends Component {
           ></Image>
           <Button
             style={styles.button}
-            title='Home'
-            onPress={() => this.props.navigation.navigate('Home')}
+            title='Go to Dashboard'
+            onPress={() => this.props.navigation.navigate('Dashboard')}
           ></Button>
         </View>
       </ImageBackground>

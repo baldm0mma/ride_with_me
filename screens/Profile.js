@@ -5,7 +5,10 @@ export class Profile extends Component {
   render = () => {
     return (
       <View style={styles.page}>
-        <Image style={styles.avatar} source={require('../assets/Javatar.jpg')}></Image>
+        <Image
+          style={styles.avatar}
+          source={require('../assets/Javatar.jpg')}
+        ></Image>
       </View>
     );
   };
