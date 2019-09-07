@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
   StyleSheet,
   View,
@@ -147,3 +148,16 @@ const styles = StyleSheet.create({
     margin: 10
   }
 });
+
+export const mapStateToProps = ({ profileData }) => ({
+  profileData
+});
+
+// export const mapDispatchToProps = dispatch => ({
+
+// });
+
+export default connect(
+  mapStateToProps,
+  null
+)(Profile);
