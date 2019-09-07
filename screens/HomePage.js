@@ -11,15 +11,15 @@ export class HomePage extends Component {
 
   }
   render = () => {
-    const friendIcons = this.props.users.map(user => {
-      return (
-        <ThumbProfile 
-          name={user.username}
-          id={id}
-          key={id}
-        />
-      )
-    })
+    // const friendIcons = this.props.users.map(user => {
+    //   return (
+    //     <ThumbProfile 
+    //       name={user.username}
+    //       id={id}
+    //       key={id}
+    //     />
+    //   )
+    // })
 
 
     console.log('homepage', this.props);
