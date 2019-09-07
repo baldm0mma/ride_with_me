@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Image, ImageBackground, ScrollView } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  ImageBackground,
+  ScrollView
+} from 'react-native';
 
 export class Profile extends Component {
   render = () => {
@@ -9,11 +16,11 @@ export class Profile extends Component {
           style={styles.avatarBackground}
           source={require('../assets/avatar-background.jpg')}
         >
-          <Text style={styles.userName}>Jev Forsberg</Text>
           <Image
             style={styles.avatar}
             source={require('../assets/Javatar.jpg')}
           ></Image>
+          <Text style={styles.userName}>Jev Forsberg</Text>
         </ImageBackground>
         <View style={styles.aboutContainer}>
           <Text style={styles.aboutText}>
@@ -25,36 +32,56 @@ export class Profile extends Component {
           </Text>
         </View>
         <View style={styles.friendLabelContainer}>
-          <Text style={styles.friendLabelText}>
-            Jev's Friends
-          </Text>
+          <Text style={styles.friendLabelText}>Jev's Friends</Text>
         </View>
-        <View style={styles.friendList}>
-          <Image
-            style={styles.friends}
-            source={require('../assets/001-helmet.png')}
-          />
-          <Image
-            style={styles.friends}
-            source={require('../assets/002-helmet.png')}
-          />
-          <Image
-            style={styles.friends}
-            source={require('../assets/003-helmet.png')}
-          />
-          <Image
-            style={styles.friends}
-            source={require('../assets/004-helmet.png')}
-          />
-          <Image
-            style={styles.friends}
-            source={require('../assets/005-helmet.png')}
-          />
-          <Image
-            style={styles.friends}
-            source={require('../assets/006-helmet.png')}
-          />
-        </View>
+        <ScrollView
+          horizontal={true}
+          // pagingEnabled={true}
+          style={styles.friendList}
+        >
+          <View style={styles.friendContainer}>
+            <Image
+              style={styles.friends}
+              source={require('../assets/001-helmet.png')}
+            />
+            <Text>Friend 1</Text>
+          </View>
+          <View style={styles.friendContainer}>
+            <Image
+              style={styles.friends}
+              source={require('../assets/002-helmet.png')}
+            />
+            <Text>Friend 2</Text>
+          </View>
+          <View style={styles.friendContainer}>
+            <Image
+              style={styles.friends}
+              source={require('../assets/003-helmet.png')}
+            />
+            <Text>Friend 3</Text>
+          </View>
+          <View style={styles.friendContainer}>
+            <Image
+              style={styles.friends}
+              source={require('../assets/004-helmet.png')}
+            />
+            <Text>Friend 4</Text>
+          </View>
+          <View style={styles.friendContainer}>
+            <Image
+              style={styles.friends}
+              source={require('../assets/005-helmet.png')}
+            />
+            <Text>Friend 5</Text>
+          </View>
+          <View style={styles.friendContainer}>
+            <Image
+              style={styles.friends}
+              source={require('../assets/006-helmet.png')}
+            />
+            <Text>Friend 6</Text>
+          </View>
+        </ScrollView>
       </View>
     );
   };
@@ -67,7 +94,7 @@ const styles = StyleSheet.create({
   },
   avatar: {
     position: 'absolute',
-    top: 120,
+    top: 70,
     left: 130,
     height: 150,
     width: 150,
@@ -75,11 +102,11 @@ const styles = StyleSheet.create({
   },
   avatarBackground: {
     width: '100%',
-    height: '60%',
-    backgroundColor: 'blue'
+    height: '65%',
+    // backgroundColor: 'blue'
   },
   userName: {
-    top: 60,
+    top: 220,
     textAlign: 'center',
     color: 'white',
     fontSize: 40
@@ -89,7 +116,7 @@ const styles = StyleSheet.create({
     top: 290,
     left: 10,
     width: '95%',
-    backgroundColor: 'red',
+    backgroundColor: '#D39A2B',
     padding: 15,
     borderRadius: 15
   },
@@ -97,31 +124,26 @@ const styles = StyleSheet.create({
     fontSize: 20
   },
   friendList: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    backgroundColor: 'black'
+    flex: 1,
+    position: 'absolute',
+    top: 530,
   },
   friends: {
-    // padding: 30,
-    position: 'relative',
-    // top: 50,
-    // right: 30,
-    left: 0,
-    bottom: 0,
-    // alignItems: 'center',
-    height: 60,
-    width: 60,
-    borderRadius: 60 / 2
+    marginRight: 30,
+    marginTop: 25,
+    height: 70,
+    width: 70
   },
   friendLabelContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'purple'
+    position: 'absolute',
+    top: 510,
+    // backgroundColor: 'purple'
   },
   friendLabelText: {
     fontSize: 30,
     color: 'white'
+  },
+  friendContainer: {
+    margin: 10
   }
 });
