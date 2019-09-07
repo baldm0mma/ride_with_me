@@ -1,18 +1,35 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { fetchUsers } from '../utilz/apiCalls';
+import { setUsers } from '../actions'
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-// import ThumbProfile from '../components/ThumbProfile'
+import ThumbProfile from '../components/ThumbProfile'
 
 export class HomePage extends Component {
   componentDidMount = async () => {
+    const { setUsers } = this.props
 
+    try {
+      const userData = await fetchUsers();
+      setUsers(userData)
+
+    } catch(error) {
+      return error.message
+    }
 
   }
-  render = () => {
 
-    // console.log('homepage', this.props);
+  render = () => {
+    const { users } = this.props;
+    const friends = users.map(user => {
+      <ThumbProfile
+        name={user.name}
+        id={user.id}
+        key={user.id}
+      />
+    })
+    
     return (
       <View style={styles.page}>
         {/* <Image
@@ -22,30 +39,7 @@ export class HomePage extends Component {
         <Text style={styles.headingOne}>Welcome, Jev!</Text>
         <Text style={styles.headingTwo}>Jev's Gang</Text>
         <View style={styles.friendList}>
-          <Image
-            style={styles.friends}
-            source={require('../assets/001-helmet.png')}
-          />
-          <Image
-            style={styles.friends}
-            source={require('../assets/002-helmet.png')}
-          />
-          <Image
-            style={styles.friends}
-            source={require('../assets/003-helmet.png')}
-          />
-          <Image
-            style={styles.friends}
-            source={require('../assets/004-helmet.png')}
-          />
-          <Image
-            style={styles.friends}
-            source={require('../assets/005-helmet.png')}
-          />
-          <Image
-            style={styles.friends}
-            source={require('../assets/006-helmet.png')}
-          />
+          {friends}
         </View>
         <Text style={styles.headingThree}>Upcoming Rides</Text>
         <ScrollView style={styles.scroll} horizontal={true}>
