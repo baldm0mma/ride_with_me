@@ -50,7 +50,20 @@ export class HomePage extends Component {
         <Text style={styles.headingThree}>Upcoming Rides</Text>
         <ScrollView style={styles.scroll} horizontal={true}>
           <RideSlider>
-            <Image/>
+            <Image source={require('../assets/001-motoride.jpg')} style={styles.rideImg}/>
+            <RideInfo>September 8     |    Golden, CO</RideInfo>
+          </RideSlider>
+          <RideSlider>
+            <Image source={require('../assets/002-motoride.jpg')} style={styles.rideImg}/> 
+            <RideInfo>September 8     |    Golden, CO</RideInfo>
+          </RideSlider>
+          <RideSlider>
+            <Image source={require('../assets/003-motoride.jpg')} style={styles.rideImg}/>
+            <RideInfo>September 8     |    Golden, CO</RideInfo>
+          </RideSlider>
+          <RideSlider>
+            <Image source={require('../assets/004-motoride.jpg')} style={styles.rideImg}/>
+            <RideInfo>September 8     |    Golden, CO</RideInfo>
           </RideSlider>
         </ScrollView>
       </View>
@@ -118,16 +131,22 @@ const styles = StyleSheet.create({
     top: 250,
     height: 10,
     overflow: 'hidden'
+  },
+  rideImg: {
+    height: 180,
+    width: 180,
+    margin: 'auto'
   }
 });
 
-const RideSLider = styled.View`
+const RideSlider = styled.View`
   height: 200px;
   width: 200px;
-`
+`;
+
 const RideInfo = styled.Text`
   font-size: 22px;
-`
+`;
 
 export const mapStateToProps = ({ profileData, users }) => ({
   profileData,
