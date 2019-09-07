@@ -29,7 +29,7 @@ const tabStack = createMaterialBottomTabNavigator(
 
 const rootStack = createStackNavigator(
   {
-    Login: { screen: SplashPage },
+    Login: { screen: Profile },
     Dashboard: {
       screen: tabStack,
       navigationOptions: {
