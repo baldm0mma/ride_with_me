@@ -2,51 +2,26 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import ThumbProfile from '../components/ThumbProfile'
+// import ThumbProfile from '../components/ThumbProfile'
 
 export class HomePage extends Component {
-  componentDidMount = async () => {
-    const response = await fetch(`https://motorcycle-ride.herokuapp.com/graphql?query={allUsers{id,firstName,lastName,username,email,phone}}`)
-    const friendData = await response.json()
+  // componentDidMount = async () => {
+  //   const response = await fetch(`https://motorcycle-ride.herokuapp.com/graphql?query={allUsers{id,firstName,lastName,username,email,phone}}`)
+  //   const friendData = await response.json()
 
-  }
+  // }
   render = () => {
-    // const friendIcons = this.props.users.map(user => {
-    //   return (
-    //     <ThumbProfile 
-    //       name={user.username}
-    //       id={id}
-    //       key={id}
-    //     />
-    //   )
-    // })
 
-
-    console.log('homepage', this.props);
+    // console.log('homepage', this.props);
     return (
       <View style={styles.page}>
         {/* <Image
           style={styles.logo}
           source={require('../assets/logo.png')}
-        ></Image> */}
+        /> */}
         <Text style={styles.headingOne}>Welcome, Jev!</Text>
         <Text style={styles.headingTwo}>Jev's Gang</Text>
         <View style={styles.friendList}>
-          {friendIcons}
-          {/* <Image style={styles.friends} source={require('../assets/001-helmet.png')}/>
-          <Image style={styles.friends} source={require('../assets/002-helmet.png')}/>
-          <Image style={styles.friends} source={require('../assets/003-helmet.png')}/>
-          <Image style={styles.friends} source={require('../assets/004-helmet.png')}/>
-          <Image style={styles.friends} source={require('../assets/005-helmet.png')}/>
-          <Image style={styles.friends} source={require('../assets/006-helmet.png')}/> */}
-        </View>
-        <Text style={styles.headingThree}>Upcoming Rides</Text>
-        <ScrollView style={styles.scroll} horizontal={true}>
-          <RideSlider>
-            <Image/>
-
-          </RideSlider>
-        </ScrollView>
           <Image
             style={styles.friends}
             source={require('../assets/001-helmet.png')}
@@ -73,12 +48,11 @@ export class HomePage extends Component {
           />
         </View>
         <Text style={styles.headingThree}>Upcoming Rides</Text>
-        {/* <ScrollView style={styles.scroll}>
-          <Text>Sunday 9/8 | Golden</Text>
-          <Text>Sunday 9/8 | Golden</Text>
-          <Text>Sunday 9/8 | Golden</Text>
-          <Text>Sunday 9/8 | Golden</Text>
-        </ScrollView> */}
+        <ScrollView style={styles.scroll} horizontal={true}>
+          <RideSlider>
+            <Image/>
+          </RideSlider>
+        </ScrollView>
       </View>
     );
   };
@@ -155,8 +129,9 @@ const RideInfo = styled.Text`
   font-size: 22px;
 `
 
-export const mapStateToProps = ({ profileData }) => ({
-  profileData
+export const mapStateToProps = ({ profileData, users }) => ({
+  profileData,
+  users
 });
 
 // export const mapDispatchToProps = dispatch => ({
