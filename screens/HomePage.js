@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { fetchUsers } from '../utilz/apiCalls';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 // import ThumbProfile from '../components/ThumbProfile'
 
 export class HomePage extends Component {
-  // componentDidMount = async () => {
-  //   const response = await fetch(`https://motorcycle-ride.herokuapp.com/graphql?query={allUsers{id,firstName,lastName,username,email,phone}}`)
-  //   const friendData = await response.json()
+  componentDidMount = async () => {
 
-  // }
+
+  }
   render = () => {
 
     // console.log('homepage', this.props);
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     top: 90
   },
   friends: {
-    backgroundColor: 'black',
+    // backgroundColor: 'black',
     padding: 30,
     position: 'relative',
     top: 50,
@@ -153,11 +153,11 @@ export const mapStateToProps = ({ profileData, users }) => ({
   users
 });
 
-// export const mapDispatchToProps = dispatch => ({
-
-// });
+export const mapDispatchToProps = dispatch => ({
+  setUsers: users => dispatch(setUsers(users))
+});
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(HomePage);
