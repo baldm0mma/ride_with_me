@@ -2,10 +2,26 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import ThumbProfile from '../components/ThumbProfile'
 
 export class HomePage extends Component {
+  componentDidMount = async () => {
+    const response = await fetch(`https://motorcycle-ride.herokuapp.com/graphql?query={allUsers{id,firstName,lastName,username,email,phone}}`)
+    const friendData = await response.json()
+    
+  }
   render = () => {
-    console.log('homepage', this.props)
+    const friendIcons = this.props.users.map(user => {
+      return (
+        <ThumbProfile 
+          name={user.username}
+          id={id}
+          key={id}
+        />
+      )
+    })
+
+
     return (
       <View style={styles.page}>
         <Image
@@ -15,19 +31,20 @@ export class HomePage extends Component {
         <Text style={styles.headingOne}>Welcome, Jev!</Text>
         <Text style={styles.headingTwo}>Jev's Gang</Text>
         <View style={styles.friendList}>
-          <Image style={styles.friends} source={require('../assets/001-helmet.png')}/>
+          {friendIcons}
+          {/* <Image style={styles.friends} source={require('../assets/001-helmet.png')}/>
           <Image style={styles.friends} source={require('../assets/002-helmet.png')}/>
           <Image style={styles.friends} source={require('../assets/003-helmet.png')}/>
           <Image style={styles.friends} source={require('../assets/004-helmet.png')}/>
           <Image style={styles.friends} source={require('../assets/005-helmet.png')}/>
-          <Image style={styles.friends} source={require('../assets/006-helmet.png')}/>
+          <Image style={styles.friends} source={require('../assets/006-helmet.png')}/> */}
         </View>
         <Text style={styles.headingThree}>Upcoming Rides</Text>
-        <ScrollView style={styles.scroll}>
-          <Text>Sunday 9/8    |   Golden</Text>
-          <Text>Sunday 9/8    |   Golden</Text>
-          <Text>Sunday 9/8    |   Golden</Text>
-          <Text>Sunday 9/8    |   Golden</Text>
+        <ScrollView style={styles.scroll} horizontal={true}>
+          <RideSlider>
+            <Image/>
+
+          </RideSlider>
         </ScrollView>
       </View>
     );
@@ -90,12 +107,19 @@ const styles = StyleSheet.create({
   },
   scroll: {
     display: 'flex',
-    justifyContent: 'center',
     top: 250,
     height: 10,
     overflow: 'hidden'
   }
 });
+
+const RideSLider = styled.View`
+  height: 200px;
+  width: 200px;
+`
+const RideInfo = styled.Text`
+  font-size: 22px;
+`
 
 export const mapStateToProps = ({ profileData }) => ({
   profileData
