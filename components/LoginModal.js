@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Overlay, Input, Button } from 'react-native-elements';
 import { StyleSheet, View, Text } from 'react-native';
+import { toggleLogin } from '../actions';
 
 export class LoginModal extends Component {
   constructor() {
@@ -19,7 +20,9 @@ export class LoginModal extends Component {
 
   handleEstablishedUser = () => {
     // POST call to backend, and recieve back an ID if successful
+    this.props.toggleLogin(false);
     this.clearInputs();
+    this.props.navigation.navigate('Dashboard');
   };
 
   render = () => {
@@ -86,13 +89,13 @@ export const mapStateToProps = ({ profileData }) => ({
   profileData
 });
 
-// export const mapDispatchToProps = dispatch => ({
-
-// });
+export const mapDispatchToProps = dispatch => ({
+  toggleLogin: bool => dispatch(toggleLogin(bool))
+});
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(LoginModal);
 
 const styles = StyleSheet.create({

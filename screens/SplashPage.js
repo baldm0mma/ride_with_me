@@ -13,7 +13,7 @@ export class SplashPage extends Component {
   render = () => {
     return (
       <>
-        {this.props.isLoggedIn && <LoginModal />}
+        {this.props.isLoggedIn && <LoginModal navigation={this.props.navigation}/>}
         <ImageBackground
           source={require('../assets/Motorcycle-Ride.jpg')}
           style={styles.imagePosition}
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
   logoPosition: {
     position: 'absolute',
-    top: 50,
+    top: 30,
     left: 0,
     right: 0,
     bottom: 0,
