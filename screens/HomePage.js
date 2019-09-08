@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { fetchUsers } from '../utilz/apiCalls';
+import { useQuery } from '@apollo/react-hooks';
 import { setUsers } from '../actions'
 import { connect } from 'react-redux';
 import styled from 'styled-components';
@@ -9,14 +10,12 @@ import ThumbProfile from '../components/ThumbProfile'
 export class HomePage extends Component {
   componentDidMount = async () => {
     const { setUsers } = this.props
+    const { loading, error, data } = useQuery(fetchUsers);
+    
+    if (loading) return 'Loading...';
+    if (error) return `Error! ${error.message}`;
 
-    try {
-      const userData = await fetchUsers();
-      setUsers(userData)
-
-    } catch(error) {
-      return error.message
-    }
+    setUsers(data.allUsers)
 
   }
 

@@ -1,5 +1,11 @@
-export const fetchUsers = async () => {
-    const response = await fetch(`https://motorcycle-ride.herokuapp.com/graphql?query={allUsers{id,firstName,lastName,username,email,phone}}`)
-    const friendData = await response.json()
-    return friendData;
-};
+import { gql }from 'apollo-boost';
+import { useQuery } from '@apollo/react-hooks'
+
+export const fetchUsers = gql`
+        {
+            allUsers {
+                id,
+                username
+            }
+        }
+    `;

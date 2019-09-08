@@ -12,7 +12,9 @@ import Profile from './screens/Profile';
 import SplashPage from './screens/SplashPage';
 import Ride from './screens/Ride';
 
-const client = new ApolloClient();
+const client = new ApolloClient({
+  uri: `https://motorcycle-ride.herokuapp.com`
+});
 
 const rootEl = document.querySelector('#root')
 
