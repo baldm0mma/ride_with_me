@@ -22,7 +22,7 @@ export class LoginModal extends Component {
     // POST call to backend, and recieve back an ID if successful
     this.props.toggleLogin(false);
     this.clearInputs();
-    this.props.navigation.navigate('Dashboard');
+    this.props.navigation.navigate('Dash');
   };
 
   render = () => {

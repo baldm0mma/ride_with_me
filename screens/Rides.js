@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Stylesheet, View, Image, Text } from 'react-native';
 import { connect } from 'react-redux';
 
-export class Ride extends Component {
+export class Rides extends Component {
   render = () => {
     return (
       <View>
@@ -25,4 +25,4 @@ export const mapStateToProps = ({ profileData }) => ({
 export default connect(
   mapStateToProps,
   null
-)(Ride);
+)(Rides);
