@@ -1,34 +1,40 @@
 import React, { Component } from 'react';
-import {
-  ImageBackground,
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  Image
-} from 'react-native';
+import { Button } from 'react-native-elements';
+import { ImageBackground, StyleSheet, Text, View, Image } from 'react-native';
 import { connect } from 'react-redux';
+import LoginModal from '../components/LoginModal';
 
 export class SplashPage extends Component {
+  constructor() {
+    super();
+    this.state = {
+      mustLogIn: false
+    };
+  }
+
+  handleLogin = () => {
+    this.setState({ mustLogIn: true });
+  };
+
   render = () => {
-    console.log('splashpage', this.props);
     return (
-      <ImageBackground
-        source={require('../assets/Motorcycle-Ride.jpg')}
-        style={styles.imagePosition}
-      >
-        <View style={styles.logoPosition}>
-          <Image
-            style={styles.logo}
-            source={require('../assets/logo.png')}
-          ></Image>
-          <Button
-            style={styles.button}
-            title='Go to Dashboard'
-            onPress={() => this.props.navigation.navigate('Dashboard')}
-          ></Button>
-        </View>
-      </ImageBackground>
+      <>
+        {this.state.mustLogIn && <LoginModal />}
+        <ImageBackground
+          source={require('../assets/Motorcycle-Ride.jpg')}
+          style={styles.imagePosition}
+        >
+          <View style={styles.logoPosition}>
+            <Image
+              style={styles.logo}
+              source={require('../assets/logo.png')}
+            ></Image>
+            <View style={styles.button}>
+              <Button title='Login' type='solid' onPress={this.handleLogin} />
+            </View>
+          </View>
+        </ImageBackground>
+      </>
     );
   };
 }
@@ -40,7 +46,7 @@ const styles = StyleSheet.create({
   },
   logoPosition: {
     position: 'absolute',
-    top: 30,
+    top: 50,
     left: 0,
     right: 0,
     bottom: 0,
@@ -49,6 +55,9 @@ const styles = StyleSheet.create({
   logo: {
     height: 150,
     width: 150
+  },
+  button: {
+    top: 120
   }
 });
 

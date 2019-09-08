@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const ThumbProfile = ({name, id}) => {
     return (
         <>
-            <Avatar source={require(`../assets/00${id}-helmet.png`)}/>
+            {/* <Avatar source={require(`../assets/00${id}-helmet.png`)}/> */}
             <Name>{name}</Name>
         </>
     )

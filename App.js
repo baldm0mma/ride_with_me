@@ -3,7 +3,7 @@ import { createMaterialBottomTabNavigator } from 'react-navigation-material-bott
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createStore } from 'redux';
-import { Profile } from './screens/Profile';
+import Profile from './screens/Profile';
 import { Provider } from 'react-redux';
 import { rootReducer } from './reducers/index';
 import HomePage from './screens/HomePage';
