@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { friends } from '../mockData/friendsData';
+import Friend from  '../components/Friend';
 import {
   StyleSheet,
   View,
@@ -10,6 +12,10 @@ import {
 } from 'react-native';
 
 export class Profile extends Component {
+  displayFriends = () => {
+    return friends.map(friend => <Friend friend={friend} />)
+  };
+
   render = () => {
     return (
       <View style={styles.page}>
@@ -35,53 +41,8 @@ export class Profile extends Component {
         <View style={styles.friendLabelContainer}>
           <Text style={styles.friendLabelText}>Jev's Friends</Text>
         </View>
-        <ScrollView
-          horizontal={true}
-          // pagingEnabled={true}
-          style={styles.friendList}
-        >
-          <View style={styles.friendContainer}>
-            <Image
-              style={styles.friends}
-              source={require('../assets/001-helmet.png')}
-            />
-            <Text>Friend 1</Text>
-          </View>
-          <View style={styles.friendContainer}>
-            <Image
-              style={styles.friends}
-              source={require('../assets/002-helmet.png')}
-            />
-            <Text>Friend 2</Text>
-          </View>
-          <View style={styles.friendContainer}>
-            <Image
-              style={styles.friends}
-              source={require('../assets/003-helmet.png')}
-            />
-            <Text>Friend 3</Text>
-          </View>
-          <View style={styles.friendContainer}>
-            <Image
-              style={styles.friends}
-              source={require('../assets/004-helmet.png')}
-            />
-            <Text>Friend 4</Text>
-          </View>
-          <View style={styles.friendContainer}>
-            <Image
-              style={styles.friends}
-              source={require('../assets/005-helmet.png')}
-            />
-            <Text>Friend 5</Text>
-          </View>
-          <View style={styles.friendContainer}>
-            <Image
-              style={styles.friends}
-              source={require('../assets/006-helmet.png')}
-            />
-            <Text>Friend 6</Text>
-          </View>
+        <ScrollView horizontal={true} style={styles.friendList}>
+          {this.displayFriends}
         </ScrollView>
       </View>
     );
@@ -103,7 +64,7 @@ const styles = StyleSheet.create({
   },
   avatarBackground: {
     width: '100%',
-    height: '65%',
+    height: '65%'
     // backgroundColor: 'blue'
   },
   userName: {
@@ -127,7 +88,7 @@ const styles = StyleSheet.create({
   friendList: {
     flex: 1,
     position: 'absolute',
-    top: 530,
+    top: 530
   },
   friends: {
     marginRight: 30,
@@ -137,7 +98,7 @@ const styles = StyleSheet.create({
   },
   friendLabelContainer: {
     position: 'absolute',
-    top: 510,
+    top: 510
     // backgroundColor: 'purple'
   },
   friendLabelText: {

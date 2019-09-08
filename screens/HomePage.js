@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 export class HomePage extends Component {
   render = () => {
-    console.log('homepage', this.props);
     return (
       <View style={styles.page}>
         {/* <Image
