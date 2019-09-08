@@ -1,34 +1,34 @@
 import React, { Component } from 'react';
-import {
-  ImageBackground,
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  Image
-} from 'react-native';
+import { Button } from 'react-native-elements';
+import { ImageBackground, StyleSheet, Text, View, Image } from 'react-native';
 import { connect } from 'react-redux';
+import LoginModal from '../components/LoginModal';
+import { toggleLogin } from '../actions';
 
 export class SplashPage extends Component {
+  handleLogin = () => {
+    this.props.toggleLogin(true);
+  };
+
   render = () => {
-    console.log('splashpage', this.props)
     return (
-      <ImageBackground
-        source={require('../assets/Motorcycle-Ride.jpg')}
-        style={styles.imagePosition}
-      >
-        <View style={styles.logoPosition}>
-          <Image
-            style={styles.logo}
-            source={require('../assets/logo.png')}
-          ></Image>
-          <Button
-            style={styles.button}
-            title='Home'
-            onPress={() => this.props.navigation.navigate('Home')}
-          ></Button>
-        </View>
-      </ImageBackground>
+      <>
+        {this.props.isLoggedIn && <LoginModal />}
+        <ImageBackground
+          source={require('../assets/Motorcycle-Ride.jpg')}
+          style={styles.imagePosition}
+        >
+          <View style={styles.logoPosition}>
+            <Image
+              style={styles.logo}
+              source={require('../assets/logo.png')}
+            ></Image>
+            <View style={styles.button}>
+              <Button title='Login' type='solid' onPress={this.handleLogin} />
+            </View>
+          </View>
+        </ImageBackground>
+      </>
     );
   };
 }
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
   logoPosition: {
     position: 'absolute',
-    top: 30,
+    top: 50,
     left: 0,
     right: 0,
     bottom: 0,
@@ -49,18 +49,22 @@ const styles = StyleSheet.create({
   logo: {
     height: 150,
     width: 150
+  },
+  button: {
+    top: 120
   }
 });
 
-export const mapStateToProps = ({ profileData }) => ({
-  profileData
+export const mapStateToProps = ({ profileData, isLoggedIn }) => ({
+  profileData,
+  isLoggedIn
 });
 
-// export const mapDispatchToProps = dispatch => ({
-
-// });
+export const mapDispatchToProps = dispatch => ({
+  toggleLogin: bool => dispatch(toggleLogin(bool))
+});
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(SplashPage);
