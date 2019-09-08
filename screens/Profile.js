@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { friends } from '../mockData/friendsData';
-import Friend from  '../components/Friend';
+import Friend from '../components/FriendIcon';
+import FriendModal from '../components/FriendModal';
 import {
   StyleSheet,
   View,
@@ -13,11 +14,13 @@ import {
 
 export class Profile extends Component {
   displayFriends = () => {
-    return friends.map(friend => <Friend friend={friend}></Friend>)
+    return friends.map(friend => <Friend friend={friend}></Friend>);
   };
 
   render = () => {
     return (
+      <>
+      {this.props.currentFriend && <FriendModal/>}
       <View style={styles.page}>
         <ImageBackground
           style={styles.avatarBackground}
@@ -26,7 +29,7 @@ export class Profile extends Component {
           <Image
             style={styles.avatar}
             source={require('../assets/Javatar.jpg')}
-          ></Image>
+          />
           <Text style={styles.userName}>Jev Forsberg</Text>
         </ImageBackground>
         <View style={styles.aboutContainer}>
@@ -45,6 +48,7 @@ export class Profile extends Component {
           {this.displayFriends()}
         </ScrollView>
       </View>
+      </>
     );
   };
 }
@@ -110,8 +114,9 @@ const styles = StyleSheet.create({
   }
 });
 
-export const mapStateToProps = ({ profileData }) => ({
-  profileData
+export const mapStateToProps = ({ profileData, currentFriend }) => ({
+  profileData,
+  currentFriend
 });
 
 // export const mapDispatchToProps = dispatch => ({
