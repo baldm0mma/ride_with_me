@@ -6,13 +6,6 @@ import LoginModal from '../components/LoginModal';
 import { toggleLogin } from '../actions';
 
 export class SplashPage extends Component {
-  constructor() {
-    super();
-    // this.state = {
-    //   mustLogIn: false
-    // };
-  }
-
   handleLogin = () => {
     this.props.toggleLogin(true);
   };

@@ -12,8 +12,14 @@ export class LoginModal extends Component {
     };
   }
 
+  clearInputs = () => {
+    this.setState({ userName: '' });
+    this.setState({ password: '' });
+  };
+
   handleEstablishedUser = () => {
-    
+    // POST call to backend, and recieve back an ID if successful
+    this.clearInputs();
   };
 
   render = () => {
@@ -66,7 +72,6 @@ export class LoginModal extends Component {
               <Button
                 style={styles.button}
                 title='Create Account'
-                // disabled={true}
                 type='solid'
               />
             </View>
