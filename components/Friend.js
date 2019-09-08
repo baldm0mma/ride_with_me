@@ -1,26 +1,44 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
+import { toggleCurrentFriend } from '../actions';
 
-export const Friend = ({friend}) => {
+export const Friend = ({ friend, toggleCurrentFriend }) => {
+
   return (
-    <View id={friend.id} style={styles.friendContainer}>
-      <Image
-        style={styles.friends}
-        source={friend.image}
-      />
-      <Text>{friend.userName}</Text>
-    </View>
+    <TouchableOpacity
+      key={friend.id}
+      onPress={() => toggleCurrentFriend(friend.id)}
+    >
+      <View style={styles.friendContainer}>
+        <Image style={styles.friends} source={friend.image} />
+        <Text style={styles.friendName}>{friend.userName}</Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 
-export const mapStateToProps = ({ profileData, isLoggedIn }) => ({
-  profileData,
-  isLoggedIn
+const styles = StyleSheet.create({
+  friends: {
+    marginRight: 30,
+    marginTop: 25,
+    height: 70,
+    width: 70
+  },
+  friendContainer: {
+    margin: 10
+  },
+  friendName: {
+    left: 20
+  }
+});
+
+export const mapStateToProps = ({ profileData }) => ({
+  profileData
 });
 
 export const mapDispatchToProps = dispatch => ({
-  toggleLogin: bool => dispatch(toggleLogin(bool))
+  toggleCurrentFriend: num => dispatch(toggleCurrentFriend(num))
 });
 
 export default connect(

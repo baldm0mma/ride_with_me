@@ -13,7 +13,7 @@ import {
 
 export class Profile extends Component {
   displayFriends = () => {
-    return friends.map(friend => <Friend friend={friend} />)
+    return friends.map(friend => <Friend friend={friend}></Friend>)
   };
 
   render = () => {
@@ -42,7 +42,7 @@ export class Profile extends Component {
           <Text style={styles.friendLabelText}>Jev's Friends</Text>
         </View>
         <ScrollView horizontal={true} style={styles.friendList}>
-          {this.displayFriends}
+          {this.displayFriends()}
         </ScrollView>
       </View>
     );
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   },
   avatar: {
     position: 'absolute',
-    top: 70,
+    top: 40,
     left: 130,
     height: 150,
     width: 150,
@@ -68,14 +68,14 @@ const styles = StyleSheet.create({
     // backgroundColor: 'blue'
   },
   userName: {
-    top: 220,
+    top: 190,
     textAlign: 'center',
     color: 'white',
     fontSize: 40
   },
   aboutContainer: {
     position: 'absolute',
-    top: 290,
+    top: 260,
     left: 10,
     width: '95%',
     backgroundColor: '#D39A2B',
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   friendList: {
     flex: 1,
     position: 'absolute',
-    top: 530
+    top: 500
   },
   friends: {
     marginRight: 30,
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   },
   friendLabelContainer: {
     position: 'absolute',
-    top: 510
+    top: 480
     // backgroundColor: 'purple'
   },
   friendLabelText: {
