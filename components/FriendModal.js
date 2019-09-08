@@ -10,11 +10,6 @@ export class FriendModal extends Component {
     return friends.find(friend => friend.id === this.props.currentFriend);
   };
 
-  handleEstablishedUser = () => {
-    // POST call to backend, and recieve back an ID if successful
-    this.clearInputs();
-  };
-
   render = () => {
     const friend = this.findFriend();
     return (
@@ -42,9 +37,8 @@ export class FriendModal extends Component {
               {friend.milesTogether}
             </Text>
           </View>
-          <View style={{ top: 150 }}>
+          <View style={{ top: 150, width: '50%', left: 65 }}>
             <Button
-              style={styles.button}
               title='Done'
               type='solid'
               onPress={() => this.props.toggleCurrentFriend(null)}

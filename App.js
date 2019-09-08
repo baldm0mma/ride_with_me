@@ -15,12 +15,11 @@ const store = createStore(rootReducer, composeWithDevTools());
 
 const tabStack = createMaterialBottomTabNavigator(
   {
-    Dashboard: { screen: Profile },
     Profile: { screen: Profile },
     Ride: { screen: Ride }
   },
   {
-    initialRouteName: 'Dashboard',
+    initialRouteName: 'Profile',
     activeColor: '#f0edf6',
     inactiveColor: '#3e2465',
     barStyle: { backgroundColor: '#232323' }
@@ -29,7 +28,7 @@ const tabStack = createMaterialBottomTabNavigator(
 
 const rootStack = createStackNavigator(
   {
-    Login: { screen: tabStack },
+    Login: { screen: SplashPage },
     Dashboard: {
       screen: tabStack,
       navigationOptions: {
