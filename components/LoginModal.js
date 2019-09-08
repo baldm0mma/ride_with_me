@@ -6,8 +6,16 @@ import { StyleSheet, View, Text } from 'react-native';
 export class LoginModal extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      userName: '',
+      password: ''
+    };
   }
+
+  handleEstablishedUser = () => {
+    
+  };
+
   render = () => {
     return (
       <View>
@@ -21,10 +29,27 @@ export class LoginModal extends Component {
             <View>
               <Text style={styles.title}>Already a user? Sign in here.</Text>
             </View>
-            <Input placeholder='username' autoFocus={true}></Input>
-            <Input placeholder='password' secureTextEntry={true}></Input>
+            <Input
+              placeholder='username'
+              name='userName'
+              autoFocus={true}
+              value={this.state.userName}
+              onChangeText={text => this.setState({ userName: text })}
+            ></Input>
+            <Input
+              placeholder='password'
+              name='password'
+              secureTextEntry={true}
+              value={this.state.password}
+              onChangeText={text => this.setState({ password: text })}
+            ></Input>
             <View>
-              <Button style={styles.button} title='Sign In' type='solid' />
+              <Button
+                style={styles.button}
+                title='Sign In'
+                type='solid'
+                onPress={this.handleEstablishedUser}
+              />
             </View>
           </View>
           <View>
