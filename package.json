@@ -10,10 +10,13 @@
     "lint": "eslint *.js **/*.js"
   },
   "dependencies": {
+    "@apollo/react-hooks": "^3.1.0",
     "@expo/vector-icons": "^10.0.5",
+    "apollo-boost": "^0.4.4",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.3.0",
     "expo": "^34.0.1",
+    "graphql": "^14.5.4",
     "react": "16.8.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz",
     "react-native-elements": "^1.1.0",
@@ -44,12 +47,14 @@
     "react-native-debugger-open": "^0.3.22"
   },
   "jest": {
-    "presets": ["react-native"],
+    "presets": [
+      "react-native"
+    ],
     "setupTestFrameworkScriptFile": "jest-enzyme",
     "testEnvironment": "enzyme",
     "testEnvironmentOptions": {
-        "enzymeAdapter": "react16"
-    }  
-},
+      "enzymeAdapter": "react16"
+    }
+  },
   "private": true
 }
