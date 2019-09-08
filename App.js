@@ -15,7 +15,7 @@ const store = createStore(rootReducer, composeWithDevTools());
 
 const tabStack = createMaterialBottomTabNavigator(
   {
-    Dashboard: { screen: HomePage },
+    Dashboard: { screen: Profile },
     Profile: { screen: Profile },
     Ride: { screen: Ride }
   },
