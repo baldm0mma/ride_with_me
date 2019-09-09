@@ -29,5 +29,5 @@ describe('FriendIcon', () => {
         expect(wrapper.toMatchSnapshot())
     })
 
-    it('should ')
+    // it('should ')
 })
