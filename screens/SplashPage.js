@@ -1,85 +1,40 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Button } from 'react-native-elements';
 import { ImageBackground, StyleSheet, Text, View, Image } from 'react-native';
 import { connect } from 'react-redux';
 import LoginModal from '../components/LoginModal';
 import { toggleLogin, setProfileData } from '../actions';
-import ApolloClient from 'apollo-boost';
+import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 
-// const client = new ApolloClient({
-//   uri: 'https://motorcycle-ride.herokuapp.com/'
-// });
+export const SplashPage = props => {
 
-// const client = new ApolloClient({
-//   uri: 'https://48p1r2roz4.sse.codesandbox.io',
-// });
-
-// let data = {}
-
-// client
-//   .query({
-//     query: gql`
-//       {
-//         rates(currency: "USD") {
-//           currency
-//         }
-//       }
-//     `
-//   })
-//   .then(result => data = result)
-//   .then(next => console.log(data));
-
-export class SplashPage extends Component {
-
-  componentDidMount = () => {
-    const client = new ApolloClient({
-      uri: 'https://48p1r2roz4.sse.codesandbox.io',
-    });
-    
-    let data = {}
-    
-    client
-      .query({
-        query: gql`
-          {
-            rates(currency: "USD") {
-              currency
-            }
-          }
-        `
-      })
-      .then(result => data = result)
-      .then(console.log('data', data))
-      .then(this.props.setProfileData(data));
-  }
-
-  handleLogin = () => {
-    this.props.toggleLogin(true);
+  const handleLogin = () => {
+    props.toggleLogin(true);
   };
 
-  render = () => {
-    return (
-      <>
-        {this.props.isLoggedIn && <LoginModal navigation={this.props.navigation}/>}
-        <ImageBackground
-          source={require('../assets/Motorcycle-Ride.jpg')}
-          style={styles.imagePosition}
-        >
-          <View style={styles.logoPosition}>
-            <Image
-              style={styles.logo}
-              source={require('../assets/logo.png')}
-            ></Image>
-            <View style={styles.button}>
-              <Button title='Login' type='solid' onPress={this.handleLogin} />
-            </View>
+  return (
+    <>
+      {props.isLoggedIn && (
+        <LoginModal navigation={props.navigation} />
+      )}
+      <ImageBackground
+        source={require('../assets/Motorcycle-Ride.jpg')}
+        style={styles.imagePosition}
+      >
+        <View style={styles.logoPosition}>
+          <Image
+            style={styles.logo}
+            source={require('../assets/logo.png')}
+          ></Image>
+          <View style={styles.button}>
+            <Button title='Login' type='solid' onPress={handleLogin} />
           </View>
-        </ImageBackground>
-      </>
-    );
-  };
-}
+        </View>
+      </ImageBackground>
+    </>
+  );
+};
 
 const styles = StyleSheet.create({
   imagePosition: {
