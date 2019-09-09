@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { toggleCurrentFriend } from '../actions';
 
-export const Friend = ({ friend, toggleCurrentFriend }) => {
+export const FriendIcon = ({ friend, toggleCurrentFriend }) => {
 
   return (
     <TouchableOpacity
@@ -44,4 +44,4 @@ export const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Friend);
+)(FriendIcon);

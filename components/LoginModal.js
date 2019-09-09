@@ -22,13 +22,14 @@ export class LoginModal extends Component {
     // POST call to backend, and recieve back an ID if successful
     this.props.toggleLogin(false);
     this.clearInputs();
-    this.props.navigation.navigate('Dashboard');
+    this.props.navigation.navigate('Dash');
   };
 
   render = () => {
     return (
       <View>
         <Overlay
+          borderRadius='10'
           windowBackgroundColor='rgba(255, 255, 255, .2)'
           overlayBackgroundColor='#e6e6e6'
           height='65%'
