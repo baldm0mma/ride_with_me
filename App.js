@@ -6,11 +6,12 @@ import { createStore } from 'redux';
 import { ApolloClient, ApolloProvider } from 'apollo-boost';
 import { Provider } from 'react-redux';
 import { rootReducer } from './reducers/index';
+import Dashboard from './screens/Dashboard';
+import { Provider } from 'react-redux';
+import { rootReducer } from './reducers/index';
 import React, { Component } from 'react';
-import HomePage from './screens/HomePage';
-import Profile from './screens/Profile';
 import SplashPage from './screens/SplashPage';
-import Ride from './screens/Ride';
+import Rides from './screens/Rides';
 
 
 
@@ -23,12 +24,11 @@ const store = createStore(rootReducer, composeWithDevTools());
 
 const tabStack = createMaterialBottomTabNavigator(
   {
-    Dashboard: { screen: HomePage },
-    Profile: { screen: Profile },
-    Ride: { screen: Ride }
+    Dash: { screen: Dashboard },
+    Rides: { screen: Rides }
   },
   {
-    initialRouteName: 'Dashboard',
+    initialRouteName: 'Dash',
     activeColor: '#f0edf6',
     inactiveColor: '#3e2465',
     barStyle: { backgroundColor: '#232323' }
@@ -38,18 +38,11 @@ const tabStack = createMaterialBottomTabNavigator(
 const rootStack = createStackNavigator(
   {
     Login: { screen: SplashPage },
-    Dashboard: {
-      screen: tabStack,
-      navigationOptions: {
-        // title: 'Log Out',
-        headerLeft: null,
-        gesturesEnabled: false
-      }
-    }
+    Dash: { screen: tabStack }
   },
   {
     initialRouteName: 'Login',
-    headerMode: 'none'
+    headerMode: 'screen'
   }
 );
 

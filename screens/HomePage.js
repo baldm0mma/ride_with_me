@@ -21,15 +21,6 @@ export class HomePage extends Component {
   }
 
   render = () => {
-    const { users } = this.props;
-    const friends = users.map(user => {
-      <ThumbProfile
-        name={user.name}
-        id={user.id}
-        key={user.id}
-      />
-    })
-    
     return (
       <View style={styles.page}>
         {/* <Image

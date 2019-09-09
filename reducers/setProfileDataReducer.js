@@ -1,5 +1,5 @@
 const test = {
-  test: 'test'
+  profile: 'profile'
 };
 
 export const setProfileDataReducer = (state = test, action) => {

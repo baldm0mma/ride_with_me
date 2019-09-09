@@ -1,8 +1,14 @@
 import { combineReducers } from 'redux';
 import { setProfileDataReducer } from './setProfileDataReducer';
-import { usersReducer } from './usersReducer';
+import { setRideDataReducer } from './setRideDataReducer';
+import { toggleLoginReducer } from './toggleLoginReducer';
+import { toggleCurrentFriendReducer } from './toggleCurrentFriendReducer';
+import { toggleCurrentRideReducer } from './toggleCurrentRideReducer';
 
 export const rootReducer = combineReducers({
   profileData: setProfileDataReducer,
-  users: usersReducer
+  rideData: setRideDataReducer,
+  isLoggedIn: toggleLoginReducer,
+  currentFriend: toggleCurrentFriendReducer,
+  currentRide: toggleCurrentRideReducer
 });
