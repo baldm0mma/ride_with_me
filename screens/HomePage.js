@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import ThumbProfile from '../components/ThumbProfile'
 
+
 export class HomePage extends Component {
   componentDidMount = async () => {
     const { setUsers } = this.props
@@ -16,7 +17,7 @@ export class HomePage extends Component {
     if (error) return `Error! ${error.message}`;
 
     setUsers(data.allUsers)
-
+    console.log(this.props.users)
   }
 
   render = () => {

@@ -2,9 +2,9 @@ import { createAppContainer } from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { createStackNavigator } from 'react-navigation-stack';
-import { createStore, compose, applyMiddleware } from 'redux';
+import { createStore } from 'redux';
 import { ApolloClient, ApolloProvider } from 'apollo-boost';
-// import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 import { rootReducer } from './reducers/index';
 import React, { Component } from 'react';
 import HomePage from './screens/HomePage';
@@ -12,15 +12,14 @@ import Profile from './screens/Profile';
 import SplashPage from './screens/SplashPage';
 import Ride from './screens/Ride';
 
+
+
 const client = new ApolloClient({
   uri: `https://motorcycle-ride.herokuapp.com`
-});
+})
 
-const rootEl = document.querySelector('#root')
 
-const store = createStore(rootReducer, compose(
-  applyMiddleware(client.middleware()),
-  composeWithDevTools()));
+const store = createStore(rootReducer, composeWithDevTools());
 
 const tabStack = createMaterialBottomTabNavigator(
   {
@@ -59,10 +58,11 @@ const AppContainer = createAppContainer(rootStack);
 export default class App extends Component {
   render() {
     return (
-      <ApolloProvider store={store} client={client}>
-        <AppContainer />
-      </ApolloProvider>,
-      rootEl
+      <ApolloProvider client={client}>
+        <Provider store={store}>
+          <AppContainer />
+        </Provider>
+      </ApolloProvider>
     );
   }
 }
