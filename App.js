@@ -6,10 +6,34 @@ import { createStore } from 'redux';
 import Dashboard from './screens/Dashboard';
 import { Provider } from 'react-redux';
 import { rootReducer } from './reducers/index';
-// import HomePage from './screens/HomePage';
 import React, { Component } from 'react';
 import SplashPage from './screens/SplashPage';
 import Rides from './screens/Rides';
+// import ApolloClient from 'apollo-boost';
+// import { gql } from 'apollo-boost';
+
+// const client = new ApolloClient({
+//   uri: 'https://motorcycle-ride.herokuapp.com/'
+// });
+
+// const client = new ApolloClient({
+//   uri: 'https://48p1r2roz4.sse.codesandbox.io',
+// });
+
+// let data = {}
+
+// client
+//   .query({
+//     query: gql`
+//       {
+//         rates(currency: "USD") {
+//           currency
+//         }
+//       }
+//     `
+//   })
+//   .then(result => data = result)
+//   .then(next => console.log(data));
 
 const store = createStore(rootReducer, composeWithDevTools());
 
