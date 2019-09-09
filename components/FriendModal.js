@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Overlay, Input, Button } from 'react-native-elements';
 import { StyleSheet, View, Text, Image } from 'react-native';
-import { friends } from '../mockData/friendsData';
+import { friendData } from '../mockData/friendsData';
 import { toggleCurrentFriend } from '../actions';
 
 export class FriendModal extends Component {
   findFriend = () => {
-    return friends.find(friend => friend.id === this.props.currentFriend);
+    return friendData.find(friend => friend.id === this.props.currentFriend);
   };
 
   render = () => {
@@ -15,8 +15,9 @@ export class FriendModal extends Component {
     return (
       <View>
         <Overlay
+          borderRadius='10'
           windowBackgroundColor='rgba(255, 255, 255, .2)'
-          overlayBackgroundColor='grey'
+          overlayBackgroundColor='white'
           height='45%'
           width='65%'
           isVisible={true}

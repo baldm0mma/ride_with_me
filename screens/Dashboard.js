@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { friends } from '../mockData/friendsData';
-import Friend from '../components/FriendIcon';
+import { friendData } from '../mockData/friendsData';
+import FriendIcon from '../components/FriendIcon';
 import FriendModal from '../components/FriendModal';
+import { rideData } from '../mockData/ridesData';
+import RideIcon from '../components/RideIcon';
 import {
   StyleSheet,
   View,
@@ -14,45 +16,53 @@ import {
 
 export class Dashboard extends Component {
   displayFriends = () => {
-    return friends.map(friend => <Friend friend={friend} />);
+    return friendData.map(friend => <FriendIcon friend={friend} />);
   };
 
-  // displayRides = () => {
-  //   return rides.map(ride => <Ride ride={ride} />);
-  // };
+  displayRides = () => {
+    return rideData.map(ride => <RideIcon ride={ride} />);
+  };
 
   render = () => {
     return (
       <>
         {this.props.currentFriend && <FriendModal />}
-        <View style={styles.page}>
-          <ImageBackground
-            style={styles.avatarBackground}
-            source={require('../assets/avatar-background.jpg')}
+        <View style={{ height: 2000, flex: 1 }}>
+          <ScrollView
+            contentContainerStyle={{
+              flexGrow: 1,
+              justifyContent: 'space-between'
+            }}
           >
-            <Image
-              style={styles.avatar}
-              source={require('../assets/Javatar.jpg')}
-            />
-            <Text style={styles.userName}>Jev Forsberg</Text>
-          </ImageBackground>
-          <View style={styles.aboutContainer}>
-            <Text style={styles.aboutText}>
-              For the ultimate downhill blast, ride to the top of Hickory
-              Mountain Loop, take a minute to catch your breath and prepare to
-              smile all the way to the parking lot, barely needing to pedal. The
-              ending is real rutted out, so be careful not to lock up your tire
-              and make it worse.
-            </Text>
-          </View>
-          <View style={styles.friendLabelContainer}>
-            <Text style={styles.friendLabelText}>Jev's Friends</Text>
-          </View>
-          <ScrollView horizontal={true} style={styles.friendList}>
-            {this.displayFriends()}
-          </ScrollView>
-          <ScrollView horizontal={true} style={styles.friendList}>
-            {/* {this.displayRides()} */}
+            <ImageBackground
+              style={styles.avatarBackground}
+              source={require('../assets/avatar-background.jpg')}
+            >
+              <Image
+                style={styles.avatar}
+                source={require('../assets/Javatar.jpg')}
+              />
+              <Text style={styles.userName}>Jev Forsberg</Text>
+            </ImageBackground>
+            <View style={styles.aboutContainer}>
+              <Text style={styles.aboutText}>
+              Be careful of the rock stairs relatively close to the top of this portion; too much speed could doom your descent on these. This trail ends at the intersection of Middle Earth. Small tree down between bottom of trail and bridge crossing. Lots of branches. This route is worth riding MANY times.
+              </Text>
+            </View>
+            <View>
+              <View style={styles.listLabelContainer}>
+                <Text style={styles.listLabelText}>Jev's Friends</Text>
+              </View>
+              <ScrollView horizontal={true} style={styles.list}>
+                {this.displayFriends()}
+              </ScrollView>
+              <View style={styles.listLabelContainer}>
+                <Text style={styles.listLabelText}>Jev's Rides</Text>
+              </View>
+              <ScrollView horizontal={true} style={styles.list}>
+                {this.displayRides()}
+              </ScrollView>
+            </View>
           </ScrollView>
         </View>
       </>
@@ -66,7 +76,6 @@ const styles = StyleSheet.create({
     height: '100%'
   },
   avatar: {
-    position: 'absolute',
     top: 40,
     left: 130,
     height: 150,
@@ -74,20 +83,18 @@ const styles = StyleSheet.create({
     borderRadius: 75
   },
   avatarBackground: {
-    width: '100%',
-    height: '65%'
+    height: '70%'
   },
   userName: {
-    top: 190,
-    margin: 20,
+    marginTop: 50,
+    textAlign: 'center',
     color: 'white',
     fontSize: 40
   },
   aboutContainer: {
     position: 'absolute',
-    top: 260,
-    left: 10,
-    width: '95%',
+    top: 280,
+    width: '100%',
     backgroundColor: '#D39A2B',
     padding: 15,
     borderRadius: 15
@@ -95,28 +102,10 @@ const styles = StyleSheet.create({
   aboutText: {
     fontSize: 20
   },
-  friendList: {
-    flex: 1,
-    position: 'absolute',
-    top: 500
-  },
-  friends: {
-    marginRight: 30,
-    marginTop: 25,
-    height: 70,
-    width: 70
-  },
-  friendLabelContainer: {
-    position: 'absolute',
-    top: 480
-    // backgroundColor: 'purple'
-  },
-  friendLabelText: {
+  listLabelText: {
+    left: 25,
     fontSize: 30,
-    color: 'white'
-  },
-  friendContainer: {
-    margin: 10
+    color: 'black'
   }
 });
 

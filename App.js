@@ -6,7 +6,7 @@ import { createStore } from 'redux';
 import Dashboard from './screens/Dashboard';
 import { Provider } from 'react-redux';
 import { rootReducer } from './reducers/index';
-import HomePage from './screens/HomePage';
+// import HomePage from './screens/HomePage';
 import React, { Component } from 'react';
 import SplashPage from './screens/SplashPage';
 import Rides from './screens/Rides';

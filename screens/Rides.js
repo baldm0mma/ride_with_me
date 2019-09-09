@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import { Stylesheet, View, Image, Text } from 'react-native';
+import { Stylesheet, View, Image, Text, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
+import { rideData } from '../mockData/ridesData';
 
 export class Rides extends Component {
+  // displayRides = () => {
+  //   return rideData.map(ride => <RideIcon ride={ride} />);
+  // };
   render = () => {
     return (
       <View>
-        <Image source={require('../assets/001-motoride.jpg')} />
-        <Text>Ride Date</Text>
-        <Text>Ride Type</Text>
+        <Text>All Rides</Text>
+        {/* <ScrollView>{this.displayRides}</ScrollView> */}
       </View>
     );
   };
