@@ -12,18 +12,32 @@ import React, { Component } from 'react';
 import HomePage from './screens/HomePage';
 import Profile from './screens/Profile';
 import SplashPage from './screens/SplashPage';
-import Ride from './screens/Ride';
+import Rides from './screens/Rides';
+// import ApolloClient from 'apollo-boost';
+// import { gql } from 'apollo-boost';
 
+// const client = new ApolloClient({
+//   uri: 'https://motorcycle-ride.herokuapp.com/'
+// });
 
-const cache = new InMemoryCache();
-const link = new HttpLink({
-  uri: `https://motorcycle-ride.herokuapp.com`
-})
+// const client = new ApolloClient({
+//   uri: 'https://48p1r2roz4.sse.codesandbox.io',
+// });
 
-const client = new ApolloClient({
-  uri: `https://motorcycle-ride.herokuapp.com`
-})
+// let data = {}
 
+// client
+//   .query({
+//     query: gql`
+//       {
+//         rates(currency: "USD") {
+//           currency
+//         }
+//       }
+//     `
+//   })
+//   .then(result => data = result)
+//   .then(next => console.log(data));
 
 const store = createStore(rootReducer, composeWithDevTools());
 
