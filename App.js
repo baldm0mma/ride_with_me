@@ -6,10 +6,16 @@ import { createStore } from 'redux';
 import Dashboard from './screens/Dashboard';
 import { Provider } from 'react-redux';
 import { rootReducer } from './reducers/index';
-// import HomePage from './screens/HomePage';
 import React, { Component } from 'react';
 import SplashPage from './screens/SplashPage';
 import Rides from './screens/Rides';
+import ApolloClient from 'apollo-boost';
+import { gql } from 'apollo-boost';
+import { ApolloProvider } from '@apollo/react-hooks';
+
+const client = new ApolloClient({
+  uri: 'https://motorcycle-ride.herokuapp.com/graphql'
+});
 
 const store = createStore(rootReducer, composeWithDevTools());
 
@@ -42,9 +48,11 @@ const AppContainer = createAppContainer(rootStack);
 export default class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <AppContainer />
-      </Provider>
+      <ApolloProvider client={client}>
+        <Provider store={store}>
+          <AppContainer />
+        </Provider>
+      </ApolloProvider>
     );
   }
 }

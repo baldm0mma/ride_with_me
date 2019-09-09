@@ -1,10 +1,14 @@
-import React, { Component } from 'react';
+import React, { Constructor, Component } from 'react';
 import { connect } from 'react-redux';
 import { friendData } from '../mockData/friendsData';
 import FriendIcon from '../components/FriendIcon';
 import FriendModal from '../components/FriendModal';
 import { rideData } from '../mockData/ridesData';
 import RideIcon from '../components/RideIcon';
+import { toggleLogin, setProfileData } from '../actions';
+import { useQuery } from '@apollo/react-hooks';
+import { gql } from 'apollo-boost';
+import { getUsers } from '../utilz/apiCalls';
 import {
   StyleSheet,
   View,
@@ -14,7 +18,13 @@ import {
   ScrollView
 } from 'react-native';
 
+const url = 'https://motorcycle-ride.herokuapp.com/graphql?query={allUsers{username}}';
 export class Dashboard extends Component {
+  componentDidMount = async () => {
+    const data = await getUsers(url);
+    console.log(data);
+  };
+
   displayFriends = () => {
     return friendData.map(friend => <FriendIcon friend={friend} />);
   };
@@ -46,7 +56,11 @@ export class Dashboard extends Component {
             </ImageBackground>
             <View style={styles.aboutContainer}>
               <Text style={styles.aboutText}>
-              Be careful of the rock stairs relatively close to the top of this portion; too much speed could doom your descent on these. This trail ends at the intersection of Middle Earth. Small tree down between bottom of trail and bridge crossing. Lots of branches. This route is worth riding MANY times.
+                Be careful of the rock stairs relatively close to the top of
+                this portion; too much speed could doom your descent on these.
+                This trail ends at the intersection of Middle Earth. Small tree
+                down between bottom of trail and bridge crossing. Lots of
+                branches. This route is worth riding MANY times.
               </Text>
             </View>
             <View>
@@ -121,11 +135,12 @@ export const mapStateToProps = ({
   currentRide
 });
 
-// export const mapDispatchToProps = dispatch => ({
-
-// });
+export const mapDispatchToProps = dispatch => ({
+  toggleLogin: bool => dispatch(toggleLogin(bool)),
+  setProfileData: data => dispatch(setProfileData(data))
+});
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(Dashboard);

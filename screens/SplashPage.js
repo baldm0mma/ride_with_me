@@ -1,37 +1,40 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Button } from 'react-native-elements';
 import { ImageBackground, StyleSheet, Text, View, Image } from 'react-native';
 import { connect } from 'react-redux';
 import LoginModal from '../components/LoginModal';
-import { toggleLogin } from '../actions';
+import { toggleLogin, setProfileData } from '../actions';
+import { useQuery } from '@apollo/react-hooks';
+import { gql } from 'apollo-boost';
 
-export class SplashPage extends Component {
-  handleLogin = () => {
-    this.props.toggleLogin(true);
+export const SplashPage = props => {
+
+  const handleLogin = () => {
+    props.toggleLogin(true);
   };
 
-  render = () => {
-    return (
-      <>
-        {this.props.isLoggedIn && <LoginModal navigation={this.props.navigation}/>}
-        <ImageBackground
-          source={require('../assets/Motorcycle-Ride.jpg')}
-          style={styles.imagePosition}
-        >
-          <View style={styles.logoPosition}>
-            <Image
-              style={styles.logo}
-              source={require('../assets/logo.png')}
-            ></Image>
-            <View style={styles.button}>
-              <Button title='Login' type='solid' onPress={this.handleLogin} />
-            </View>
+  return (
+    <>
+      {props.isLoggedIn && (
+        <LoginModal navigation={props.navigation} />
+      )}
+      <ImageBackground
+        source={require('../assets/Motorcycle-Ride.jpg')}
+        style={styles.imagePosition}
+      >
+        <View style={styles.logoPosition}>
+          <Image
+            style={styles.logo}
+            source={require('../assets/logo.png')}
+          ></Image>
+          <View style={styles.button}>
+            <Button title='Login' type='solid' onPress={handleLogin} />
           </View>
-        </ImageBackground>
-      </>
-    );
-  };
-}
+        </View>
+      </ImageBackground>
+    </>
+  );
+};
 
 const styles = StyleSheet.create({
   imagePosition: {
@@ -61,7 +64,8 @@ export const mapStateToProps = ({ profileData, isLoggedIn }) => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  toggleLogin: bool => dispatch(toggleLogin(bool))
+  toggleLogin: bool => dispatch(toggleLogin(bool)),
+  setProfileData: data => dispatch(setProfileData(data))
 });
 
 export default connect(
