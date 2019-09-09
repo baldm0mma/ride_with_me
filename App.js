@@ -4,8 +4,6 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createStore } from 'redux';
 import { ApolloClient, ApolloProvider } from 'apollo-boost';
-import { Provider } from 'react-redux';
-import { rootReducer } from './reducers/index';
 import Dashboard from './screens/Dashboard';
 import { Provider } from 'react-redux';
 import { rootReducer } from './reducers/index';
