@@ -1,7 +1,12 @@
 import 'react-native'
 import React from 'react';
 import { shallow } from 'enzyme';
+// import renderer from 'react-test-renderer';
 import { FriendIcon, mapStateToProps, mapDispatchToProps } from '../components/FriendIcon'
+
+// it('renders correctly, test using Jest', () => {
+//     renderer.create(<FriendIcon />);
+//   });
 
 describe('FriendIcon', () => {
     let wrapper;
@@ -10,17 +15,19 @@ describe('FriendIcon', () => {
 
     beforeEach(() => {
         props = {
-            profileData: {name: 'Jev', upComingRides: 5, friend: {
+            friend: {
                 id: 1, 
                 name: 'Taylor',
                 userName: 'TayTay'
-            }},
+            },
             toggleCurrentFriend: jest.fn()
         }
-    wrapper = shallow(<FriendIcon {...props}/>);
+        wrapper = shallow(<FriendIcon {...props}/>);
         instance = wrapper.instance();
     })
-    it('should match the snapshot', () => {
+    it.skip('should match the snapshot', () => {
         expect(wrapper.toMatchSnapshot())
     })
+
+    it('should ')
 })
