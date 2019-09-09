@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 
-export const Ride = ({ ride, toggleCurrentRide }) => {
+export const RideIcon = ({ ride, toggleCurrentRide }) => {
   return (
     <TouchableOpacity key={ride.id} onPress={() => toggleCurrentRide(ride.id)}>
       <View style={styles.rideContainer}>
@@ -40,4 +40,4 @@ export const mapDispatchToProps = dispatch => ({
 export default connect(
   null,
   mapDispatchToProps
-)(Ride);
+)(RideIcon);

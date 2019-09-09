@@ -4,7 +4,7 @@ import { friendData } from '../mockData/friendsData';
 import FriendIcon from '../components/FriendIcon';
 import FriendModal from '../components/FriendModal';
 import { rideData } from '../mockData/ridesData';
-import RideIcon from '../components/RIdeIcon';
+import RideIcon from '../components/RideIcon';
 import {
   StyleSheet,
   View,
