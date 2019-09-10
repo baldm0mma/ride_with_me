@@ -3,10 +3,6 @@ export const setProfileData = profileData => ({
   profileData
 });
 
-export const setUsers = users => ({
-  type: 'SET_USERS',
-  users
-});
 export const setRideData = rideData => ({
   type: 'SET_RIDE_DATA',
   rideData

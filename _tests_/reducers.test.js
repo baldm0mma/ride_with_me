@@ -3,6 +3,7 @@ import { setRideDataReducer } from '../reducers/setRideDataReducer';
 import { toggleCurrentFriendReducer } from '../reducers/toggleCurrentFriendReducer';
 import { toggleCurrentRideReducer } from '../reducers/toggleCurrentRideReducer';
 import { toggleLoginReducer } from '../reducers/toggleLoginReducer';
+import { toggleLogin } from '../actions';
 
 describe('setProfileDataReducer', () => {
     let test;
@@ -70,12 +71,73 @@ describe('setRideDataReducer', () => {
 
 describe('toggleCurrentFriendReducer', () => {
     it('should return initial state', () => {
-        const expected = null;
+        const expected = 0;
+        const result = toggleCurrentFriendReducer(undefined, expected)
 
-        const result = toggleCurrentFriendReducer(expected)
+        expect(result).toEqual(expected)
+    });
+    
+    it('should update state with TOGGLE_CURRENT_FRIEND', () => {
+        const state = 0;
+        const num = 2;
+
+        const action = {
+            type: 'TOGGLE_CURRENT_FRIEND',
+            num
+        }
+
+        const expected = 2
+        const result = toggleCurrentFriendReducer(state, action)
+
+        expect(result).toEqual(expected)
+    });
+});
+
+describe('toggleCurrentRideReducer', () => {
+    it('should return initial state', () => {
+        const expected = 0;
+        const result = toggleCurrentRideReducer(undefined, expected);
 
         expect(result).toEqual(expected)
     });
 
+    it('should update state with TOGGLE_CURRENT_RIDE', () => {
+        const state = 0
+        const num = 4;
 
+        const action = {
+            type: 'TOGGLE_CURRENT_RIDE',
+            num
+        }
+
+        const expected = 4;
+        const result = toggleCurrentRideReducer(state, action);
+
+        expect(result).toEqual(expected)
+    });
+});
+
+describe('toggleLoginReducer', () => {
+    it('should return initial state', () => {
+        const expected = false;
+
+        const result = toggleLoginReducer(undefined, expected);
+
+        expect(result).toEqual(expected);
+    });
+
+    it('should update state with TOGGLE_LOGIN', () => {
+        const state = false;
+        const bool = !state;
+
+        const action = {
+            type: 'TOGGLE_LOGIN',
+            bool
+        }
+
+        const expected = true;
+        const result = toggleLoginReducer(state, action);
+
+        expect(result).toEqual(expected)
+    })
 })

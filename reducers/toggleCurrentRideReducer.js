@@ -1,6 +1,6 @@
-export const toggleCurrentRideReducer = (state = null, action) => {
+export const toggleCurrentRideReducer = (state = 0, action) => {
   switch (action.type) {
-    case 'TOOGLE_CURRENT_RIDE':
+    case 'TOGGLE_CURRENT_RIDE':
       return action.num;
     default:
       return state;
