@@ -1,17 +1,17 @@
 sudo: false
 language: node_js
 node_js:
-  - stable
+- stable
 cache:
   directories:
   - node_modules
 install:
-  - npm install
-  - npm add expo-cli
-  - npm install --save eslint-config-airbnb eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-import
+- npm install
+- npm add expo-cli
+- npm install --save eslint-config-airbnb eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-import
 script:
-  - npm run lint
-  - npm run test
+- npm run lint
+- npm run test
 deploy:
   provider: heroku
   api_key:
