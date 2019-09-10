@@ -9,31 +9,13 @@ import { rootReducer } from './reducers/index';
 import React, { Component } from 'react';
 import SplashPage from './screens/SplashPage';
 import Rides from './screens/Rides';
-// import ApolloClient from 'apollo-boost';
+import ApolloClient from 'apollo-boost';
 // import { gql } from 'apollo-boost';
+import { ApolloProvider } from '@apollo/react-hooks';
 
-// const client = new ApolloClient({
-//   uri: 'https://motorcycle-ride.herokuapp.com/'
-// });
-
-// const client = new ApolloClient({
-//   uri: 'https://48p1r2roz4.sse.codesandbox.io',
-// });
-
-// let data = {}
-
-// client
-//   .query({
-//     query: gql`
-//       {
-//         rates(currency: "USD") {
-//           currency
-//         }
-//       }
-//     `
-//   })
-//   .then(result => data = result)
-//   .then(next => console.log(data));
+const client = new ApolloClient({
+  uri: 'https://motorcycle-ride.herokuapp.com/graphql'
+});
 
 const store = createStore(rootReducer, composeWithDevTools());
 
@@ -66,9 +48,11 @@ const AppContainer = createAppContainer(rootStack);
 export default class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <AppContainer />
-      </Provider>
+      <ApolloProvider client={client}>
+        <Provider store={store}>
+          <AppContainer />
+        </Provider>
+      </ApolloProvider>
     );
   }
 }
