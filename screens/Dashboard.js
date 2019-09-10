@@ -9,7 +9,7 @@ import { toggleLogin, setProfileData } from '../actions';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import { getUsers } from '../utilz/apiCalls';
-import { allUsersNames } from '../utilz/urlz';jsjs
+import { allUsersNames } from '../utilz/urlz';
 import {
   StyleSheet,
   View,
@@ -73,7 +73,7 @@ export class Dashboard extends Component {
               <View style={styles.listLabelContainer}>
                 <Text style={styles.listLabelText}>Jev's Rides</Text>
               </View>
-              <ScrollView horizontal={true} style={styles.list}>
+              <ScrollView horizontal={true} contentContainerStyle={{paddingBottom: 100}}>
                 {this.displayRides()}
               </ScrollView>
             </View>
@@ -94,16 +94,25 @@ const styles = StyleSheet.create({
     left: 130,
     height: 150,
     width: 150,
-    borderRadius: 75
+    borderRadius: 75,
+    borderColor: '#D39A2B',
+    borderWidth: 1,
+    borderStyle: 'dotted',
   },
   avatarBackground: {
-    height: '70%'
+    height: '70%',
+    backgroundColor: 'rgba(0,0,0,0.8)',
+    opacity: 2.5
   },
   userName: {
     marginTop: 50,
     textAlign: 'center',
     color: 'white',
-    fontSize: 40
+    fontSize: 40,
+    fontWeight: 'bold',
+    textShadowColor: 'rgba(0, 0, 0, 1)',
+    textShadowOffset: {width: -3, height: 3},
+    textShadowRadius: 10
   },
   aboutContainer: {
     position: 'absolute',
@@ -111,15 +120,19 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: '#D39A2B',
     padding: 15,
-    borderRadius: 15
+    borderRadius: 15,
+    borderColor: '#e6e6e6',
+    borderWidth: 1,
+    borderStyle: 'dotted'
   },
   aboutText: {
     fontSize: 20
   },
   listLabelText: {
-    left: 25,
+    textAlign: 'center',
     fontSize: 30,
-    color: 'black'
+    color: 'black',
+    backgroundColor: '#e6e6e6'
   }
 });
 
