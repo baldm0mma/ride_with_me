@@ -44,13 +44,18 @@
   },
   "jest": {
     "preset": "react-native",
-    "setupFilesAfterEnv": [
-      "jest-enzyme"
+    "cacheDirectory": "./cache",
+    "coveragePathIgnorePatterns": [
+      "./app/utils/vendor"
     ],
-    "testEnvironment": "enzyme",
-    "testEnvironmentOptions": {
-      "enzymeAdapter": "react16"
-    }
+    "coverageThreshold": {
+      "global": {
+        "statements": 80
+      }
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!react-native|react-clone-referenced-element|react-navigation)"
+    ]
   },
   "private": true
 }

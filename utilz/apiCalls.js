@@ -8,3 +8,9 @@ export const getUsers = async url => {
   console.log('parsed', parsed)
   return parsed;
 };
+
+export const getFriends = async (id, url) => {
+    const result = await fetch(id, url)
+    const parsed = await result.json();
+    return parsed;
+}
