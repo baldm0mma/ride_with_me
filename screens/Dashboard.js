@@ -86,7 +86,7 @@ export class Dashboard extends Component {
 
 const styles = StyleSheet.create({
   page: {
-    backgroundColor: '#dedede',
+    backgroundColor: '#e6e6e6',
     height: '100%'
   },
   avatar: {
@@ -101,8 +101,7 @@ const styles = StyleSheet.create({
   },
   avatarBackground: {
     height: '70%',
-    backgroundColor: 'rgba(0,0,0,0.8)',
-    opacity: 2.5
+    backgroundColor: '#e6e6e6'
   },
   userName: {
     marginTop: 50,
@@ -132,6 +131,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 30,
     color: 'black',
+    backgroundColor: '#e6e6e6'
+  },
+  listLabelContainer: {
     backgroundColor: '#e6e6e6'
   }
 });

@@ -9,6 +9,7 @@ export const FriendIcon = ({ friend, toggleCurrentFriend }) => {
     <TouchableOpacity
       key={friend.id}
       onPress={() => toggleCurrentFriend(friend.id)}
+      style={{backgroundColor: '#e6e6e6'}}
     >
       <View style={styles.friendContainer}>
         <Image style={styles.friends} source={friend.image} />
@@ -26,10 +27,11 @@ const styles = StyleSheet.create({
     width: 70
   },
   friendContainer: {
-    margin: 10
+    margin: 10,
+    backgroundColor: '#e6e6e6'
   },
   friendName: {
-    left: 20
+    left: 15
   }
 });
 

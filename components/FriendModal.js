@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Overlay, Input, Button } from 'react-native-elements';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Text, Image, ImageBackground } from 'react-native';
 import { friendData } from '../mockData/friendsData';
 import { toggleCurrentFriend } from '../actions';
 
@@ -17,17 +17,25 @@ export class FriendModal extends Component {
         <Overlay
           borderRadius='10'
           windowBackgroundColor='rgba(255, 255, 255, .2)'
-          overlayBackgroundColor='white'
+          overlayBackgroundColor='#f6efd3'
           height='45%'
           width='65%'
           isVisible={true}
         >
+        <ImageBackground source={require('../assets/topographyBackground.png')} style={{position: 'relative', height: '100%', width: '100%'}}>
           <View style={styles.avatar}>
             <Image source={friend.image} />
           </View>
           <View style={{ top: 120 }}>
             <Text
-              style={{ fontSize: 30, fontWeight: 800, textAlign: 'center' }}
+              style={{ 
+                color: 'white',
+                fontSize: 30, 
+                fontWeight: 800, 
+                textAlign: 'center', 
+                textShadowColor: 'rgba(0, 0, 0, 0.65)',
+                textShadowOffset: {width: -1, height: 1},
+                textShadowRadius: 10}}
             >
               {friend.userName}
             </Text>
@@ -45,6 +53,7 @@ export class FriendModal extends Component {
               onPress={() => this.props.toggleCurrentFriend(null)}
             />
           </View>
+        </ImageBackground>
         </Overlay>
       </View>
     );
