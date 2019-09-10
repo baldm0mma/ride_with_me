@@ -1,0 +1,1 @@
+export const allUsersNames = 'https://motorcycle-ride.herokuapp.com/graphql?query={allUsers{username}}';
