@@ -9,6 +9,7 @@ import { toggleLogin, setProfileData } from '../actions';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import { getUsers } from '../utilz/apiCalls';
+import { allUsersNames } from '../utilz/urlz';jsjs
 import {
   StyleSheet,
   View,
@@ -18,10 +19,9 @@ import {
   ScrollView
 } from 'react-native';
 
-const url = 'https://motorcycle-ride.herokuapp.com/graphql?query={allUsers{username}}';
 export class Dashboard extends Component {
   componentDidMount = async () => {
-    const data = await getUsers(url);
+    const data = await getUsers(allUsersNames);
     console.log(data);
   };
 
