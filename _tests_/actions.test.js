@@ -52,6 +52,14 @@ describe('actions', () => {
     });
 
     it('should have a type of TOGGLE_CURRENT_RIDE', () => {
+        const num = 4;
 
+        const expectedAction = {
+            type: 'TOGGLE_CURRENT_RIDE',
+            num
+        }
+
+        const result = actions.toggleCurrentRide(num)
+        expect(result).toEqual(expectedAction)
     })
 })
