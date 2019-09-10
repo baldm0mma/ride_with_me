@@ -9,7 +9,7 @@ import { toggleLogin, setProfileData } from '../actions';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import { getUsers } from '../utilz/apiCalls';
-import { allUsersNames } from '../utilz/urlz';
+import { allUsersNames } from '../utilz/urlz';jsjs
 import {
   StyleSheet,
   View,
