@@ -32,7 +32,7 @@ export class LoginModal extends Component {
           borderRadius={10}
           windowBackgroundColor='rgba(255, 255, 255, .2)'
           overlayBackgroundColor='#e6e6e6'
-          height='62%'
+          height='63%'
           isVisible={true}
         >
           <View>
@@ -106,5 +106,9 @@ const styles = StyleSheet.create({
   },
   button: {
     padding: 20
+  },
+  container: {
+    borderColor: '#D39A2B',
+    borderWidth: 2
   }
 });
