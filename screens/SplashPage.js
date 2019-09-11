@@ -1,23 +1,18 @@
 import React from 'react';
 import { Button } from 'react-native-elements';
-import { ImageBackground, StyleSheet, Text, View, Image } from 'react-native';
+import { ImageBackground, StyleSheet, View, Image } from 'react-native';
 import { connect } from 'react-redux';
 import LoginModal from '../components/LoginModal';
 import { toggleLogin, setProfileData } from '../actions';
-import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
 
 export const SplashPage = props => {
-
   const handleLogin = () => {
     props.toggleLogin(true);
   };
 
   return (
     <>
-      {props.isLoggedIn && (
-        <LoginModal navigation={props.navigation} />
-      )}
+      {props.isLoggedIn && <LoginModal navigation={props.navigation} />}
       <ImageBackground
         source={require('../assets/Motorcycle-Ride.jpg')}
         style={styles.imagePosition}

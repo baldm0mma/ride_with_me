@@ -1,0 +1,3 @@
+export const userProfile = 'https://motorcycle-ride.herokuapp.com/graphql?query={user(id:1){id,username,firstName,lastName,avatar,about,backgroundImage,friends,{id,username,avatar,milesRiddenTogether}bikes{make,model,year,imageUrl}rides{id,title,description,distance,rideCategory,duration,date,imageLink,mapLink}}}';
+
+export const allRides = 'https://motorcycle-ride.herokuapp.com/graphql?query={allRides{id,title,description,distance,rideCategory,duration,date,imageLink,mapLink}}'
