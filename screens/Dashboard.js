@@ -1,10 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import FriendIcon from '../components/FriendIcon';
-import FriendModal from '../components/FriendModal';
-import { toggleLogin, setProfileData, toggleLoading, setRideData } from '../actions';
-import { getData } from '../utilz/apiCalls';
-import { userProfile, allRides } from '../utilz/urlz';
 import {
   StyleSheet,
   View,
@@ -14,13 +8,24 @@ import {
   ScrollView,
   ActivityIndicator
 } from 'react-native';
+import { connect } from 'react-redux';
+import FriendEmblem from '../components/FriendEmblem';
+import FriendInfoModal from '../components/FriendInfoModal';
+import {
+  toggleLogin,
+  setProfileData,
+  toggleLoading,
+  setRideData
+} from '../actions';
+import { getData } from '../utilz/apiCalls';
+import { userProfile, allRides } from '../utilz/urlz';
 
 export class Dashboard extends Component {
   constructor() {
     super();
     this.state = {
       firstName: '',
-      lastName: '',
+      listName: '',
       username: '',
       about: '',
       avatar: '',
@@ -34,7 +39,7 @@ export class Dashboard extends Component {
     await this.props.setProfileData(userData);
     const {
       firstName,
-      lastName,
+      listName,
       username,
       about,
       avatar,
@@ -43,7 +48,7 @@ export class Dashboard extends Component {
     } = this.props.profileData.data.user;
     this.setState({
       firstName,
-      lastName,
+      listName,
       username,
       about,
       avatar,
@@ -56,7 +61,8 @@ export class Dashboard extends Component {
   };
 
   displayFriends = () => {
-    return this.state.friends.map(friend => <FriendIcon friend={friend} />);
+    const { friends } = this.state;
+    return friends.map(friend => <FriendEmblem friend={friend} />);
   };
 
   render = () => {
@@ -68,8 +74,8 @@ export class Dashboard extends Component {
             <ActivityIndicator size='large' pointerEvents='none' />
           </View>
         )}
-        {this.props.currentFriend && <FriendModal />}
-        <View style={{ height: 2000, flex: 1, backgroundColor: '#e6e6e6',}}>
+        {this.props.currentFriend && <FriendInfoModal />}
+        <View style={{ height: 2000, flex: 1, backgroundColor: '#e6e6e6' }}>
           <ScrollView
             contentContainerStyle={{
               flexGrow: 1,
@@ -126,7 +132,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: 'bold',
     textShadowColor: 'rgba(0, 0, 0, 1)',
-    textShadowOffset: {width: -3, height: 3},
+    textShadowOffset: { width: -3, height: 3 },
     textShadowRadius: 10
   },
   aboutContainer: {

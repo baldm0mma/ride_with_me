@@ -1,22 +1,29 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  Tooltip
+} from 'react-native';
 import { connect } from 'react-redux';
 import { toggleCurrentFriend } from '../actions';
 
 export const FriendIcon = ({ friend, toggleCurrentFriend }) => {
-  console.log('friend', friend)
   const { avatar, username, id } = friend;
   return (
-    <TouchableOpacity
-      key={friend.id}
-      onPress={() => toggleCurrentFriend(id)}
-      style={{ backgroundColor: '#e6e6e6' }}
-    >
-      <View style={styles.friendContainer}>
-        <Image style={styles.friends} source={{uri: avatar}} />
-        <Text style={styles.friendName}>{username}</Text>
-      </View>
-    </TouchableOpacity>
+    <Tooltip popover={<Text>{username}</Text>}>
+      <TouchableOpacity
+        key={friend.id}
+        onPress={() => toggleCurrentFriend(id)}
+        style={{ backgroundColor: '#e6e6e6' }}
+      >
+        <View style={styles.friendContainer}>
+          <Image style={styles.friends} source={{ uri: avatar }} />
+        </View>
+      </TouchableOpacity>
+    </Tooltip>
   );
 };
 
@@ -24,15 +31,12 @@ const styles = StyleSheet.create({
   friends: {
     marginRight: 15,
     marginTop: 15,
-    height: 70,
-    width: 70,
-    borderRadius: 35
+    height: 30,
+    width: 30,
+    borderRadius: 15
   },
   friendContainer: {
     margin: 10
-  },
-  friendName: {
-    width: 83
   }
 });
 

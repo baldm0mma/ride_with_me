@@ -4,7 +4,7 @@ import { Overlay, Input, Button } from 'react-native-elements';
 import { StyleSheet, View, Text, Image, ImageBackground } from 'react-native';
 import { toggleCurrentFriend } from '../actions';
 
-export class FriendModal extends Component {
+export class FriendInfoModal extends Component {
   findFriend = () => {
     const { friends } = this.props.profileData.data.user;
     return friends.find(friend => friend.id === this.props.currentFriend);
@@ -13,13 +13,14 @@ export class FriendModal extends Component {
   render = () => {
     const friend = this.findFriend();
     const { avatar } = friend;
+    console.log(avatar);
     return (
       <View>
         <Overlay
           borderRadius={10}
           windowBackgroundColor='rgba(255, 255, 255, .2)'
           overlayBackgroundColor='white'
-          height='45%'
+          height='48%'
           width='65%'
           isVisible={true}
         >
@@ -27,12 +28,16 @@ export class FriendModal extends Component {
             source={require('../assets/topographyBackground.png')}
             style={{ position: 'relative', height: '100%', width: '100%' }}
           >
-            <View style={styles.avatar}>
-              <Image source={{ url: avatar }} />
+            <View>
+              <Image style={styles.avatar} source={{ uri: avatar }} />
             </View>
-            <View style={{ top: 120 }}>
+            <View style={{ top: 30 }}>
               <Text
-                style={{ fontSize: 30, fontWeight: 'bold', textAlign: 'center' }}
+                style={{
+                  fontSize: 30,
+                  fontWeight: 'bold',
+                  textAlign: 'center'
+                }}
               >
                 {friend.username}
               </Text>
@@ -42,12 +47,12 @@ export class FriendModal extends Component {
                 Miles Ridden Together:
               </Text>
               <Text
-                style={{ fontSize: 20, paddingTop: 20, textAlign: 'center' }}
+                style={{ fontSize: 20, paddingTop: 20, textAlign: 'center', fontWeight: 'bold' }}
               >
                 {friend.milesRiddenTogether}
               </Text>
             </View>
-            <View style={{ top: 150, width: '50%', left: 65 }}>
+            <View style={{ width: '50%', left: 65, top: 50 }}>
               <Button
                 title='Done'
                 type='solid'
@@ -63,10 +68,12 @@ export class FriendModal extends Component {
 
 const styles = StyleSheet.create({
   avatar: {
-    top: 10,
-    left: 55,
-    width: 40,
-    height: 40
+    backgroundColor: 'blue',
+    top: 20,
+    left: 50,
+    width: 150,
+    height: 150,
+    borderRadius: 50
   }
 });
 
@@ -82,4 +89,4 @@ export const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(FriendModal);
+)(FriendInfoModal);

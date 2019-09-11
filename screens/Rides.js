@@ -5,10 +5,13 @@ import { toggleLogin, setProfileData, toggleLoading } from '../actions';
 import { StyleSheet, View, Text, ScrollView } from 'react-native';
 
 export class Rides extends Component {
+
   displayRides = () => {
+    const { rides } = this.props.profileData.data.user;
     const { allRides } = this.props.rideData.data;
-    return allRides.map(ride => <Ride ride={ride} />);
+    return allRides.map(ride => <Ride ride={ride} userRides={rides} />);
   };
+
   render = () => {
     return (
       <View>
@@ -22,7 +25,8 @@ export class Rides extends Component {
 const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 40,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textAlign: 'center'
   }
 });
 
