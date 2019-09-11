@@ -17,7 +17,6 @@ export class Ride extends Component {
       mapLink
     } = this.props.ride;
     const { userRides } = this.props;
-    console.log(userRides);
     return (
       <View key={id} style={styles.rideContainer}>
         <Text style={styles.title}>{title}</Text>
@@ -66,7 +65,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     fontSize: 20,
-    margin: 'top'
+    marginTop: 10
   },
   mapLink: {
     textAlign: 'center',
