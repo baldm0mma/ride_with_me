@@ -1,0 +1,1 @@
+{"version":3,"sources":["react-navigation.js"],"names":[],"mappings":";;;;AAAA;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AACA;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AAEA;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA","sourcesContent":["export * from '@react-navigation/core';\nexport * from '@react-navigation/native';\n\nexport * from './deprecations';\n"]}

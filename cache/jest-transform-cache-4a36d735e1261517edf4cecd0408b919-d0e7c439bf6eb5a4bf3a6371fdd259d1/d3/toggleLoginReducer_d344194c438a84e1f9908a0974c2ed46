@@ -1,0 +1,21 @@
+72ba29a454ef0b7aaaa5a09c5341d309
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.toggleLoginReducer = void 0;
+
+var toggleLoginReducer = function toggleLoginReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case 'TOGGLE_LOGIN':
+      return action.bool;
+
+    default:
+      return state;
+  }
+};
+
+exports.toggleLoginReducer = toggleLoginReducer;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRvZ2dsZUxvZ2luUmVkdWNlci5qcyJdLCJuYW1lcyI6WyJ0b2dnbGVMb2dpblJlZHVjZXIiLCJzdGF0ZSIsImFjdGlvbiIsInR5cGUiLCJib29sIl0sIm1hcHBpbmdzIjoiOzs7OztBQUFPLElBQU1BLGtCQUFrQixHQUFHLFNBQXJCQSxrQkFBcUIsR0FBMkI7QUFBQSxNQUExQkMsS0FBMEIsdUVBQWxCLEtBQWtCO0FBQUEsTUFBWEMsTUFBVzs7QUFDM0QsVUFBUUEsTUFBTSxDQUFDQyxJQUFmO0FBQ0UsU0FBSyxjQUFMO0FBQ0UsYUFBT0QsTUFBTSxDQUFDRSxJQUFkOztBQUNGO0FBQ0UsYUFBT0gsS0FBUDtBQUpKO0FBTUQsQ0FQTSIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBjb25zdCB0b2dnbGVMb2dpblJlZHVjZXIgPSAoc3RhdGUgPSBmYWxzZSwgYWN0aW9uKSA9PiB7XG4gIHN3aXRjaCAoYWN0aW9uLnR5cGUpIHtcbiAgICBjYXNlICdUT0dHTEVfTE9HSU4nOlxuICAgICAgcmV0dXJuIGFjdGlvbi5ib29sO1xuICAgIGRlZmF1bHQ6XG4gICAgICByZXR1cm4gc3RhdGU7XG4gIH1cbn07XG4iXX0=

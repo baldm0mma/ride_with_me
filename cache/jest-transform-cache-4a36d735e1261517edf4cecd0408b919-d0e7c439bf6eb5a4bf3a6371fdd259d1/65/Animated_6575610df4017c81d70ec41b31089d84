@@ -1,0 +1,41 @@
+1650cad5c171c34c2a6afc3e7355a420
+'use strict';
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _Platform = _interopRequireDefault(require("../../Utilities/Platform"));
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+var AnimatedImplementation = _Platform.default.isTesting ? require("./AnimatedMock") : require("./AnimatedImplementation");
+module.exports = _objectSpread({
+  get FlatList() {
+    return require("./components/AnimatedFlatList");
+  },
+
+  get Image() {
+    return require("./components/AnimatedImage");
+  },
+
+  get ScrollView() {
+    return require("./components/AnimatedScrollView");
+  },
+
+  get SectionList() {
+    return require("./components/AnimatedSectionList");
+  },
+
+  get Text() {
+    return require("./components/AnimatedText");
+  },
+
+  get View() {
+    return require("./components/AnimatedView");
+  }
+
+}, AnimatedImplementation);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkFuaW1hdGVkLmpzIl0sIm5hbWVzIjpbIkFuaW1hdGVkSW1wbGVtZW50YXRpb24iLCJQbGF0Zm9ybSIsImlzVGVzdGluZyIsInJlcXVpcmUiLCJtb2R1bGUiLCJleHBvcnRzIiwiRmxhdExpc3QiLCJJbWFnZSIsIlNjcm9sbFZpZXciLCJTZWN0aW9uTGlzdCIsIlRleHQiLCJWaWV3Il0sIm1hcHBpbmdzIjoiQUFVQTs7Ozs7O0FBRUE7Ozs7OztBQUVBLElBQU1BLHNCQUFzQixHQUFHQyxrQkFBU0MsU0FBVCxHQUMzQkMsT0FBTyxrQkFEb0IsR0FFM0JBLE9BQU8sNEJBRlg7QUFJQUMsTUFBTSxDQUFDQyxPQUFQO0FBQ0UsTUFBSUMsUUFBSixHQUFlO0FBQ2IsV0FBT0gsT0FBTyxpQ0FBZDtBQUNELEdBSEg7O0FBSUUsTUFBSUksS0FBSixHQUFZO0FBQ1YsV0FBT0osT0FBTyw4QkFBZDtBQUNELEdBTkg7O0FBT0UsTUFBSUssVUFBSixHQUFpQjtBQUNmLFdBQU9MLE9BQU8sbUNBQWQ7QUFDRCxHQVRIOztBQVVFLE1BQUlNLFdBQUosR0FBa0I7QUFDaEIsV0FBT04sT0FBTyxvQ0FBZDtBQUNELEdBWkg7O0FBYUUsTUFBSU8sSUFBSixHQUFXO0FBQ1QsV0FBT1AsT0FBTyw2QkFBZDtBQUNELEdBZkg7O0FBZ0JFLE1BQUlRLElBQUosR0FBVztBQUNULFdBQU9SLE9BQU8sNkJBQWQ7QUFDRDs7QUFsQkgsR0FtQktILHNCQW5CTCIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQ29weXJpZ2h0IChjKSBGYWNlYm9vaywgSW5jLiBhbmQgaXRzIGFmZmlsaWF0ZXMuXG4gKlxuICogVGhpcyBzb3VyY2UgY29kZSBpcyBsaWNlbnNlZCB1bmRlciB0aGUgTUlUIGxpY2Vuc2UgZm91bmQgaW4gdGhlXG4gKiBMSUNFTlNFIGZpbGUgaW4gdGhlIHJvb3QgZGlyZWN0b3J5IG9mIHRoaXMgc291cmNlIHRyZWUuXG4gKlxuICogQGZsb3dcbiAqIEBmb3JtYXRcbiAqL1xuXG4ndXNlIHN0cmljdCc7XG5cbmltcG9ydCBQbGF0Zm9ybSBmcm9tICcuLi8uLi9VdGlsaXRpZXMvUGxhdGZvcm0nO1xuXG5jb25zdCBBbmltYXRlZEltcGxlbWVudGF0aW9uID0gUGxhdGZvcm0uaXNUZXN0aW5nXG4gID8gcmVxdWlyZSgnLi9BbmltYXRlZE1vY2snKVxuICA6IHJlcXVpcmUoJy4vQW5pbWF0ZWRJbXBsZW1lbnRhdGlvbicpO1xuXG5tb2R1bGUuZXhwb3J0cyA9IHtcbiAgZ2V0IEZsYXRMaXN0KCkge1xuICAgIHJldHVybiByZXF1aXJlKCcuL2NvbXBvbmVudHMvQW5pbWF0ZWRGbGF0TGlzdCcpO1xuICB9LFxuICBnZXQgSW1hZ2UoKSB7XG4gICAgcmV0dXJuIHJlcXVpcmUoJy4vY29tcG9uZW50cy9BbmltYXRlZEltYWdlJyk7XG4gIH0sXG4gIGdldCBTY3JvbGxWaWV3KCkge1xuICAgIHJldHVybiByZXF1aXJlKCcuL2NvbXBvbmVudHMvQW5pbWF0ZWRTY3JvbGxWaWV3Jyk7XG4gIH0sXG4gIGdldCBTZWN0aW9uTGlzdCgpIHtcbiAgICByZXR1cm4gcmVxdWlyZSgnLi9jb21wb25lbnRzL0FuaW1hdGVkU2VjdGlvbkxpc3QnKTtcbiAgfSxcbiAgZ2V0IFRleHQoKSB7XG4gICAgcmV0dXJuIHJlcXVpcmUoJy4vY29tcG9uZW50cy9BbmltYXRlZFRleHQnKTtcbiAgfSxcbiAgZ2V0IFZpZXcoKSB7XG4gICAgcmV0dXJuIHJlcXVpcmUoJy4vY29tcG9uZW50cy9BbmltYXRlZFZpZXcnKTtcbiAgfSxcbiAgLi4uQW5pbWF0ZWRJbXBsZW1lbnRhdGlvbixcbn07XG4iXX0=

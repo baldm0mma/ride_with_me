@@ -1,0 +1,47 @@
+e5ff220339dddefa9602d0bb0d2fceab
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
+var React = _interopRequireWildcard(require("react"));
+
+var _theming = require("./theming");
+
+var _Portal = _interopRequireDefault(require("../components/Portal/Portal"));
+
+var Provider = function (_React$Component) {
+  (0, _inherits2.default)(Provider, _React$Component);
+
+  function Provider() {
+    (0, _classCallCheck2.default)(this, Provider);
+    return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(Provider).apply(this, arguments));
+  }
+
+  (0, _createClass2.default)(Provider, [{
+    key: "render",
+    value: function render() {
+      return React.createElement(_Portal.default.Host, null, React.createElement(_theming.ThemeProvider, {
+        theme: this.props.theme
+      }, this.props.children));
+    }
+  }]);
+  return Provider;
+}(React.Component);
+
+exports.default = Provider;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlByb3ZpZGVyLmpzIl0sIm5hbWVzIjpbIlByb3ZpZGVyIiwicHJvcHMiLCJ0aGVtZSIsImNoaWxkcmVuIiwiUmVhY3QiLCJDb21wb25lbnQiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFFQTs7QUFDQTs7QUFDQTs7SUFRcUJBLFE7Ozs7Ozs7Ozs7NkJBQ1Y7QUFDUCxhQUNFLG9CQUFDLGVBQUQsQ0FBUSxJQUFSLFFBQ0Usb0JBQUMsc0JBQUQ7QUFBZSxRQUFBLEtBQUssRUFBRSxLQUFLQyxLQUFMLENBQVdDO0FBQWpDLFNBQ0csS0FBS0QsS0FBTCxDQUFXRSxRQURkLENBREYsQ0FERjtBQU9EOzs7RUFUbUNDLEtBQUssQ0FBQ0MsUyIsInNvdXJjZXNDb250ZW50IjpbIi8qIEBmbG93ICovXG5cbmltcG9ydCAqIGFzIFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7IFRoZW1lUHJvdmlkZXIgfSBmcm9tICcuL3RoZW1pbmcnO1xuaW1wb3J0IFBvcnRhbCBmcm9tICcuLi9jb21wb25lbnRzL1BvcnRhbC9Qb3J0YWwnO1xuaW1wb3J0IHR5cGUgeyBUaGVtZSB9IGZyb20gJy4uL3R5cGVzJztcblxudHlwZSBQcm9wcyA9IHtcbiAgY2hpbGRyZW46IFJlYWN0Lk5vZGUsXG4gIHRoZW1lPzogJFNoYXBlPFRoZW1lPixcbn07XG5cbmV4cG9ydCBkZWZhdWx0IGNsYXNzIFByb3ZpZGVyIGV4dGVuZHMgUmVhY3QuQ29tcG9uZW50PFByb3BzPiB7XG4gIHJlbmRlcigpIHtcbiAgICByZXR1cm4gKFxuICAgICAgPFBvcnRhbC5Ib3N0PlxuICAgICAgICA8VGhlbWVQcm92aWRlciB0aGVtZT17dGhpcy5wcm9wcy50aGVtZX0+XG4gICAgICAgICAge3RoaXMucHJvcHMuY2hpbGRyZW59XG4gICAgICAgIDwvVGhlbWVQcm92aWRlcj5cbiAgICAgIDwvUG9ydGFsLkhvc3Q+XG4gICAgKTtcbiAgfVxufVxuIl19

@@ -1,0 +1,69 @@
+9e9068bef6dd213c84feabfbfee2ff60
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
+var React = _interopRequireWildcard(require("react"));
+
+var _reactNative = require("react-native");
+
+var _color = _interopRequireDefault(require("color"));
+
+var _ProgressBarComponent = _interopRequireDefault(require("./ProgressBarComponent"));
+
+var _theming = require("../../core/theming");
+
+var ProgressBar = function (_React$Component) {
+  (0, _inherits2.default)(ProgressBar, _React$Component);
+
+  function ProgressBar() {
+    (0, _classCallCheck2.default)(this, ProgressBar);
+    return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(ProgressBar).apply(this, arguments));
+  }
+
+  (0, _createClass2.default)(ProgressBar, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          progress = _this$props.progress,
+          color = _this$props.color,
+          style = _this$props.style,
+          theme = _this$props.theme;
+      var tintColor = color || theme.colors.primary;
+      var trackTintColor = (0, _color.default)(tintColor).alpha(0.38).rgb().string();
+      return React.createElement(_ProgressBarComponent.default, {
+        progress: progress,
+        progressTintColor: tintColor,
+        style: [styles.progressBarHeight, style],
+        trackTintColor: trackTintColor
+      });
+    }
+  }]);
+  return ProgressBar;
+}(React.Component);
+
+var styles = _reactNative.StyleSheet.create({
+  progressBarHeight: {
+    paddingVertical: 10
+  }
+});
+
+var _default = (0, _theming.withTheme)(ProgressBar);
+
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlByb2dyZXNzQmFyLmpzIl0sIm5hbWVzIjpbIlByb2dyZXNzQmFyIiwicHJvcHMiLCJwcm9ncmVzcyIsImNvbG9yIiwic3R5bGUiLCJ0aGVtZSIsInRpbnRDb2xvciIsImNvbG9ycyIsInByaW1hcnkiLCJ0cmFja1RpbnRDb2xvciIsImFscGhhIiwicmdiIiwic3RyaW5nIiwic3R5bGVzIiwicHJvZ3Jlc3NCYXJIZWlnaHQiLCJSZWFjdCIsIkNvbXBvbmVudCIsIlN0eWxlU2hlZXQiLCJjcmVhdGUiLCJwYWRkaW5nVmVydGljYWwiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFFQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFDQTs7SUFzQ01BLFc7Ozs7Ozs7Ozs7NkJBQ0s7QUFBQSx3QkFDbUMsS0FBS0MsS0FEeEM7QUFBQSxVQUNDQyxRQURELGVBQ0NBLFFBREQ7QUFBQSxVQUNXQyxLQURYLGVBQ1dBLEtBRFg7QUFBQSxVQUNrQkMsS0FEbEIsZUFDa0JBLEtBRGxCO0FBQUEsVUFDeUJDLEtBRHpCLGVBQ3lCQSxLQUR6QjtBQUVQLFVBQU1DLFNBQVMsR0FBR0gsS0FBSyxJQUFJRSxLQUFLLENBQUNFLE1BQU4sQ0FBYUMsT0FBeEM7QUFDQSxVQUFNQyxjQUFjLEdBQUcsb0JBQVNILFNBQVQsRUFDcEJJLEtBRG9CLENBQ2QsSUFEYyxFQUVwQkMsR0FGb0IsR0FHcEJDLE1BSG9CLEVBQXZCO0FBS0EsYUFDRSxvQkFBQyw2QkFBRDtBQUNFLFFBQUEsUUFBUSxFQUFFVixRQURaO0FBRUUsUUFBQSxpQkFBaUIsRUFBRUksU0FGckI7QUFHRSxRQUFBLEtBQUssRUFBRSxDQUFDTyxNQUFNLENBQUNDLGlCQUFSLEVBQTJCVixLQUEzQixDQUhUO0FBSUUsUUFBQSxjQUFjLEVBQUVLO0FBSmxCLFFBREY7QUFRRDs7O0VBakJ1Qk0sS0FBSyxDQUFDQyxTOztBQW9CaEMsSUFBTUgsTUFBTSxHQUFHSSx3QkFBV0MsTUFBWCxDQUFrQjtBQUMvQkosRUFBQUEsaUJBQWlCLEVBQUU7QUFDakJLLElBQUFBLGVBQWUsRUFBRTtBQURBO0FBRFksQ0FBbEIsQ0FBZjs7ZUFNZSx3QkFBVW5CLFdBQVYsQyIsInNvdXJjZXNDb250ZW50IjpbIi8qIEBmbG93ICovXG5cbmltcG9ydCAqIGFzIFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7IFN0eWxlU2hlZXQgfSBmcm9tICdyZWFjdC1uYXRpdmUnO1xuaW1wb3J0IHNldENvbG9yIGZyb20gJ2NvbG9yJztcbmltcG9ydCBQcm9ncmVzc0JhckNvbXBvbmVudCBmcm9tICcuL1Byb2dyZXNzQmFyQ29tcG9uZW50JztcbmltcG9ydCB7IHdpdGhUaGVtZSB9IGZyb20gJy4uLy4uL2NvcmUvdGhlbWluZyc7XG5pbXBvcnQgdHlwZSB7IFRoZW1lIH0gZnJvbSAnLi4vLi4vdHlwZXMnO1xuXG50eXBlIFByb3BzID0ge3xcbiAgLyoqXG4gICAqIFByb2dyZXNzIHZhbHVlIChiZXR3ZWVuIDAgYW5kIDEpLlxuICAgKi9cbiAgcHJvZ3Jlc3M6IG51bWJlcixcbiAgLyoqXG4gICAqIENvbG9yIG9mIHRoZSBwcm9ncmVzcyBiYXIuXG4gICAqL1xuICBjb2xvcj86IHN0cmluZyxcbiAgc3R5bGU/OiBhbnksXG4gIC8qKlxuICAgKiBAb3B0aW9uYWxcbiAgICovXG4gIHRoZW1lOiBUaGVtZSxcbnx9O1xuXG4vKipcbiAqIFByb2dyZXNzIGJhciBpcyBhbiBpbmRpY2F0b3IgdXNlZCB0byBwcmVzZW50IHByb2dyZXNzIG9mIHNvbWUgYWN0aXZpdHkgaW4gdGhlIGFwcC5cbiAqXG4gKiA8ZGl2IGNsYXNzPVwic2NyZWVuc2hvdHNcIj5cbiAqICAgPGltZyBzcmM9XCJzY3JlZW5zaG90cy9wcm9ncmVzcy1iYXIucG5nXCIgLz5cbiAqIDwvZGl2PlxuICpcbiAqICMjIFVzYWdlXG4gKiBgYGBqc1xuICogaW1wb3J0ICogYXMgUmVhY3QgZnJvbSAncmVhY3QnO1xuICogaW1wb3J0IHsgUHJvZ3Jlc3NCYXIsIENvbG9ycyB9IGZyb20gJ3JlYWN0LW5hdGl2ZS1wYXBlcic7XG4gKlxuICogY29uc3QgTXlDb21wb25lbnQgPSAoKSA9PiAoXG4gKiAgIDxQcm9ncmVzc0JhciBwcm9ncmVzcz17MC41fSBjb2xvcj17Q29sb3JzLnJlZDgwMH0gLz5cbiAqICk7XG4gKlxuICogZXhwb3J0IGRlZmF1bHQgTXlDb21wb25lbnQ7XG4gKiBgYGBcbiAqL1xuY2xhc3MgUHJvZ3Jlc3NCYXIgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnQ8UHJvcHM+IHtcbiAgcmVuZGVyKCkge1xuICAgIGNvbnN0IHsgcHJvZ3Jlc3MsIGNvbG9yLCBzdHlsZSwgdGhlbWUgfSA9IHRoaXMucHJvcHM7XG4gICAgY29uc3QgdGludENvbG9yID0gY29sb3IgfHwgdGhlbWUuY29sb3JzLnByaW1hcnk7XG4gICAgY29uc3QgdHJhY2tUaW50Q29sb3IgPSBzZXRDb2xvcih0aW50Q29sb3IpXG4gICAgICAuYWxwaGEoMC4zOClcbiAgICAgIC5yZ2IoKVxuICAgICAgLnN0cmluZygpO1xuXG4gICAgcmV0dXJuIChcbiAgICAgIDxQcm9ncmVzc0JhckNvbXBvbmVudFxuICAgICAgICBwcm9ncmVzcz17cHJvZ3Jlc3N9XG4gICAgICAgIHByb2dyZXNzVGludENvbG9yPXt0aW50Q29sb3J9XG4gICAgICAgIHN0eWxlPXtbc3R5bGVzLnByb2dyZXNzQmFySGVpZ2h0LCBzdHlsZV19XG4gICAgICAgIHRyYWNrVGludENvbG9yPXt0cmFja1RpbnRDb2xvcn1cbiAgICAgIC8+XG4gICAgKTtcbiAgfVxufVxuXG5jb25zdCBzdHlsZXMgPSBTdHlsZVNoZWV0LmNyZWF0ZSh7XG4gIHByb2dyZXNzQmFySGVpZ2h0OiB7XG4gICAgcGFkZGluZ1ZlcnRpY2FsOiAxMCxcbiAgfSxcbn0pO1xuXG5leHBvcnQgZGVmYXVsdCB3aXRoVGhlbWUoUHJvZ3Jlc3NCYXIpO1xuIl19
