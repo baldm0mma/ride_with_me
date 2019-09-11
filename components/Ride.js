@@ -12,6 +12,11 @@ import { connect } from 'react-redux';
 import FriendIcon from '../components/FriendIcon';
 
 export class Ride extends Component {
+  getRideToggle = () => {
+    const { userRides } = this.props;
+    return userRides.find(ride => ride.id === this.props.ride.id);
+  };
+  
   render = () => {
     const {
       id,
@@ -24,7 +29,6 @@ export class Ride extends Component {
       imageLink,
       mapLink
     } = this.props.ride;
-    const { userRides } = this.props;
     return (
       <TouchableOpacity onPress={() => Linking.openURL(mapLink)}>
         <View key={id} style={styles.rideContainer}>
@@ -43,7 +47,7 @@ export class Ride extends Component {
           </View>
           <View style={styles.attending}>
             <Text>Attending?</Text>
-            <Switch value={true}></Switch>
+            <Switch value={this.getRideToggle() ? true : false}></Switch>
           </View>
         </View>
       </TouchableOpacity>
