@@ -10,7 +10,7 @@ import React, { Component } from 'react';
 import SplashPage from './screens/SplashPage';
 import Rides from './screens/Rides';
 import ApolloClient from 'apollo-boost';
-import { gql } from 'apollo-boost';
+// import { gql } from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 
 const client = new ApolloClient({

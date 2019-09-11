@@ -1,6 +1,6 @@
-export const toggleCurrentFriendReducer = (state = null, action) => {
+export const toggleCurrentFriendReducer = (state = 0, action) => {
   switch (action.type) {
-    case 'TOOGLE_CURRENT_FRIEND':
+    case 'TOGGLE_CURRENT_FRIEND':
       return action.num;
     default:
       return state;
