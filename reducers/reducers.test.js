@@ -71,14 +71,18 @@ describe('setRideDataReducer', () => {
 
 describe('toggleCurrentFriendReducer', () => {
     it('should return initial state', () => {
-        const expected = 0;
-        const result = toggleCurrentFriendReducer(undefined, expected)
+        const state = null;
+        const action = {
+            type: 'TOGGLE_CURRENT_FRIEND'
+        }
+        const expected = undefined;
+        const result = toggleCurrentFriendReducer(state, action)
 
         expect(result).toEqual(expected)
     });
     
     it('should update state with TOGGLE_CURRENT_FRIEND', () => {
-        const state = 0;
+        const state = null;
         const num = 2;
 
         const action = {
@@ -95,14 +99,18 @@ describe('toggleCurrentFriendReducer', () => {
 
 describe('toggleCurrentRideReducer', () => {
     it('should return initial state', () => {
-        const expected = 0;
-        const result = toggleCurrentRideReducer(undefined, expected);
+        const state = null
+        const action = {
+            type: 'TOGGLE_CURRENT_RIDE'
+        };
+        const expected = undefined
+        const result = toggleCurrentRideReducer(state, action);
 
         expect(result).toEqual(expected)
     });
 
     it('should update state with TOGGLE_CURRENT_RIDE', () => {
-        const state = 0
+        const state = null;
         const num = 4;
 
         const action = {
