@@ -19,7 +19,6 @@ export class LoginModal extends Component {
   };
 
   handleEstablishedUser = () => {
-    // POST call to backend, and recieve back an ID if successful
     this.props.toggleLogin(false);
     this.clearInputs();
     this.props.navigation.navigate('Dash');
@@ -86,19 +85,6 @@ export class LoginModal extends Component {
   };
 }
 
-export const mapStateToProps = ({ profileData }) => ({
-  profileData
-});
-
-export const mapDispatchToProps = dispatch => ({
-  toggleLogin: bool => dispatch(toggleLogin(bool))
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(LoginModal);
-
 const styles = StyleSheet.create({
   title: {
     padding: 20,
@@ -106,9 +92,14 @@ const styles = StyleSheet.create({
   },
   button: {
     padding: 20
-  },
-  container: {
-    borderColor: '#D39A2B',
-    borderWidth: 2
   }
 });
+
+export const mapDispatchToProps = dispatch => ({
+  toggleLogin: bool => dispatch(toggleLogin(bool))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(LoginModal);

@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { toggleRideAttendance } from '../actions/index';
-import FriendIcon from '../components/FriendIcon';
 
 export class Ride extends Component {
   constructor() {
