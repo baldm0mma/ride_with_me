@@ -22,3 +22,8 @@ export const toggleCurrentRide = num => ({
   type: 'TOGGLE_CURRENT_RIDE',
   num
 });
+
+export const toggleLoading = bool => ({
+  type: 'TOGGLE_LOADING',
+  bool
+})
