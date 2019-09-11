@@ -1,0 +1,15 @@
+c73ff0b186deee2a83dcc08c6905e456
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "createMaterialBottomTabNavigator", {
+  enumerable: true,
+  get: function get() {
+    return _createMaterialBottomTabNavigator.default;
+  }
+});
+
+var _createMaterialBottomTabNavigator = _interopRequireDefault(require("./navigators/createMaterialBottomTabNavigator"));
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluZGV4LmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7OztBQUFBIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IHsgZGVmYXVsdCBhcyBjcmVhdGVNYXRlcmlhbEJvdHRvbVRhYk5hdmlnYXRvciB9IGZyb20gJy4vbmF2aWdhdG9ycy9jcmVhdGVNYXRlcmlhbEJvdHRvbVRhYk5hdmlnYXRvcic7Il19

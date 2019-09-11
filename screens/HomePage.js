@@ -1,51 +1,56 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { fetchUsers } from '../utilz/apiCalls';
+import { useQuery } from '@apollo/react-hooks';
+import { setUsers } from '../actions'
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import ThumbProfile from '../components/ThumbProfile'
+
 
 export class HomePage extends Component {
+  componentDidMount = async () => {
+    const { setUsers } = this.props
+    const { loading, error, data } = useQuery(fetchUsers);
+    
+    if (loading) return 'Loading...';
+    if (error) return `Error! ${error.message}`;
+
+    setUsers(data.allUsers)
+    console.log(this.props.users)
+  }
+
   render = () => {
     return (
       <View style={styles.page}>
         {/* <Image
           style={styles.logo}
           source={require('../assets/logo.png')}
-        ></Image> */}
+        /> */}
         <Text style={styles.headingOne}>Welcome, Jev!</Text>
         <Text style={styles.headingTwo}>Jev's Gang</Text>
         <View style={styles.friendList}>
-          <Image
-            style={styles.friends}
-            source={require('../assets/001-helmet.png')}
-          />
-          <Image
-            style={styles.friends}
-            source={require('../assets/002-helmet.png')}
-          />
-          <Image
-            style={styles.friends}
-            source={require('../assets/003-helmet.png')}
-          />
-          <Image
-            style={styles.friends}
-            source={require('../assets/004-helmet.png')}
-          />
-          <Image
-            style={styles.friends}
-            source={require('../assets/005-helmet.png')}
-          />
-          <Image
-            style={styles.friends}
-            source={require('../assets/006-helmet.png')}
-          />
+          {friends}
         </View>
         <Text style={styles.headingThree}>Upcoming Rides</Text>
-        {/* <ScrollView style={styles.scroll}>
-          <Text>Sunday 9/8 | Golden</Text>
-          <Text>Sunday 9/8 | Golden</Text>
-          <Text>Sunday 9/8 | Golden</Text>
-          <Text>Sunday 9/8 | Golden</Text>
-        </ScrollView> */}
+        <ScrollView style={styles.scroll} horizontal={true}>
+          <RideSlider>
+            <Image source={require('../assets/001-motoride.jpg')} style={styles.rideImg}/>
+            <RideInfo>September 8     |    Golden, CO</RideInfo>
+          </RideSlider>
+          <RideSlider>
+            <Image source={require('../assets/002-motoride.jpg')} style={styles.rideImg}/> 
+            <RideInfo>September 8     |    Golden, CO</RideInfo>
+          </RideSlider>
+          <RideSlider>
+            <Image source={require('../assets/003-motoride.jpg')} style={styles.rideImg}/>
+            <RideInfo>September 8     |    Golden, CO</RideInfo>
+          </RideSlider>
+          <RideSlider>
+            <Image source={require('../assets/004-motoride.jpg')} style={styles.rideImg}/>
+            <RideInfo>September 8     |    Golden, CO</RideInfo>
+          </RideSlider>
+        </ScrollView>
       </View>
     );
   };
@@ -73,7 +78,7 @@ const styles = StyleSheet.create({
     top: 90
   },
   friends: {
-    backgroundColor: 'black',
+    // backgroundColor: 'black',
     padding: 30,
     position: 'relative',
     top: 50,
@@ -108,22 +113,36 @@ const styles = StyleSheet.create({
   },
   scroll: {
     display: 'flex',
-    justifyContent: 'center',
     top: 250,
     height: 10,
     overflow: 'hidden'
+  },
+  rideImg: {
+    height: 180,
+    width: 180,
+    margin: 'auto'
   }
 });
 
-export const mapStateToProps = ({ profileData }) => ({
-  profileData
+const RideSlider = styled.View`
+  height: 200px;
+  width: 200px;
+`;
+
+const RideInfo = styled.Text`
+  font-size: 22px;
+`;
+
+export const mapStateToProps = ({ profileData, users }) => ({
+  profileData,
+  users
 });
 
-// export const mapDispatchToProps = dispatch => ({
-
-// });
+export const mapDispatchToProps = dispatch => ({
+  setUsers: users => dispatch(setUsers(users))
+});
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(HomePage);

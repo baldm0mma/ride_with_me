@@ -7,7 +7,8 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "postinstall": "rndebugger-open",
-    "lint": "eslint *.js **/*.js"
+    "lint": "eslint *.js **/*.js",
+    "test": "jest --watchAll --verbose"
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.0",
@@ -18,7 +19,6 @@
     "expo": "^34.0.1",
     "graphql": "^14.5.4",
     "react": "16.8.3",
-    "react-dom": "^16.8.6",
     "react-native": "https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz",
     "react-native-elements": "^1.2.0",
     "react-native-gesture-handler": "^1.4.1",
@@ -29,6 +29,7 @@
     "react-navigation-material-bottom-tabs": "^1.1.1",
     "react-navigation-stack": "^1.5.3",
     "react-redux": "^7.1.1",
+    "react-test-renderer": "^16.9.0",
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8",
     "styled-components": "^4.3.2",
@@ -36,11 +37,34 @@
   },
   "devDependencies": {
     "babel-preset-expo": "^6.0.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
+    "jest-environment-enzyme": "^7.1.1",
+    "jest-enzyme": "^7.1.1",
+    "react-dom": "^16.9.0",
     "react-native-debugger-open": "^0.3.22"
+  },
+  "jest": {
+    "preset": "react-native",
+    "cacheDirectory": "./cache",
+    "coveragePathIgnorePatterns": [
+      "./app/utils/vendor"
+    ],
+    "setupFilesAfterEnv": [
+      "/Users/taylorjordan/Turing_Sites/ride_with_me/setupTests.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 80
+      }
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!react-native|react-clone-referenced-element|react-navigation)"
+    ]
   },
   "private": true
 }

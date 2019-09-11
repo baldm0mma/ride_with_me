@@ -1,0 +1,19 @@
+d0e18239dc01adb461dbe35b2951a9ef
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.withTheme = exports.ThemeProvider = void 0;
+
+var _reactThemeProvider = require("@callstack/react-theme-provider");
+
+var _DefaultTheme = _interopRequireDefault(require("../styles/DefaultTheme"));
+
+var _createTheming = (0, _reactThemeProvider.createTheming)(_DefaultTheme.default),
+    ThemeProvider = _createTheming.ThemeProvider,
+    withTheme = _createTheming.withTheme;
+
+exports.withTheme = withTheme;
+exports.ThemeProvider = ThemeProvider;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRoZW1pbmcuanMiXSwibmFtZXMiOlsiRGVmYXVsdFRoZW1lIiwiVGhlbWVQcm92aWRlciIsIndpdGhUaGVtZSJdLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUdBOztBQUlBOztxQkFNcUMsdUNBQWNBLHFCQUFkLEM7SUFGbkNDLGEsa0JBQUFBLGE7SUFDQUMsUyxrQkFBQUEsUyIsInNvdXJjZXNDb250ZW50IjpbIi8qIEBmbG93ICovXG4vKiBlc2xpbnQtZGlzYWJsZSBuby1yZWRlY2xhcmUgKi9cblxuaW1wb3J0IHtcbiAgY3JlYXRlVGhlbWluZyxcbiAgdHlwZSBUaGVtaW5nVHlwZSxcbn0gZnJvbSAnQGNhbGxzdGFjay9yZWFjdC10aGVtZS1wcm92aWRlcic7XG5pbXBvcnQgRGVmYXVsdFRoZW1lIGZyb20gJy4uL3N0eWxlcy9EZWZhdWx0VGhlbWUnO1xuaW1wb3J0IHR5cGUgeyBUaGVtZSwgVGhlbWVTaGFwZSB9IGZyb20gJy4uL3R5cGVzJztcblxuZXhwb3J0IGNvbnN0IHtcbiAgVGhlbWVQcm92aWRlcixcbiAgd2l0aFRoZW1lLFxufTogVGhlbWluZ1R5cGU8P1RoZW1lLCBUaGVtZVNoYXBlPiA9IGNyZWF0ZVRoZW1pbmcoRGVmYXVsdFRoZW1lKTtcbiJdfQ==

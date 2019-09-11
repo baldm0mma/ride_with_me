@@ -1,0 +1,86 @@
+22305c63339651cd54f948c40143743e
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
+var React = _interopRequireWildcard(require("react"));
+
+var PortalConsumer = function (_React$Component) {
+  (0, _inherits2.default)(PortalConsumer, _React$Component);
+
+  function PortalConsumer() {
+    (0, _classCallCheck2.default)(this, PortalConsumer);
+    return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(PortalConsumer).apply(this, arguments));
+  }
+
+  (0, _createClass2.default)(PortalConsumer, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      return _regenerator.default.async(function componentDidMount$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              this._checkManager();
+
+              _context.next = 3;
+              return _regenerator.default.awrap(Promise.resolve());
+
+            case 3:
+              this._key = this.props.manager.mount(this.props.children);
+
+            case 4:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, null, this);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this._checkManager();
+
+      this.props.manager.update(this._key, this.props.children);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this._checkManager();
+
+      this.props.manager.unmount(this._key);
+    }
+  }, {
+    key: "_checkManager",
+    value: function _checkManager() {
+      if (!this.props.manager) {
+        throw new Error('Looks like you forgot to wrap your root component with `Provider` component from `react-native-paper`.\n\n' + "Please read our getting-started guide and make sure you've followed all the required steps.\n\n" + 'https://callstack.github.io/react-native-paper/getting-started.html');
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return null;
+    }
+  }]);
+  return PortalConsumer;
+}(React.Component);
+
+exports.default = PortalConsumer;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlBvcnRhbENvbnN1bWVyLmpzIl0sIm5hbWVzIjpbIlBvcnRhbENvbnN1bWVyIiwiX2NoZWNrTWFuYWdlciIsIlByb21pc2UiLCJyZXNvbHZlIiwiX2tleSIsInByb3BzIiwibWFuYWdlciIsIm1vdW50IiwiY2hpbGRyZW4iLCJ1cGRhdGUiLCJ1bm1vdW50IiwiRXJyb3IiLCJSZWFjdCIsIkNvbXBvbmVudCJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBR0E7O0lBUXFCQSxjOzs7Ozs7Ozs7Ozs7Ozs7QUFFakIsbUJBQUtDLGFBQUw7OztnREFHTUMsT0FBTyxDQUFDQyxPQUFSLEU7OztBQUVOLG1CQUFLQyxJQUFMLEdBQVksS0FBS0MsS0FBTCxDQUFXQyxPQUFYLENBQW1CQyxLQUFuQixDQUF5QixLQUFLRixLQUFMLENBQVdHLFFBQXBDLENBQVo7Ozs7Ozs7Ozs7O3lDQUdtQjtBQUNuQixXQUFLUCxhQUFMOztBQUVBLFdBQUtJLEtBQUwsQ0FBV0MsT0FBWCxDQUFtQkcsTUFBbkIsQ0FBMEIsS0FBS0wsSUFBL0IsRUFBcUMsS0FBS0MsS0FBTCxDQUFXRyxRQUFoRDtBQUNEOzs7MkNBRXNCO0FBQ3JCLFdBQUtQLGFBQUw7O0FBRUEsV0FBS0ksS0FBTCxDQUFXQyxPQUFYLENBQW1CSSxPQUFuQixDQUEyQixLQUFLTixJQUFoQztBQUNEOzs7b0NBSWU7QUFDZCxVQUFJLENBQUMsS0FBS0MsS0FBTCxDQUFXQyxPQUFoQixFQUF5QjtBQUN2QixjQUFNLElBQUlLLEtBQUosQ0FDSiwrR0FDRSxpR0FERixHQUVFLHFFQUhFLENBQU47QUFLRDtBQUNGOzs7NkJBQ1E7QUFDUCxhQUFPLElBQVA7QUFDRDs7O0VBbkN5Q0MsS0FBSyxDQUFDQyxTIiwic291cmNlc0NvbnRlbnQiOlsiLyogQGZsb3cgKi9cbi8qIGVzbGludC1kaXNhYmxlIHJlYWN0L25vLXVudXNlZC1wcm9wLXR5cGVzICovXG5cbmltcG9ydCAqIGFzIFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCB0eXBlIHsgUG9ydGFsTWV0aG9kcyB9IGZyb20gJy4vUG9ydGFsSG9zdCc7XG5cbnR5cGUgUHJvcHMgPSB7fFxuICBtYW5hZ2VyOiBQb3J0YWxNZXRob2RzLFxuICBjaGlsZHJlbjogUmVhY3QuTm9kZSxcbnx9O1xuXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBQb3J0YWxDb25zdW1lciBleHRlbmRzIFJlYWN0LkNvbXBvbmVudDxQcm9wcz4ge1xuICBhc3luYyBjb21wb25lbnREaWRNb3VudCgpIHtcbiAgICB0aGlzLl9jaGVja01hbmFnZXIoKTtcblxuICAgIC8vIERlbGF5IHVwZGF0aW5nIHRvIHByZXZlbnQgUmVhY3QgZnJvbSBnb2luZyB0byBpbmZpbml0ZSBsb29wXG4gICAgYXdhaXQgUHJvbWlzZS5yZXNvbHZlKCk7XG5cbiAgICB0aGlzLl9rZXkgPSB0aGlzLnByb3BzLm1hbmFnZXIubW91bnQodGhpcy5wcm9wcy5jaGlsZHJlbik7XG4gIH1cblxuICBjb21wb25lbnREaWRVcGRhdGUoKSB7XG4gICAgdGhpcy5fY2hlY2tNYW5hZ2VyKCk7XG5cbiAgICB0aGlzLnByb3BzLm1hbmFnZXIudXBkYXRlKHRoaXMuX2tleSwgdGhpcy5wcm9wcy5jaGlsZHJlbik7XG4gIH1cblxuICBjb21wb25lbnRXaWxsVW5tb3VudCgpIHtcbiAgICB0aGlzLl9jaGVja01hbmFnZXIoKTtcblxuICAgIHRoaXMucHJvcHMubWFuYWdlci51bm1vdW50KHRoaXMuX2tleSk7XG4gIH1cblxuICBfa2V5OiBhbnk7XG5cbiAgX2NoZWNrTWFuYWdlcigpIHtcbiAgICBpZiAoIXRoaXMucHJvcHMubWFuYWdlcikge1xuICAgICAgdGhyb3cgbmV3IEVycm9yKFxuICAgICAgICAnTG9va3MgbGlrZSB5b3UgZm9yZ290IHRvIHdyYXAgeW91ciByb290IGNvbXBvbmVudCB3aXRoIGBQcm92aWRlcmAgY29tcG9uZW50IGZyb20gYHJlYWN0LW5hdGl2ZS1wYXBlcmAuXFxuXFxuJyArXG4gICAgICAgICAgXCJQbGVhc2UgcmVhZCBvdXIgZ2V0dGluZy1zdGFydGVkIGd1aWRlIGFuZCBtYWtlIHN1cmUgeW91J3ZlIGZvbGxvd2VkIGFsbCB0aGUgcmVxdWlyZWQgc3RlcHMuXFxuXFxuXCIgK1xuICAgICAgICAgICdodHRwczovL2NhbGxzdGFjay5naXRodWIuaW8vcmVhY3QtbmF0aXZlLXBhcGVyL2dldHRpbmctc3RhcnRlZC5odG1sJ1xuICAgICAgKTtcbiAgICB9XG4gIH1cbiAgcmVuZGVyKCkge1xuICAgIHJldHVybiBudWxsO1xuICB9XG59XG4iXX0=

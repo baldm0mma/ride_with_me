@@ -19,7 +19,6 @@ import {
 } from '../actions';
 import { getData } from '../utilz/apiCalls';
 import { userProfile, allRides } from '../utilz/urlz';
-
 export class Dashboard extends Component {
   constructor() {
     super();
@@ -59,12 +58,10 @@ export class Dashboard extends Component {
     const rideData = await getData(allRides);
     await this.props.setRideData(rideData);
   };
-
   displayFriends = () => {
     const { friends } = this.state;
     return friends.map(friend => <FriendEmblem friend={friend} />);
   };
-
   render = () => {
     const { username, about, avatar, backgroundImage } = this.state;
     return (
@@ -106,7 +103,6 @@ export class Dashboard extends Component {
     );
   };
 }
-
 const styles = StyleSheet.create({
   page: {
     backgroundColor: '#e6e6e6',
@@ -178,7 +174,6 @@ const styles = StyleSheet.create({
     fontSize: 20
   }
 });
-
 export const mapStateToProps = ({
   profileData,
   rideData,
@@ -192,14 +187,12 @@ export const mapStateToProps = ({
   currentRide,
   isLoading
 });
-
 export const mapDispatchToProps = dispatch => ({
   toggleLogin: bool => dispatch(toggleLogin(bool)),
   toggleLoading: bool => dispatch(toggleLoading(bool)),
   setProfileData: data => dispatch(setProfileData(data)),
   setRideData: data => dispatch(setRideData(data))
 });
-
 export default connect(
   mapStateToProps,
   mapDispatchToProps

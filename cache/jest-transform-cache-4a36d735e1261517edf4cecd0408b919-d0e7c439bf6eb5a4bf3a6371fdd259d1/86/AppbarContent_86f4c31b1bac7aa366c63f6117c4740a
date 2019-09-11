@@ -1,0 +1,102 @@
+b62db890d84526c53d4c2247f61876b1
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
+var React = _interopRequireWildcard(require("react"));
+
+var _reactNative = require("react-native");
+
+var _color = _interopRequireDefault(require("color"));
+
+var _Text = _interopRequireDefault(require("../Typography/Text"));
+
+var _theming = require("../../core/theming");
+
+var _colors = require("../../styles/colors");
+
+var AppbarContent = function (_React$Component) {
+  (0, _inherits2.default)(AppbarContent, _React$Component);
+
+  function AppbarContent() {
+    (0, _classCallCheck2.default)(this, AppbarContent);
+    return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(AppbarContent).apply(this, arguments));
+  }
+
+  (0, _createClass2.default)(AppbarContent, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          _this$props$color = _this$props.color,
+          titleColor = _this$props$color === void 0 ? _colors.black : _this$props$color,
+          subtitle = _this$props.subtitle,
+          subtitleStyle = _this$props.subtitleStyle,
+          onPress = _this$props.onPress,
+          style = _this$props.style,
+          titleStyle = _this$props.titleStyle,
+          theme = _this$props.theme,
+          title = _this$props.title,
+          rest = (0, _objectWithoutProperties2.default)(_this$props, ["color", "subtitle", "subtitleStyle", "onPress", "style", "titleStyle", "theme", "title"]);
+      var fonts = theme.fonts;
+      var subtitleColor = (0, _color.default)(titleColor).alpha(0.7).rgb().string();
+      return React.createElement(_reactNative.TouchableWithoutFeedback, {
+        onPress: onPress
+      }, React.createElement(_reactNative.View, (0, _extends2.default)({
+        style: [styles.container, style]
+      }, rest), React.createElement(_Text.default, {
+        style: [{
+          color: titleColor,
+          fontFamily: _reactNative.Platform.OS === 'ios' ? fonts.regular : fonts.medium
+        }, styles.title, titleStyle],
+        numberOfLines: 1,
+        accessibilityTraits: "header",
+        accessibilityRole: _reactNative.Platform.OS === 'web' ? 'heading' : 'header'
+      }, title), subtitle ? React.createElement(_Text.default, {
+        style: [styles.subtitle, {
+          color: subtitleColor
+        }, subtitleStyle],
+        numberOfLines: 1
+      }, subtitle) : null));
+    }
+  }]);
+  return AppbarContent;
+}(React.Component);
+
+AppbarContent.displayName = 'Appbar.Content';
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: 12
+  },
+  title: {
+    fontSize: _reactNative.Platform.OS === 'ios' ? 17 : 20
+  },
+  subtitle: {
+    fontSize: _reactNative.Platform.OS === 'ios' ? 11 : 14
+  }
+});
+
+var _default = (0, _theming.withTheme)(AppbarContent);
+
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkFwcGJhckNvbnRlbnQuanMiXSwibmFtZXMiOlsiQXBwYmFyQ29udGVudCIsInByb3BzIiwiY29sb3IiLCJ0aXRsZUNvbG9yIiwiYmxhY2siLCJzdWJ0aXRsZSIsInN1YnRpdGxlU3R5bGUiLCJvblByZXNzIiwic3R5bGUiLCJ0aXRsZVN0eWxlIiwidGhlbWUiLCJ0aXRsZSIsInJlc3QiLCJmb250cyIsInN1YnRpdGxlQ29sb3IiLCJhbHBoYSIsInJnYiIsInN0cmluZyIsInN0eWxlcyIsImNvbnRhaW5lciIsImZvbnRGYW1pbHkiLCJQbGF0Zm9ybSIsIk9TIiwicmVndWxhciIsIm1lZGl1bSIsIlJlYWN0IiwiQ29tcG9uZW50IiwiZGlzcGxheU5hbWUiLCJTdHlsZVNoZWV0IiwiY3JlYXRlIiwiZmxleCIsInBhZGRpbmdIb3Jpem9udGFsIiwiZm9udFNpemUiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBRUE7O0FBQ0E7O0FBTUE7O0FBRUE7O0FBRUE7O0FBQ0E7O0lBdUNNQSxhOzs7Ozs7Ozs7OzZCQUdLO0FBQUEsd0JBV0gsS0FBS0MsS0FYRjtBQUFBLDBDQUVMQyxLQUZLO0FBQUEsVUFFRUMsVUFGRixrQ0FFZUMsYUFGZjtBQUFBLFVBR0xDLFFBSEssZUFHTEEsUUFISztBQUFBLFVBSUxDLGFBSkssZUFJTEEsYUFKSztBQUFBLFVBS0xDLE9BTEssZUFLTEEsT0FMSztBQUFBLFVBTUxDLEtBTkssZUFNTEEsS0FOSztBQUFBLFVBT0xDLFVBUEssZUFPTEEsVUFQSztBQUFBLFVBUUxDLEtBUkssZUFRTEEsS0FSSztBQUFBLFVBU0xDLEtBVEssZUFTTEEsS0FUSztBQUFBLFVBVUZDLElBVkU7QUFBQSxVQVlDQyxLQVpELEdBWVdILEtBWlgsQ0FZQ0csS0FaRDtBQWNQLFVBQU1DLGFBQWEsR0FBRyxvQkFBTVgsVUFBTixFQUNuQlksS0FEbUIsQ0FDYixHQURhLEVBRW5CQyxHQUZtQixHQUduQkMsTUFIbUIsRUFBdEI7QUFLQSxhQUNFLG9CQUFDLHFDQUFEO0FBQTBCLFFBQUEsT0FBTyxFQUFFVjtBQUFuQyxTQUNFLG9CQUFDLGlCQUFEO0FBQU0sUUFBQSxLQUFLLEVBQUUsQ0FBQ1csTUFBTSxDQUFDQyxTQUFSLEVBQW1CWCxLQUFuQjtBQUFiLFNBQTRDSSxJQUE1QyxHQUNFLG9CQUFDLGFBQUQ7QUFDRSxRQUFBLEtBQUssRUFBRSxDQUNMO0FBQ0VWLFVBQUFBLEtBQUssRUFBRUMsVUFEVDtBQUVFaUIsVUFBQUEsVUFBVSxFQUNSQyxzQkFBU0MsRUFBVCxLQUFnQixLQUFoQixHQUF3QlQsS0FBSyxDQUFDVSxPQUE5QixHQUF3Q1YsS0FBSyxDQUFDVztBQUhsRCxTQURLLEVBTUxOLE1BQU0sQ0FBQ1AsS0FORixFQU9MRixVQVBLLENBRFQ7QUFVRSxRQUFBLGFBQWEsRUFBRSxDQVZqQjtBQVdFLFFBQUEsbUJBQW1CLEVBQUMsUUFYdEI7QUFZRSxRQUFBLGlCQUFpQixFQUNmWSxzQkFBU0MsRUFBVCxLQUFnQixLQUFoQixHQUF5QixTQUF6QixHQUEyQztBQWIvQyxTQWdCR1gsS0FoQkgsQ0FERixFQW1CR04sUUFBUSxHQUNQLG9CQUFDLGFBQUQ7QUFDRSxRQUFBLEtBQUssRUFBRSxDQUFDYSxNQUFNLENBQUNiLFFBQVIsRUFBa0I7QUFBRUgsVUFBQUEsS0FBSyxFQUFFWTtBQUFULFNBQWxCLEVBQTRDUixhQUE1QyxDQURUO0FBRUUsUUFBQSxhQUFhLEVBQUU7QUFGakIsU0FJR0QsUUFKSCxDQURPLEdBT0wsSUExQk4sQ0FERixDQURGO0FBZ0NEOzs7RUF0RHlCb0IsS0FBSyxDQUFDQyxTOztBQUE1QjFCLGEsQ0FDRzJCLFcsR0FBYyxnQjs7QUF3RHZCLElBQU1ULE1BQU0sR0FBR1Usd0JBQVdDLE1BQVgsQ0FBa0I7QUFDL0JWLEVBQUFBLFNBQVMsRUFBRTtBQUNUVyxJQUFBQSxJQUFJLEVBQUUsQ0FERztBQUVUQyxJQUFBQSxpQkFBaUIsRUFBRTtBQUZWLEdBRG9CO0FBSy9CcEIsRUFBQUEsS0FBSyxFQUFFO0FBQ0xxQixJQUFBQSxRQUFRLEVBQUVYLHNCQUFTQyxFQUFULEtBQWdCLEtBQWhCLEdBQXdCLEVBQXhCLEdBQTZCO0FBRGxDLEdBTHdCO0FBUS9CakIsRUFBQUEsUUFBUSxFQUFFO0FBQ1IyQixJQUFBQSxRQUFRLEVBQUVYLHNCQUFTQyxFQUFULEtBQWdCLEtBQWhCLEdBQXdCLEVBQXhCLEdBQTZCO0FBRC9CO0FBUnFCLENBQWxCLENBQWY7O2VBYWUsd0JBQVV0QixhQUFWLEMiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBAZmxvdyAqL1xuXG5pbXBvcnQgKiBhcyBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQge1xuICBWaWV3LFxuICBTdHlsZVNoZWV0LFxuICBQbGF0Zm9ybSxcbiAgVG91Y2hhYmxlV2l0aG91dEZlZWRiYWNrLFxufSBmcm9tICdyZWFjdC1uYXRpdmUnO1xuaW1wb3J0IGNvbG9yIGZyb20gJ2NvbG9yJztcblxuaW1wb3J0IFRleHQgZnJvbSAnLi4vVHlwb2dyYXBoeS9UZXh0JztcblxuaW1wb3J0IHsgd2l0aFRoZW1lIH0gZnJvbSAnLi4vLi4vY29yZS90aGVtaW5nJztcbmltcG9ydCB7IGJsYWNrIH0gZnJvbSAnLi4vLi4vc3R5bGVzL2NvbG9ycyc7XG5cbmltcG9ydCB0eXBlIHsgVGhlbWUsICRSZW1vdmVDaGlsZHJlbiB9IGZyb20gJy4uLy4uL3R5cGVzJztcblxudHlwZSBQcm9wcyA9ICRSZW1vdmVDaGlsZHJlbjx0eXBlb2YgVmlldz4gJiB7fFxuICAvKipcbiAgICogQ3VzdG9tIGNvbG9yIGZvciB0aGUgdGV4dC5cbiAgICovXG4gIGNvbG9yPzogc3RyaW5nLFxuICAvKipcbiAgICogVGV4dCBmb3IgdGhlIHRpdGxlLlxuICAgKi9cbiAgdGl0bGU6IFJlYWN0Lk5vZGUsXG4gIC8qKlxuICAgKiBTdHlsZSBmb3IgdGhlIHRpdGxlLlxuICAgKi9cbiAgdGl0bGVTdHlsZT86IGFueSxcbiAgLyoqXG4gICAqIFRleHQgZm9yIHRoZSBzdWJ0aXRsZS5cbiAgICovXG4gIHN1YnRpdGxlPzogUmVhY3QuTm9kZSxcbiAgLyoqXG4gICAqIFN0eWxlIGZvciB0aGUgc3VidGl0bGUuXG4gICAqL1xuICBzdWJ0aXRsZVN0eWxlPzogYW55LFxuICAvKipcbiAgICogRnVuY3Rpb24gdG8gZXhlY3V0ZSBvbiBwcmVzcy5cbiAgICovXG4gIG9uUHJlc3M/OiAoKSA9PiBtaXhlZCxcbiAgc3R5bGU/OiBhbnksXG4gIC8qKlxuICAgKiBAb3B0aW9uYWxcbiAgICovXG4gIHRoZW1lOiBUaGVtZSxcbnx9O1xuXG4vKipcbiAqIEEgY29tcG9uZW50IHVzZWQgdG8gZGlzcGxheSBhIHRpdGxlIGFuZCBvcHRpb25hbCBzdWJ0aXRsZSBpbiBhIGFwcGJhci5cbiAqL1xuY2xhc3MgQXBwYmFyQ29udGVudCBleHRlbmRzIFJlYWN0LkNvbXBvbmVudDxQcm9wcz4ge1xuICBzdGF0aWMgZGlzcGxheU5hbWUgPSAnQXBwYmFyLkNvbnRlbnQnO1xuXG4gIHJlbmRlcigpIHtcbiAgICBjb25zdCB7XG4gICAgICBjb2xvcjogdGl0bGVDb2xvciA9IGJsYWNrLFxuICAgICAgc3VidGl0bGUsXG4gICAgICBzdWJ0aXRsZVN0eWxlLFxuICAgICAgb25QcmVzcyxcbiAgICAgIHN0eWxlLFxuICAgICAgdGl0bGVTdHlsZSxcbiAgICAgIHRoZW1lLFxuICAgICAgdGl0bGUsXG4gICAgICAuLi5yZXN0XG4gICAgfSA9IHRoaXMucHJvcHM7XG4gICAgY29uc3QgeyBmb250cyB9ID0gdGhlbWU7XG5cbiAgICBjb25zdCBzdWJ0aXRsZUNvbG9yID0gY29sb3IodGl0bGVDb2xvcilcbiAgICAgIC5hbHBoYSgwLjcpXG4gICAgICAucmdiKClcbiAgICAgIC5zdHJpbmcoKTtcblxuICAgIHJldHVybiAoXG4gICAgICA8VG91Y2hhYmxlV2l0aG91dEZlZWRiYWNrIG9uUHJlc3M9e29uUHJlc3N9PlxuICAgICAgICA8VmlldyBzdHlsZT17W3N0eWxlcy5jb250YWluZXIsIHN0eWxlXX0gey4uLnJlc3R9PlxuICAgICAgICAgIDxUZXh0XG4gICAgICAgICAgICBzdHlsZT17W1xuICAgICAgICAgICAgICB7XG4gICAgICAgICAgICAgICAgY29sb3I6IHRpdGxlQ29sb3IsXG4gICAgICAgICAgICAgICAgZm9udEZhbWlseTpcbiAgICAgICAgICAgICAgICAgIFBsYXRmb3JtLk9TID09PSAnaW9zJyA/IGZvbnRzLnJlZ3VsYXIgOiBmb250cy5tZWRpdW0sXG4gICAgICAgICAgICAgIH0sXG4gICAgICAgICAgICAgIHN0eWxlcy50aXRsZSxcbiAgICAgICAgICAgICAgdGl0bGVTdHlsZSxcbiAgICAgICAgICAgIF19XG4gICAgICAgICAgICBudW1iZXJPZkxpbmVzPXsxfVxuICAgICAgICAgICAgYWNjZXNzaWJpbGl0eVRyYWl0cz1cImhlYWRlclwiXG4gICAgICAgICAgICBhY2Nlc3NpYmlsaXR5Um9sZT17XG4gICAgICAgICAgICAgIFBsYXRmb3JtLk9TID09PSAnd2ViJyA/ICgnaGVhZGluZyc6IGFueSkgOiAnaGVhZGVyJ1xuICAgICAgICAgICAgfVxuICAgICAgICAgID5cbiAgICAgICAgICAgIHt0aXRsZX1cbiAgICAgICAgICA8L1RleHQ+XG4gICAgICAgICAge3N1YnRpdGxlID8gKFxuICAgICAgICAgICAgPFRleHRcbiAgICAgICAgICAgICAgc3R5bGU9e1tzdHlsZXMuc3VidGl0bGUsIHsgY29sb3I6IHN1YnRpdGxlQ29sb3IgfSwgc3VidGl0bGVTdHlsZV19XG4gICAgICAgICAgICAgIG51bWJlck9mTGluZXM9ezF9XG4gICAgICAgICAgICA+XG4gICAgICAgICAgICAgIHtzdWJ0aXRsZX1cbiAgICAgICAgICAgIDwvVGV4dD5cbiAgICAgICAgICApIDogbnVsbH1cbiAgICAgICAgPC9WaWV3PlxuICAgICAgPC9Ub3VjaGFibGVXaXRob3V0RmVlZGJhY2s+XG4gICAgKTtcbiAgfVxufVxuXG5jb25zdCBzdHlsZXMgPSBTdHlsZVNoZWV0LmNyZWF0ZSh7XG4gIGNvbnRhaW5lcjoge1xuICAgIGZsZXg6IDEsXG4gICAgcGFkZGluZ0hvcml6b250YWw6IDEyLFxuICB9LFxuICB0aXRsZToge1xuICAgIGZvbnRTaXplOiBQbGF0Zm9ybS5PUyA9PT0gJ2lvcycgPyAxNyA6IDIwLFxuICB9LFxuICBzdWJ0aXRsZToge1xuICAgIGZvbnRTaXplOiBQbGF0Zm9ybS5PUyA9PT0gJ2lvcycgPyAxMSA6IDE0LFxuICB9LFxufSk7XG5cbmV4cG9ydCBkZWZhdWx0IHdpdGhUaGVtZShBcHBiYXJDb250ZW50KTtcbiJdfQ==
