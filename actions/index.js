@@ -14,7 +14,7 @@ export const toggleLogin = bool => ({
 });
 
 export const toggleCurrentFriend = num => ({
-  type: 'TOOGLE_CURRENT_FRIEND',
+  type: 'TOGGLE_CURRENT_FRIEND',
   num
 });
 
@@ -26,4 +26,9 @@ export const toggleCurrentRide = num => ({
 export const toggleLoading = bool => ({
   type: 'TOGGLE_LOADING',
   bool
-})
+});
+
+export const toggleRideAttendance = bool => ({
+  type: 'TOGGLE_RIDE_ATTENDANCE',
+  bool
+});
