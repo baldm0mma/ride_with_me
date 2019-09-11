@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Image, Switch, Linking } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  Switch,
+  Linking,
+  TouchableOpacity
+} from 'react-native';
 import { connect } from 'react-redux';
 import FriendIcon from '../components/FriendIcon';
 
@@ -18,26 +26,27 @@ export class Ride extends Component {
     } = this.props.ride;
     const { userRides } = this.props;
     return (
-      <View key={id} style={styles.rideContainer}>
-        <Text style={styles.title}>{title}</Text>
-        <Image style={styles.rideImage} source={{ uri: imageLink }} />
-        <Text style={{ textAlign: 'center' }}>Description: {description}</Text>
-        <View style={styles.row}>
-          <Text>Distance: {distance}</Text>
-          <Text>Duration: {duration}</Text>
+      <TouchableOpacity onPress={() => Linking.openURL(mapLink)}>
+        <View key={id} style={styles.rideContainer}>
+          <Text style={styles.title}>{title}</Text>
+          <Image style={styles.rideImage} source={{ uri: imageLink }} />
+          <Text style={{ textAlign: 'center' }}>
+            Description: {description}
+          </Text>
+          <View style={styles.row}>
+            <Text>Distance: {distance}</Text>
+            <Text>Duration: {duration}</Text>
+          </View>
+          <View style={styles.row}>
+            <Text>RideCategory: {rideCategory}</Text>
+            <Text>Date: {date}</Text>
+          </View>
+          <View style={styles.attending}>
+            <Text>Attending?</Text>
+            <Switch value={true}></Switch>
+          </View>
         </View>
-        <View style={styles.row}>
-          <Text>RideCategory: {rideCategory}</Text>
-          <Text>Date: {date}</Text>
-        </View>
-        <View style={styles.attending}>
-          <Text>Attending?</Text>
-          <Switch value={true}></Switch>
-        </View>
-        <Text style={styles.mapLink} onPress={() => Linking.openURL(mapLink)}>
-          Go to map
-        </Text>
-      </View>
+      </TouchableOpacity>
     );
   };
 }
@@ -53,7 +62,7 @@ const styles = StyleSheet.create({
     marginTop: 50
   },
   title: {
-    alignItems: 'center'
+    textAlign: 'center'
   },
   row: {
     flexDirection: 'row',
