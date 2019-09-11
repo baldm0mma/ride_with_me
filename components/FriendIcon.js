@@ -13,17 +13,16 @@ import { toggleCurrentFriend } from '../actions';
 export const FriendIcon = ({ friend, toggleCurrentFriend }) => {
   const { avatar, username, id } = friend;
   return (
-    <Tooltip popover={<Text>{username}</Text>}>
-      <TouchableOpacity
-        key={friend.id}
-        onPress={() => toggleCurrentFriend(id)}
-        style={{ backgroundColor: '#e6e6e6' }}
-      >
-        <View style={styles.friendContainer}>
-          <Image style={styles.friends} source={{ uri: avatar }} />
-        </View>
-      </TouchableOpacity>
-    </Tooltip>
+    <TouchableOpacity
+      key={friend.id}
+      onPress={() => toggleCurrentFriend(friend.id)}
+      style={{backgroundColor: '#e6e6e6'}}
+    >
+      <View style={styles.friendContainer}>
+        <Image style={styles.friends} source={friend.image} />
+        <Text style={styles.friendName}>{friend.userName}</Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 
@@ -36,7 +35,11 @@ const styles = StyleSheet.create({
     borderRadius: 15
   },
   friendContainer: {
-    margin: 10
+    margin: 10,
+    backgroundColor: '#e6e6e6'
+  },
+  friendName: {
+    left: 15
   }
 });
 
