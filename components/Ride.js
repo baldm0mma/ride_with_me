@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     fontSize: 20,
-    margin: 'top'
+    marginTop: 10
   },
   mapLink: {
     textAlign: 'center',
