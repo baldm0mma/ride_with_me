@@ -29,10 +29,10 @@ export class LoginModal extends Component {
     return (
       <View>
         <Overlay
-          borderRadius='10'
+          borderRadius={10}
           windowBackgroundColor='rgba(255, 255, 255, .2)'
           overlayBackgroundColor='#e6e6e6'
-          height='62  %'
+          height='62%'
           isVisible={true}
         >
           <View>

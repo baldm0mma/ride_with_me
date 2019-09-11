@@ -15,7 +15,7 @@ export class FriendModal extends Component {
     return (
       <View>
         <Overlay
-          borderRadius='10'
+          borderRadius={10}
           windowBackgroundColor='rgba(255, 255, 255, .2)'
           overlayBackgroundColor='#f6efd3'
           height='45%'

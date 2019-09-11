@@ -1,4 +1,4 @@
-import React, { Constructor, Component } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { friendData } from '../mockData/friendsData';
 import FriendIcon from '../components/FriendIcon';
@@ -6,8 +6,6 @@ import FriendModal from '../components/FriendModal';
 import { rideData } from '../mockData/ridesData';
 import RideIcon from '../components/RideIcon';
 import { toggleLogin, setProfileData } from '../actions';
-import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
 import { getUsers } from '../utilz/apiCalls';
 import { allUsersNames } from '../utilz/urlz';
 import {
@@ -37,7 +35,7 @@ export class Dashboard extends Component {
     return (
       <>
         {this.props.currentFriend && <FriendModal />}
-        <View style={{ height: 2000, flex: 1 }}>
+        <View style={{ height: 2000, flex: 1, backgroundColor: '#e6e6e6' }}>
           <ScrollView
             contentContainerStyle={{
               flexGrow: 1,
@@ -69,12 +67,6 @@ export class Dashboard extends Component {
               </View>
               <ScrollView horizontal={true} style={styles.list}>
                 {this.displayFriends()}
-              </ScrollView>
-              <View style={styles.listLabelContainer}>
-                <Text style={styles.listLabelText}>Jev's Rides</Text>
-              </View>
-              <ScrollView horizontal={true} contentContainerStyle={{paddingBottom: 100}}>
-                {this.displayRides()}
               </ScrollView>
             </View>
           </ScrollView>

@@ -9,7 +9,7 @@
     "postinstall": "rndebugger-open",
     "lint": "eslint *.js **/*.js",
     "test": "jest --forceExit",
-    "test:watch": "jest --watchAll",
+    "test:watch": "jest --watchAll"
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.0",
