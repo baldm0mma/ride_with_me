@@ -111,15 +111,15 @@ const styles = StyleSheet.create({
   }
 });
 
-export const mapStateToProps = ({ rideAttendance }) => ({
-  rideAttendance
-});
+// export const mapStateToProps = ({ rideAttendance }) => ({
+//   rideAttendance
+// });
 
 export const mapDispatchToProps = dispatch => ({
   toggleRideAttendance: bool => dispatch(toggleRideAttendance(bool))
 });
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(Ride);
