@@ -14,7 +14,7 @@ export const toggleLogin = bool => ({
 });
 
 export const toggleCurrentFriend = num => ({
-  type: 'TOOGLE_CURRENT_FRIEND',
+  type: 'TOGGLE_CURRENT_FRIEND',
   num
 });
 

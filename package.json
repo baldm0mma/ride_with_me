@@ -53,7 +53,9 @@
     "coveragePathIgnorePatterns": [
       "./app/utils/vendor"
     ],
-    "setupTestFrameworkScriptFile": "/Users/taylorjordan/Turing_Sites/ride_with_me/setupTests.js",
+    "setupFilesAfterEnv": [
+      "/Users/taylorjordan/Turing_Sites/ride_with_me/setupTests.js"
+    ],
     "coverageThreshold": {
       "global": {
         "statements": 80
