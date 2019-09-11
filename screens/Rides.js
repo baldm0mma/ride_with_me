@@ -1,31 +1,52 @@
 import React, { Component } from 'react';
-import { Stylesheet, View, Image, Text, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
-import { rideData } from '../mockData/ridesData';
+import Ride from '../components/Ride';
+import { toggleLogin, setProfileData, toggleLoading } from '../actions';
+import { StyleSheet, View, Text, ScrollView } from 'react-native';
 
 export class Rides extends Component {
-  // displayRides = () => {
-  //   return rideData.map(ride => <RideIcon ride={ride} />);
-  // };
+  displayRides = () => {
+    const { allRides } = this.props.rideData.data;
+    return allRides.map(ride => <Ride ride={ride} />);
+  };
   render = () => {
     return (
       <View>
-        <Text>All Rides</Text>
-        {/* <ScrollView>{this.displayRides}</ScrollView> */}
+        <Text style={styles.headerTitle}>Upcoming Rides</Text>
+        <ScrollView>{this.displayRides()}</ScrollView>
       </View>
     );
   };
 }
 
-export const mapStateToProps = ({ profileData }) => ({
-  profileData
+const styles = StyleSheet.create({
+  headerTitle: {
+    fontSize: 40,
+    fontWeight: 'bold'
+  }
 });
 
-// export const mapDispatchToProps = dispatch => ({
+export const mapStateToProps = ({
+  profileData,
+  rideData,
+  currentFriend,
+  currentRide,
+  isLoading
+}) => ({
+  profileData,
+  rideData,
+  currentFriend,
+  currentRide,
+  isLoading
+});
 
-// });
+export const mapDispatchToProps = dispatch => ({
+  toggleLogin: bool => dispatch(toggleLogin(bool)),
+  toggleLoading: bool => dispatch(toggleLoading(bool)),
+  setProfileData: data => dispatch(setProfileData(data))
+});
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(Rides);

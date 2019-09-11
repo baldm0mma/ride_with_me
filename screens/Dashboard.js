@@ -1,43 +1,75 @@
-import React, { Constructor, Component } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { friendData } from '../mockData/friendsData';
 import FriendIcon from '../components/FriendIcon';
 import FriendModal from '../components/FriendModal';
-import { rideData } from '../mockData/ridesData';
-import RideIcon from '../components/RideIcon';
-import { toggleLogin, setProfileData } from '../actions';
-import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
-import { getUsers } from '../utilz/apiCalls';
-import { allUsersNames } from '../utilz/urlz';jsjs
+import { toggleLogin, setProfileData, toggleLoading, setRideData } from '../actions';
+import { getData } from '../utilz/apiCalls';
+import { userProfile, allRides } from '../utilz/urlz';
 import {
   StyleSheet,
   View,
   Text,
   Image,
   ImageBackground,
-  ScrollView
+  ScrollView,
+  ActivityIndicator
 } from 'react-native';
 
 export class Dashboard extends Component {
+  constructor() {
+    super();
+    this.state = {
+      firstName: '',
+      lastName: '',
+      username: '',
+      about: '',
+      avatar: '',
+      backgroundImage: '',
+      friends: []
+    };
+  }
   componentDidMount = async () => {
-    const data = await getUsers(allUsersNames);
-    console.log(data);
+    this.props.toggleLoading(true);
+    const userData = await getData(userProfile);
+    await this.props.setProfileData(userData);
+    const {
+      firstName,
+      lastName,
+      username,
+      about,
+      avatar,
+      backgroundImage,
+      friends
+    } = this.props.profileData.data.user;
+    this.setState({
+      firstName,
+      lastName,
+      username,
+      about,
+      avatar,
+      backgroundImage,
+      friends
+    });
+    this.props.toggleLoading(false);
+    const rideData = await getData(allRides);
+    await this.props.setRideData(rideData);
   };
 
   displayFriends = () => {
-    return friendData.map(friend => <FriendIcon friend={friend} />);
-  };
-
-  displayRides = () => {
-    return rideData.map(ride => <RideIcon ride={ride} />);
+    return this.state.friends.map(friend => <FriendIcon friend={friend} />);
   };
 
   render = () => {
+    const { username, about, avatar, backgroundImage } = this.state;
     return (
       <>
+        {this.props.isLoading && (
+          <View style={styles.loading}>
+            <ActivityIndicator size='large' pointerEvents='none' />
+          </View>
+        )}
         {this.props.currentFriend && <FriendModal />}
-        <View style={{ height: 2000, flex: 1 }}>
+        <View style={{ height: 2000, flex: 1, backgroundColor: '#e6e6e6',}}>
           <ScrollView
             contentContainerStyle={{
               flexGrow: 1,
@@ -46,35 +78,20 @@ export class Dashboard extends Component {
           >
             <ImageBackground
               style={styles.avatarBackground}
-              source={require('../assets/avatar-background.jpg')}
+              source={{ uri: backgroundImage }}
             >
-              <Image
-                style={styles.avatar}
-                source={require('../assets/Javatar.jpg')}
-              />
-              <Text style={styles.userName}>Jev Forsberg</Text>
+              <Image style={styles.avatar} source={{ uri: avatar }} />
+              <Text style={styles.userName}>{username}</Text>
             </ImageBackground>
             <View style={styles.aboutContainer}>
-              <Text style={styles.aboutText}>
-                Be careful of the rock stairs relatively close to the top of
-                this portion; too much speed could doom your descent on these.
-                This trail ends at the intersection of Middle Earth. Small tree
-                down between bottom of trail and bridge crossing. Lots of
-                branches. This route is worth riding MANY times.
-              </Text>
+              <Text style={styles.aboutText}>{about}</Text>
             </View>
-            <View>
+            <View style={styles.scrollContainer}>
               <View style={styles.listLabelContainer}>
-                <Text style={styles.listLabelText}>Jev's Friends</Text>
+                <Text style={styles.listLabelText}>{username}'s Friends</Text>
               </View>
               <ScrollView horizontal={true} style={styles.list}>
                 {this.displayFriends()}
-              </ScrollView>
-              <View style={styles.listLabelContainer}>
-                <Text style={styles.listLabelText}>Jev's Rides</Text>
-              </View>
-              <ScrollView horizontal={true} style={styles.list}>
-                {this.displayRides()}
               </ScrollView>
             </View>
           </ScrollView>
@@ -86,7 +103,7 @@ export class Dashboard extends Component {
 
 const styles = StyleSheet.create({
   page: {
-    backgroundColor: '#dedede',
+    backgroundColor: '#e6e6e6',
     height: '100%'
   },
   avatar: {
@@ -94,16 +111,23 @@ const styles = StyleSheet.create({
     left: 130,
     height: 150,
     width: 150,
-    borderRadius: 75
+    borderRadius: 75,
+    borderColor: '#D39A2B',
+    borderWidth: 1
   },
   avatarBackground: {
-    height: '70%'
+    height: '70%',
+    backgroundColor: '#e6e6e6'
   },
   userName: {
     marginTop: 50,
     textAlign: 'center',
     color: 'white',
-    fontSize: 40
+    fontSize: 40,
+    fontWeight: 'bold',
+    textShadowColor: 'rgba(0, 0, 0, 1)',
+    textShadowOffset: {width: -3, height: 3},
+    textShadowRadius: 10
   },
   aboutContainer: {
     position: 'absolute',
@@ -111,15 +135,41 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: '#D39A2B',
     padding: 15,
-    borderRadius: 15
+    borderRadius: 15,
+    borderColor: '#e6e6e6',
+    borderWidth: 1,
+    borderStyle: 'dotted'
   },
   aboutText: {
     fontSize: 20
   },
   listLabelText: {
-    left: 25,
+    textAlign: 'center',
     fontSize: 30,
-    color: 'black'
+    color: 'black',
+    backgroundColor: '#e6e6e6'
+  },
+  listLabelContainer: {
+    backgroundColor: '#e6e6e6'
+  },
+  scrollContainer: {
+    marginTop: 30
+  },
+  loading: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 999,
+    backgroundColor: 'rgba(52, 52, 52, 1)'
+  },
+  firstName: {
+    textAlign: 'center',
+    color: 'white',
+    fontSize: 20
   }
 });
 
@@ -127,17 +177,21 @@ export const mapStateToProps = ({
   profileData,
   rideData,
   currentFriend,
-  currentRide
+  currentRide,
+  isLoading
 }) => ({
   profileData,
   rideData,
   currentFriend,
-  currentRide
+  currentRide,
+  isLoading
 });
 
 export const mapDispatchToProps = dispatch => ({
   toggleLogin: bool => dispatch(toggleLogin(bool)),
-  setProfileData: data => dispatch(setProfileData(data))
+  toggleLoading: bool => dispatch(toggleLoading(bool)),
+  setProfileData: data => dispatch(setProfileData(data)),
+  setRideData: data => dispatch(setRideData(data))
 });
 
 export default connect(

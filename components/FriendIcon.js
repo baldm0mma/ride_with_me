@@ -4,15 +4,17 @@ import { connect } from 'react-redux';
 import { toggleCurrentFriend } from '../actions';
 
 export const FriendIcon = ({ friend, toggleCurrentFriend }) => {
-
+  console.log('friend', friend)
+  const { avatar, username, id } = friend;
   return (
     <TouchableOpacity
       key={friend.id}
-      onPress={() => toggleCurrentFriend(friend.id)}
+      onPress={() => toggleCurrentFriend(id)}
+      style={{ backgroundColor: '#e6e6e6' }}
     >
       <View style={styles.friendContainer}>
-        <Image style={styles.friends} source={friend.image} />
-        <Text style={styles.friendName}>{friend.userName}</Text>
+        <Image style={styles.friends} source={{uri: avatar}} />
+        <Text style={styles.friendName}>{username}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -20,16 +22,17 @@ export const FriendIcon = ({ friend, toggleCurrentFriend }) => {
 
 const styles = StyleSheet.create({
   friends: {
-    marginRight: 30,
-    marginTop: 25,
+    marginRight: 15,
+    marginTop: 15,
     height: 70,
-    width: 70
+    width: 70,
+    borderRadius: 35
   },
   friendContainer: {
     margin: 10
   },
   friendName: {
-    left: 20
+    width: 83
   }
 });
 
