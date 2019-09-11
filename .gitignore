@@ -12,3 +12,5 @@ web-report/
 
 cache
 coverage
+
+assets/.DS_Store
