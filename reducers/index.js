@@ -5,6 +5,7 @@ import { toggleLoginReducer } from './toggleLoginReducer';
 import { toggleLoadingReducer } from './toggleLoadingReducer';
 import { toggleCurrentFriendReducer } from './toggleCurrentFriendReducer';
 import { toggleCurrentRideReducer } from './toggleCurrentRideReducer';
+import { toggleRideAttendanceReducer } from './toggleRideAttendanceReducer';
 
 export const rootReducer = combineReducers({
   profileData: setProfileDataReducer,
@@ -12,5 +13,6 @@ export const rootReducer = combineReducers({
   isLoggedIn: toggleLoginReducer,
   isLoading: toggleLoadingReducer,
   currentFriend: toggleCurrentFriendReducer,
-  currentRide: toggleCurrentRideReducer
+  currentRide: toggleCurrentRideReducer,
+  rideAttendance: toggleRideAttendanceReducer
 });

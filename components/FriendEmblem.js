@@ -7,7 +7,7 @@ export const FriendEmblem = ({ friend, toggleCurrentFriend }) => {
   const { avatar, username, id } = friend;
   return (
     <TouchableOpacity
-      key={friend.id}
+      key={id}
       onPress={() => toggleCurrentFriend(id)}
       style={{ backgroundColor: '#e6e6e6' }}
     >
