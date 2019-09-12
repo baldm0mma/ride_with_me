@@ -16,12 +16,14 @@ Ride With Me is an application that serves as a community board for motorcyclist
 
 MVP: As with most projects, it's easy to start with a vision that might be too large to attain in the alotted amount of time. We kept our dreams big, but made our MVP small. After figuring out what to tailor down, we decided the core, base-level functionality that would be valuable to our user was a log-in/sign-up feature, ability to create and view a profile, and the ability to view and join rides based on the user's interests. Upon log-in, we are fetching the user's profile, friends, and ride data from our back end server and rendering on a mobile screen. 
 
-REACT NATIVE: Though this served as a challenging portion of the project, we were able to learn and implement a new JS framework, pull in and render dynamic data, and integrate Google maps from our Rides screen. 
+REACT NATIVE: Though this served as a challenging portion of the project, we were able to learn and implement a new JS framework, pull in and render dynamic data, and integrate Google maps from our Rides screen.
+
 CROSS-POL COLLAB: We had a very positive experience working alongside our two-member back end team; they worked incredibly hard to produce sample data, create and update schemas depending upon our needs, and seed a robust database to house all of our user's information. Our team communicated well, pivoted when necessary, and accomplished a final product on which we're proud to have worked.
 
 ## Project Challenges
 
 REACT NATIVE: This was our first implementation of React Native; getting into the flow of it took a little longer than we would have hoped. Because there were a couple of moments that we got caught up in styling or getting elements to render as we were expecting, we weren't able to get as far on some of the features we were hoping to flesh out. We did however learn how to implement Redux with React Native in such a way that if given another React Native project - or more time on this project - we could speed up some of the initial setup. 
+
 REACT NATIVE TESTING: React Native is similar to React but different enough that the knowledge is not quite transferrable. This applies to the testing as well. Fortunately there is a bit of documentation that we found helpful for some aspects of testing, but we would have liked to have more test coverage and to have produced more of a TDD application.
 
 ## Project Extensions/Issues
