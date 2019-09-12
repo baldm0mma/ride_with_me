@@ -8,6 +8,7 @@ Ride With Me is an application that serves as a community board for motorcyclist
 - Clone down this repo and cd into the directory
 - Make sure you have the latest update of XCode installed on your machine
 - Run `npm install -g expo-cli` to install Expo from your terminal
+- Run `npm install` to install all dependencies onto you local machine
 - Run `npm start` or `expo start` to get app running
 - Type `i` from the command line to open an iOS simulator
 
