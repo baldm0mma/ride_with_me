@@ -70,7 +70,7 @@ We used Trello for our project management needs. It was a great way to track our
 
 ### GIFS
 
-![In Action](./assets/????.gif)
+![In Action](./assets/gifs/SH1.gif)
 
 ## Developers
 
