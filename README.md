@@ -40,9 +40,13 @@ We used Trello for our project management needs. It was a great way to track our
 
 ## Project Comps:
 
+### GIF
+
+![In Action](./assets/gifs/SC5.gif)
+
 ### Splash Page
 
-![Splash Page](./assets/trelloBoard.png)
+![Splash Page](./assets/readmeStills/SplashPage.png)
 
 ### Login Modal
 
@@ -67,10 +71,6 @@ We used Trello for our project management needs. It was a great way to track our
 ### Map Page
 
 ![Map Page](./assets/readmeStills/GoogleMap.png)
-
-### GIFS
-
-![In Action](./assets/????.gif)
 
 ## Developers
 

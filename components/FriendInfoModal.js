@@ -26,7 +26,7 @@ export const FriendInfoModal = ({
           source={require('../assets/topographyBackground.png')}
           style={styles.background}
         >
-          <View>
+          <View style={styles.boxShadow}>
             <Image style={styles.avatar} source={{ uri: avatar }} />
           </View>
           <View style={{ top: 30 }}>
@@ -48,12 +48,24 @@ export const FriendInfoModal = ({
 };
 
 const styles = StyleSheet.create({
+  boxShadow: {
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 12
+    },
+    shadowOpacity: 0.58,
+    shadowRadius: 16.0,
+    elevation: 24
+  },
   avatar: {
     top: 20,
     left: 50,
     width: 150,
     height: 150,
-    borderRadius: 50
+    borderRadius: 50,
+    borderColor: '#D39A2B',
+    borderWidth: 1
   },
   button: {
     width: '50%',

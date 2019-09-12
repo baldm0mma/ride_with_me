@@ -124,7 +124,15 @@ const styles = StyleSheet.create({
     width: 150,
     borderRadius: 75,
     borderColor: '#D39A2B',
-    borderWidth: 1
+    borderWidth: 1,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
+    elevation: 8
   },
   avatarBackground: {
     height: '70%',
@@ -149,7 +157,15 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     borderColor: '#e6e6e6',
     borderWidth: 1,
-    borderStyle: 'dotted'
+    borderStyle: 'dotted',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
+    elevation: 8
   },
   aboutText: {
     fontSize: 20

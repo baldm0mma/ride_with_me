@@ -25,10 +25,20 @@ const styles = StyleSheet.create({
     marginTop: 15,
     height: 70,
     width: 70,
-    borderRadius: 35
+    borderRadius: 35,
+    borderColor: '#D39A2B',
+    borderWidth: 1,
   },
   friendContainer: {
-    margin: 10
+    margin: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
+    elevation: 8
   },
   friendName: {
     width: 83

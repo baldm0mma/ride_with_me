@@ -53,7 +53,7 @@ export class Ride extends Component {
             <Text style={styles.row}>Duration: {duration}</Text>
           </View>
           <View style={styles.dataContainer}>
-            <Text style={styles.row}>RideCategory: {rideCategory}</Text>
+            <Text style={styles.row}>Ride Category: {rideCategory}</Text>
             <Text style={styles.row}>Date: {date}</Text>
           </View>
           <View style={styles.attendanceContainer}>
@@ -85,7 +85,15 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     padding: 15,
     borderWidth: 2,
-    borderColor: '#D39A2B'
+    borderColor: '#D39A2B',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.58,
+    shadowRadius: 16.00,
+    elevation: 24,
   },
   title: {
     textAlign: 'center',
