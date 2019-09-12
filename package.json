@@ -8,8 +8,7 @@
     "eject": "expo eject",
     "postinstall": "rndebugger-open",
     "lint": "eslint *.js **/*.js",
-    "test": "jest --forceExit",
-    "runAllTest": "jest --watchAll --verbose"
+    "test": "jest --forceExit"
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.0",
