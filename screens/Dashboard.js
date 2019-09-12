@@ -68,7 +68,7 @@ export class Dashboard extends Component {
           </View>
         )}
         {this.props.currentFriend && <FriendInfoModal />}
-        <View style={{ height: 2000, flex: 1, backgroundColor: '#e6e6e6' }}>
+        <View style={{ flex: 1, backgroundColor: '#e6e6e6' }}>
           <ScrollView
             contentContainerStyle={{
               flexGrow: 1,
@@ -136,7 +136,15 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     borderColor: '#e6e6e6',
     borderWidth: 1,
-    borderStyle: 'dotted'
+    borderStyle: 'dotted',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
+    elevation: 8
   },
   aboutText: {
     fontSize: 20

@@ -3,16 +3,16 @@ import { Button } from 'react-native-elements';
 import { ImageBackground, StyleSheet, View, Image } from 'react-native';
 import { connect } from 'react-redux';
 import LoginModal from '../components/LoginModal';
-import { toggleLogin, setProfileData } from '../actions';
+import { toggleLogin } from '../actions';
 
-export const SplashPage = props => {
+export const SplashPage = ({ isLoggedIn, toggleLogin, navigation }) => {
   const handleLogin = () => {
-    props.toggleLogin(true);
+    toggleLogin(true);
   };
 
   return (
     <>
-      {props.isLoggedIn && <LoginModal navigation={props.navigation} />}
+      {isLoggedIn && <LoginModal navigation={navigation} />}
       <ImageBackground
         source={require('../assets/Motorcycle-Ride.jpg')}
         style={styles.imagePosition}
@@ -53,14 +53,12 @@ const styles = StyleSheet.create({
   }
 });
 
-export const mapStateToProps = ({ profileData, isLoggedIn }) => ({
-  profileData,
+export const mapStateToProps = ({ isLoggedIn }) => ({
   isLoggedIn
 });
 
 export const mapDispatchToProps = dispatch => ({
-  toggleLogin: bool => dispatch(toggleLogin(bool)),
-  setProfileData: data => dispatch(setProfileData(data))
+  toggleLogin: bool => dispatch(toggleLogin(bool))
 });
 
 export default connect(

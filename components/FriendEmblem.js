@@ -28,7 +28,15 @@ const styles = StyleSheet.create({
     borderRadius: 35
   },
   friendContainer: {
-    margin: 10
+    margin: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
+    elevation: 8
   },
   friendName: {
     width: 83

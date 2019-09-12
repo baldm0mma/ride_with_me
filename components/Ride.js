@@ -85,7 +85,15 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     padding: 15,
     borderWidth: 2,
-    borderColor: '#D39A2B'
+    borderColor: '#D39A2B',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
+    elevation: 8
   },
   title: {
     textAlign: 'center',
