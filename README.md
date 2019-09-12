@@ -46,7 +46,7 @@ We used Trello for our project management needs. It was a great way to track our
 
 ![In Action](./assets/gifs/SH2.gif)
 
-<!-- ![In Action](./assets/gifs/SH3.gif) -->
+![In Action](./assets/gifs/SH3.gif)
 
 ### Splash Page
 
