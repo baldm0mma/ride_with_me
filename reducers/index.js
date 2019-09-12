@@ -6,6 +6,7 @@ import { toggleLoadingReducer } from './toggleLoadingReducer';
 import { toggleCurrentFriendReducer } from './toggleCurrentFriendReducer';
 import { toggleCurrentRideReducer } from './toggleCurrentRideReducer';
 import { toggleRideAttendanceReducer } from './toggleRideAttendanceReducer';
+import { errorReducer } from './errorReducer';
 
 export const rootReducer = combineReducers({
   profileData: setProfileDataReducer,
@@ -14,5 +15,6 @@ export const rootReducer = combineReducers({
   isLoading: toggleLoadingReducer,
   currentFriend: toggleCurrentFriendReducer,
   currentRide: toggleCurrentRideReducer,
-  rideAttendance: toggleRideAttendanceReducer
+  rideAttendance: toggleRideAttendanceReducer,
+  error: errorReducer
 });

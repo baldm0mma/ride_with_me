@@ -11,7 +11,7 @@ import {
 import { connect } from 'react-redux';
 import FriendEmblem from '../components/FriendEmblem';
 import FriendInfoModal from '../components/FriendInfoModal';
-import { setProfileData, toggleLoading, setRideData } from '../actions';
+import { setProfileData, toggleLoading, setRideData, hasErrored } from '../actions';
 import { getData } from '../utilz/apiCalls';
 import { userProfile, allRides } from '../utilz/urlz';
 
@@ -25,49 +25,62 @@ export class Dashboard extends Component {
       about: '',
       avatar: '',
       backgroundImage: '',
-      friends: []
+      friends: [],
+      error: ''
     };
   }
   componentDidMount = async () => {
-    this.props.toggleLoading(true);
-    const userData = await getData(userProfile);
-    await this.props.setProfileData(userData);
-    const {
-      firstName,
-      listName,
-      username,
-      about,
-      avatar,
-      backgroundImage,
-      friends
-    } = this.props.profileData.data.user;
-    this.setState({
-      firstName,
-      listName,
-      username,
-      about,
-      avatar,
-      backgroundImage,
-      friends
-    });
-    this.props.toggleLoading(false);
-    const rideData = await getData(allRides);
-    await this.props.setRideData(rideData);
+    try {
+      this.props.toggleLoading(true);
+      const userData = await getData(userProfile);
+      await this.props.setProfileData(userData);
+      const {
+        firstName,
+        listName,
+        username,
+        about,
+        avatar,
+        backgroundImage,
+        friends
+      } = this.props.profileData.data.user;
+      this.setState({
+        firstName,
+        listName,
+        username,
+        about,
+        avatar,
+        backgroundImage,
+        friends
+      });
+      this.props.toggleLoading(false);
+      const rideData = await getData(allRides);
+      await this.props.setRideData(rideData);
+
+    } catch({message}) {
+      this.props.hasErrored(message)
+      this.setState({error: message})
+    }
   };
   displayFriends = () => {
     const { friends } = this.state;
     return friends.map(friend => <FriendEmblem friend={friend} />);
   };
   render = () => {
-    const { username, about, avatar, backgroundImage } = this.state;
+    const { isLoading, currentFriend, hasErrored } = this.props;
+    const { username, about, avatar, backgroundImage, error } = this.state;
     return (
       <>
-        {this.props.isLoading && (
+        {isLoading && (
           <View style={styles.loading}>
             <ActivityIndicator size='large' pointerEvents='none' />
           </View>
         )}
-        {this.props.currentFriend && <FriendInfoModal />}
+        {hasErrored && (
+          <View>
+            <Text style={styles.errorMessage}>{error}</Text>
+          </View>
+        )}
+        {currentFriend && <FriendInfoModal />}
         <View style={{ height: 2000, flex: 1, backgroundColor: '#e6e6e6' }}>
           <ScrollView
             contentContainerStyle={{
@@ -168,6 +181,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'white',
     fontSize: 20
+  },
+  errorMessage: {
+    fontSize: 25,
+    textAlign: 'center'
   }
 });
 
@@ -175,17 +192,20 @@ export const mapStateToProps = ({
   profileData,
   rideData,
   currentFriend,
-  isLoading
+  isLoading,
+  error
 }) => ({
   profileData,
   rideData,
   currentFriend,
-  isLoading
+  isLoading,
+  error
 });
 export const mapDispatchToProps = dispatch => ({
   toggleLoading: bool => dispatch(toggleLoading(bool)),
   setProfileData: data => dispatch(setProfileData(data)),
-  setRideData: data => dispatch(setRideData(data))
+  setRideData: data => dispatch(setRideData(data)),
+  hasErrored: error => dispatch(hasErrored(error))
 });
 export default connect(
   mapStateToProps,

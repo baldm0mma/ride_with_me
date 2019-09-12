@@ -32,3 +32,8 @@ export const toggleRideAttendance = bool => ({
   type: 'TOGGLE_RIDE_ATTENDANCE',
   bool
 });
+
+export const hasErrored = error => ({
+  type: 'HAS_ERRORED',
+  error
+})
