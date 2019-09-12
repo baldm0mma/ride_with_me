@@ -4,6 +4,13 @@
 
 Ride With Me is an application that serves as a community board for motorcyclists to connect with other riders. Upon creation of an account, users can log in, add friends, and join rides based on criteria that they so choose, such as location, distance, and type of ride. This project features a collaborative back end API which can be viewed [here](https://gitlab.com/ryanmillergm/motorcycle_ride) and is hosted on heroku; [here](https://motorcycle-ride.herokuapp.com/graphql?query={%20allUsers%20{%20id%20firstName%20lastName%20email%20phone%20rides%20{%20title%20description%20distance%20rideCategory%20duration%20date%20imageLink%20mapLink%20}%20groups%20{%20title%20description%20}%20friends%20{%20username%20avatar%20milesRiddenTogether%20}%20}%20}) is a sample of query to get all users.
 
+## SetUp
+- Clone down this repo and cd into the directory
+- Make sure you have the latest update of XCode installed on your machine
+- Run `npm install -g expo-cli` to install Expo from your terminal
+- Run `npm start` or `expo start` to get app running
+- Type `i` from the command line to open an iOS simulator
+
 ## Project Successes
 
 MVP: As with most projects, it's easy to start with a vision that might be too large to attain in the alotted amount of time. We kept our dreams big, but made our MVP small. After figuring out what to tailor down, we decided the core, base-level functionality that would be valuable to our user was a log-in/sign-up feature, ability to create and view a profile, and the ability to view and join rides based on the user's interests. Upon log-in, we are fetching the user's profile, friends, and ride data from our back end server and rendering on a mobile screen. 
