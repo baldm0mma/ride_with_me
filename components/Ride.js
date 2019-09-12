@@ -53,7 +53,7 @@ export class Ride extends Component {
             <Text style={styles.row}>Duration: {duration}</Text>
           </View>
           <View style={styles.dataContainer}>
-            <Text style={styles.row}>RideCategory: {rideCategory}</Text>
+            <Text style={styles.row}>Ride Category: {rideCategory}</Text>
             <Text style={styles.row}>Date: {date}</Text>
           </View>
           <View style={styles.attendanceContainer}>
