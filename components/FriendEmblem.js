@@ -25,7 +25,9 @@ const styles = StyleSheet.create({
     marginTop: 15,
     height: 70,
     width: 70,
-    borderRadius: 35
+    borderRadius: 35,
+    borderColor: '#D39A2B',
+    borderWidth: 1,
   },
   friendContainer: {
     margin: 10,

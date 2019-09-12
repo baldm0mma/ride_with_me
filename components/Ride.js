@@ -86,14 +86,14 @@ const styles = StyleSheet.create({
     padding: 15,
     borderWidth: 2,
     borderColor: '#D39A2B',
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 4
+      height: 12,
     },
-    shadowOpacity: 0.3,
-    shadowRadius: 4.65,
-    elevation: 8
+    shadowOpacity: 0.58,
+    shadowRadius: 16.00,
+    elevation: 24,
   },
   title: {
     textAlign: 'center',
