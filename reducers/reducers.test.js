@@ -4,7 +4,8 @@ import { toggleCurrentFriendReducer } from './toggleCurrentFriendReducer';
 import { toggleCurrentRideReducer } from './toggleCurrentRideReducer';
 import { toggleLoginReducer } from './toggleLoginReducer';
 import { toggleLoadingReducer } from './toggleLoadingReducer';
-import { toggleRideAttendanceReducer } from './toggleRideAttendanceReducer'
+import { toggleRideAttendanceReducer } from './toggleRideAttendanceReducer';
+import { errorReducer } from './errorReducer';
 
 
 describe('setProfileDataReducer', () => {
@@ -200,5 +201,29 @@ describe('toggleRideAttendanceReducer', () => {
         const result = toggleRideAttendanceReducer(state, action);
 
         expect(result).toEqual(expected)
-    })
-})
+    });
+});
+
+describe('errorReducer', () => {
+    it('should return initial state', () => {
+        const expected = ''
+
+        const result = errorReducer(undefined, expected);
+        expect(result).toEqual(expected)
+    });
+
+    it('should update state with HAS_ERRORED', () => {
+        const state = '';
+        const error = 'Error fetching data'
+
+        const action = {
+            type: 'HAS_ERRORED',
+            error
+        }
+
+        const expected = 'Error fetching data';
+        const result = errorReducer(state, action);
+
+        expect(result).toEqual(expected)
+    });
+});

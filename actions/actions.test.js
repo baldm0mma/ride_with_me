@@ -86,5 +86,17 @@ describe('actions', () => {
 
         const result = actions.toggleRideAttendance(bool)
         expect(result).toEqual(expectedAction)
+    });
+
+    it('should have a type of HAS_ERRORED', () => {
+        const error = 'Error fetching data';
+
+        const expectedAction = {
+            type: 'HAS_ERRORED',
+            error
+        }
+
+        const result = actions.hasErrored(error)
+        expect(result).toEqual(expectedAction)
     })
 })
