@@ -3,6 +3,9 @@ import { setRideDataReducer } from './setRideDataReducer';
 import { toggleCurrentFriendReducer } from './toggleCurrentFriendReducer';
 import { toggleCurrentRideReducer } from './toggleCurrentRideReducer';
 import { toggleLoginReducer } from './toggleLoginReducer';
+import { toggleLoadingReducer } from './toggleLoadingReducer';
+import { toggleRideAttendanceReducer } from './toggleRideAttendanceReducer';
+import { errorReducer } from './errorReducer';
 
 
 describe('setProfileDataReducer', () => {
@@ -147,5 +150,80 @@ describe('toggleLoginReducer', () => {
         const result = toggleLoginReducer(state, action);
 
         expect(result).toEqual(expected)
-    })
-})
+    });
+});
+
+describe('toggleLoadingReducer', () => {
+    it('should return initial state', () => {
+        const expected = false;
+
+        const result = toggleLoadingReducer(undefined, expected)
+
+        expect(result).toEqual(expected)
+    });
+
+    it('should update state with TOGGLE_LOADING', () => {
+        const state = false;
+        const bool = !false;
+
+        const action = {
+            type: 'TOGGLE_LOADING',
+            bool
+        };
+
+        const expected = true;
+
+        const result = toggleLoadingReducer(state, action);
+
+        expect(result).toEqual(expected)
+    });
+});
+
+describe('toggleRideAttendanceReducer', () => {
+    it('should return initial state', () => {
+        const expected = false;
+
+        const result = toggleRideAttendanceReducer(undefined, expected)
+        expect(result).toEqual(expected)
+    });
+
+    it('should update state with TOGGLE_RIDE_ATTENDANCE', () => {
+        const state = false;
+        const bool = !false;
+
+        const action = {
+            type: 'TOGGLE_RIDE_ATTENDANCE',
+            bool
+        }
+
+        const expected = true;
+
+        const result = toggleRideAttendanceReducer(state, action);
+
+        expect(result).toEqual(expected)
+    });
+});
+
+describe('errorReducer', () => {
+    it('should return initial state', () => {
+        const expected = ''
+
+        const result = errorReducer(undefined, expected);
+        expect(result).toEqual(expected)
+    });
+
+    it('should update state with HAS_ERRORED', () => {
+        const state = '';
+        const error = 'Error fetching data'
+
+        const action = {
+            type: 'HAS_ERRORED',
+            error
+        }
+
+        const expected = 'Error fetching data';
+        const result = errorReducer(state, action);
+
+        expect(result).toEqual(expected)
+    });
+});

@@ -61,5 +61,42 @@ describe('actions', () => {
 
         const result = actions.toggleCurrentRide(num)
         expect(result).toEqual(expectedAction)
+    });
+
+    it('should have a type of TOGGLE_LOADING', () => {
+        const bool = !bool;
+
+        const expectedAction = {
+            type: 'TOGGLE_LOADING',
+            bool
+        };
+
+        const result = actions.toggleLoading(bool);
+        expect(result).toEqual(expectedAction);
+
+    });
+
+    it('should have a type of TOGGLE_RIDE_ATTENDANCE', () => {
+        const bool = !bool;
+
+        const expectedAction = {
+            type: 'TOGGLE_RIDE_ATTENDANCE',
+            bool
+        };
+
+        const result = actions.toggleRideAttendance(bool)
+        expect(result).toEqual(expectedAction)
+    });
+
+    it('should have a type of HAS_ERRORED', () => {
+        const error = 'Error fetching data';
+
+        const expectedAction = {
+            type: 'HAS_ERRORED',
+            error
+        }
+
+        const result = actions.hasErrored(error)
+        expect(result).toEqual(expectedAction)
     })
 })
