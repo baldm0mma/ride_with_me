@@ -8,7 +8,7 @@
     "eject": "expo eject",
     "postinstall": "rndebugger-open",
     "lint": "eslint *.js **/*.js",
-    "test": "jest --forceExit",
+    "test": "jest --env=jsdom --forceExit",
     "test:watch": "jest --watchAll --verbose --env=jsdom"
   },
   "dependencies": {
