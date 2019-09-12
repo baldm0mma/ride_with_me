@@ -4,7 +4,7 @@ import { Overlay, Button } from 'react-native-elements';
 import { StyleSheet, View, Text, ImageBackground } from 'react-native';
 import { toggleRideAttendance } from '../actions';
 
-export const RideModal = () => {
+export const RideModal = ({ toggleRideAttendance }) => {
   return (
     <View>
       <Overlay
@@ -28,7 +28,7 @@ export const RideModal = () => {
             <Button
               title='Done'
               type='solid'
-              onPress={() => this.props.toggleRideAttendance(false)}
+              onPress={() => toggleRideAttendance(false)}
             />
           </View>
         </ImageBackground>
@@ -44,10 +44,6 @@ const styles = StyleSheet.create({
     fontSize: 24
   }
 });
-
-// export const mapStateToProps = ({ rideAttendance }) => ({
-//   rideAttendance
-// });
 
 export const mapDispatchToProps = dispatch => ({
   toggleRideAttendance: bool => dispatch(toggleRideAttendance(bool))
