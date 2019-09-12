@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { toggleRideAttendance } from '../actions/index';
-import FriendIcon from '../components/FriendIcon';
 
 export class Ride extends Component {
   constructor() {
@@ -43,7 +42,7 @@ export class Ride extends Component {
         style={styles.rideContainer}
         onPress={() => Linking.openURL(mapLink)}
       >
-        <View>
+        <View key={id}>
           <Text style={styles.title}>{title}</Text>
           <Image style={styles.rideImage} source={{ uri: imageLink }} />
           <Text style={{ textAlign: 'center', marginTop: 10 }}>
@@ -112,15 +111,11 @@ const styles = StyleSheet.create({
   }
 });
 
-export const mapStateToProps = ({ rideAttendance }) => ({
-  rideAttendance
-});
-
 export const mapDispatchToProps = dispatch => ({
   toggleRideAttendance: bool => dispatch(toggleRideAttendance(bool))
 });
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(Ride);

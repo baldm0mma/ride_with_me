@@ -11,14 +11,10 @@ import {
 import { connect } from 'react-redux';
 import FriendEmblem from '../components/FriendEmblem';
 import FriendInfoModal from '../components/FriendInfoModal';
-import {
-  toggleLogin,
-  setProfileData,
-  toggleLoading,
-  setRideData
-} from '../actions';
+import { setProfileData, toggleLoading, setRideData } from '../actions';
 import { getData } from '../utilz/apiCalls';
 import { userProfile, allRides } from '../utilz/urlz';
+
 export class Dashboard extends Component {
   constructor() {
     super();
@@ -174,21 +170,19 @@ const styles = StyleSheet.create({
     fontSize: 20
   }
 });
+
 export const mapStateToProps = ({
   profileData,
   rideData,
   currentFriend,
-  currentRide,
   isLoading
 }) => ({
   profileData,
   rideData,
   currentFriend,
-  currentRide,
   isLoading
 });
 export const mapDispatchToProps = dispatch => ({
-  toggleLogin: bool => dispatch(toggleLogin(bool)),
   toggleLoading: bool => dispatch(toggleLoading(bool)),
   setProfileData: data => dispatch(setProfileData(data)),
   setRideData: data => dispatch(setRideData(data))

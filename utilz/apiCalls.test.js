@@ -50,6 +50,6 @@ describe('apiCalls', () => {
 
             const result = await getData(url);
             expect(result).toEqual(rides)
-        })
+        });
     })
 })

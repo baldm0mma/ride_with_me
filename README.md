@@ -41,13 +41,32 @@ We used Trello for our project management needs. It was a great way to track our
 ## Project Comps:
 
 ### Splash Page
+
+![Splash Page](./assets/trelloBoard.png)
+
+### Login Modal
+
+![Login Modal](./assets/readmeStills/LoginModal.png)
+
 ### Dash Page
-### Friend Details Page
-### Rides Page
+
+![Dash Page](./assets/readmeStills/Dashboard.png)
+
+### Friend Info Modal
+
+![Friend Info Modal](./assets/readmeStills/FriendInfoModal.png)
+
+### Upcoming Rides
+
+![Upcoming Rides](./assets/readmeStills/UpcomingRides.png)
+
+### Updated Ride
+
+![Updated Ride](./assets/readmeStills/UpdatedRide.png)
+
 ### Map Page
 
-
-![Main Page](./assets/????-FE-Main-Screen.png)
+![Map Page](./assets/readmeStills/GoogleMap.png)
 
 ### GIFS
 

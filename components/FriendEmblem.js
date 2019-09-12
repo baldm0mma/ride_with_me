@@ -35,15 +35,11 @@ const styles = StyleSheet.create({
   }
 });
 
-export const mapStateToProps = ({ profileData }) => ({
-  profileData
-});
-
 export const mapDispatchToProps = dispatch => ({
   toggleCurrentFriend: num => dispatch(toggleCurrentFriend(num))
 });
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(FriendEmblem);
